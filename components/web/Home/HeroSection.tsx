@@ -1,17 +1,15 @@
-"use client";
-
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Code2 } from "lucide-react";
 import Link from "next/link";
 
 export function HeroSection() {
   return (
-    <section className="relative min-h-screen w-full overflow-hidden bg-background">
+    <section className="relative min-h-screen w-full overflow-hidden bg-background mt-10">
       <div className="absolute inset-0 bg-[linear-gradient(to_right,oklch(0.9_0_0)_1px,transparent_1px),linear-gradient(to_bottom,oklch(0.9_0_0)_1px,transparent_1px)] bg-size-[40px_40px] pointer-events-none opacity-18 dark:opacity-10" />
       {/* Floating shapes / subtle glow */}
       <div className="absolute inset-0">
         {" "}
-        <div className="absolute w-72 h-72 bg-purple-600/20 rounded-full top-1/4 left-1/3 blur-3xl animate-blob" />{" "}
+        <div className="absolute w-72 h-72 bg-purple-600/20 rounded-full top-1/4 left-1/3 blur-3xl animate-blob" />
         <div className="absolute w-96 h-96 bg-pink-500/20 rounded-full top-1/2 left-2/3 blur-2xl animate-blob animation-delay-2000" />
       </div>
       <div className="relative z-10 flex flex-col items-center justify-center min-h-screen px-4 sm:px-6 lg:px-8">
@@ -60,17 +58,20 @@ export function HeroSection() {
           </div>
 
           {/* Code Preview Container */}
-          <div className="animate-fade-in-up space-y-4">
+          <div className="animate-fade-in-up space-y-4 w-96 mx-auto">
             <div className="relative rounded-2xl border border-border bg-card/50 backdrop-blur-xl overflow-hidden shadow-xl">
               {/* Header Bar */}
-              <div className="flex items-center gap-2 px-4 py-3 border-b border-border bg-muted/30">
+              <div
+                className="flex items-center gap-2 px-4 py-3 border-b border-border 
+               bg-muted/30"
+              >
                 <div className="flex gap-1.5">
                   <div className="w-2 h-2 rounded-full bg-red-500/60" />
                   <div className="w-2 h-2 rounded-full bg-yellow-500/60" />
                   <div className="w-2 h-2 rounded-full bg-green-500/60" />
                 </div>
                 <span className="text-xs text-muted-foreground ml-auto font-mono">
-                  components/button.tsx
+                  components/card.tsx
                 </span>
               </div>
             </div>
