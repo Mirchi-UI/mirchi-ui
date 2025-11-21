@@ -1,11 +1,8 @@
 "use client";
 
 import Link from "next/link";
-import { useTheme } from "next-themes";
 
 export default function Footer() {
-  const { theme } = useTheme();
-
   const footerLinks = [
     { title: "Home", href: "/" },
     { title: "Components", href: "/components" },

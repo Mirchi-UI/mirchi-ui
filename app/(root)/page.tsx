@@ -1,12 +1,9 @@
+import { HeroSection } from "@/components/web/Home/HeroSection";
 
 export default function Home() {
   return (
-    <div >
-    
-    
-        sddfs
-      
-    
+    <div>
+      <HeroSection />
     </div>
   );
 }
