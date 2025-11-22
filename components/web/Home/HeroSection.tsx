@@ -8,7 +8,7 @@ export function HeroSection() {
       <div className="absolute inset-0 bg-[linear-gradient(to_right,oklch(0.9_0_0)_1px,transparent_1px),linear-gradient(to_bottom,oklch(0.9_0_0)_1px,transparent_1px)] bg-size-[40px_40px] pointer-events-none opacity-18 dark:opacity-10" />
       {/* Floating shapes / subtle glow */}
       <div className="absolute inset-0">
-        {" "}
+        
         <div className="absolute w-72 h-72 bg-purple-600/20 rounded-full top-1/4 left-1/3 blur-3xl animate-blob" />
         <div className="absolute w-96 h-96 bg-pink-500/20 rounded-full top-1/2 left-2/3 blur-2xl animate-blob animation-delay-2000" />
       </div>
@@ -25,10 +25,10 @@ export function HeroSection() {
             </div>
           </div>
           {/* Headline */}
-          <h1 className="animate-fade-in-delay-1 mb-6 text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-center font-geist ">
+          <h1 className="animate-fade-in-delay-1 mb-6 text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-center font-geist space-y-6 ">
             <span className="text-foreground  ">Build faster with</span>
             <br />
-            <span className="font-gMono">Mirchi UI</span>
+            <span className="font-gMono font-extrabold  ">Mirchi UI</span>
           </h1>
           {/* Subheadline */}
           <p className="animate-fade-in-delay-2 mb-8 text-lg sm:text-xl text-muted-foreground max-w-2xl mx-auto text-center">

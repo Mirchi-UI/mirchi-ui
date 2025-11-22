@@ -15,7 +15,7 @@ const geistSans = Geist({
 export const metadata: Metadata = {
   title: "Mirchi UI || A design system for building modern websites",
   description:
-    "Mica UI is a modern design system that provides a set of reusable components and styles for building beautiful and responsive web applications.",
+    "Mirchi UI is a modern design system that provides a set of reusable components and styles for building beautiful and responsive web applications.",
 };
 
 
