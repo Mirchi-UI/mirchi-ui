@@ -1,54 +1,55 @@
 import { source } from "@/lib/source";
 import {
-  DocsBody,
-  DocsDescription,
-  DocsPage,
-  DocsTitle,
+    DocsPage,
+    DocsBody,
+    DocsTitle,
+    DocsDescription,
 } from "fumadocs-ui/page";
 import { notFound } from "next/navigation";
-import { getMDXComponents } from "@/mdx-components";
-import type { Metadata } from "next";
-import { createRelativeLink } from "fumadocs-ui/mdx";
+import defaultMdxComponents from "fumadocs-ui/mdx";
+import { Preview } from "@/components/mdx/preview";
+import { PreviewClient } from "@/components/mdx/preview-client";
 
-import {Preview} from "@/components/mdx/preview"
-import {PreviewClient} from "@/components/mdx/preview-client"
+export default async function Page(props: {
+    params: Promise<{ slug?: string[] }>;
+}) {
+    const params = await props.params;
+    const page = source.getPage(params.slug);
+    console.log("page", page);
+    if (!page) notFound();
 
-export default async function Page(props: PageProps<"/docs/[[...slug]]">) {
-  const params = await props.params;
-  const page = source.getPage(params.slug);
-  if (!page) notFound();
+    const MDX = page.data.body;
 
-  const MDX = page.data.body;
-
-  return (
-    <DocsPage toc={page.data.toc} full={page.data.full}>
-      <DocsTitle>{page.data.title}</DocsTitle>
-      <DocsDescription>{page.data.description}</DocsDescription>
-      <DocsBody>
-        <MDX
-          components={getMDXComponents({
-            // this allows you to link to other pages with relative file paths
-            a: createRelativeLink(source, page),
-          })}
-        />
-      </DocsBody>
-    </DocsPage>
-  );
+    return (
+        <DocsPage toc={page.data.toc} full={page.data.full}>
+            <DocsTitle>{page.data.title}</DocsTitle>
+            <DocsDescription>{page.data.description}</DocsDescription>
+            <DocsBody>
+                <MDX
+                    components={{
+                        ...defaultMdxComponents,
+                        Preview,
+                        PreviewClient,
+                    }}
+                />
+            </DocsBody>
+        </DocsPage>
+    );
 }
 
 export async function generateStaticParams() {
-  return source.generateParams();
+    return source.generateParams();
 }
 
-export async function generateMetadata(
-  props: PageProps<"/docs/[[...slug]]">
-): Promise<Metadata> {
-  const params = await props.params;
-  const page = source.getPage(params.slug);
-  if (!page) notFound();
+export async function generateMetadata(props: {
+    params: Promise<{ slug?: string[] }>;
+}) {
+    const params = await props.params;
+    const page = source.getPage(params.slug);
+    if (!page) notFound();
 
-  return {
-    title: page.data.title,
-    description: page.data.description,
-  };
+    return {
+        title: page.data.title,
+        description: page.data.description,
+    };
 }
