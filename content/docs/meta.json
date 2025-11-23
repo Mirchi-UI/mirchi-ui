@@ -6,6 +6,7 @@
   "defaultOpen": true,
   "pages": [
     "---[DefaultIcon]Get Started---",
+    "welcome",
     "index",
     "---[Badge]Latest---",
     "components/loading-button",

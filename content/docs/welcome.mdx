@@ -1,0 +1,201 @@
+---
+title: Welcome
+description: Beautiful, accessible, and customizable components and blocks for your next project
+icon: Sparkles
+---
+
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { Github, Heart, Code, Blocks, Zap } from "lucide-react";
+
+<div className="mt-8 mb-6 font-geist">
+  <h1 className="text-4xl font-semibold">Welcome to Mirchi UI</h1>
+</div>
+
+<div className="text-lg font-geist leading-relaxed">
+  <span className="font-bold">Beautifully designed</span> components and blocks
+  that you can <span className="font-bold">copy and paste</span> into your apps.{" "}
+  <span className="font-bold">Accessible.</span>{" "}
+  <span className="font-bold">Customizable.</span>{" "}
+  <span className="font-bold">Open Source.</span>
+</div>
+
+<div className="text-lg font-sans leading-relaxed mt-4 font-geist">
+  Mirchi UI is a <span className="font-bold">growing collection</span> of
+  reusable components and blocks, each{" "}
+  <span className="font-bold">crafted with care</span> and available in multiple
+  styles. Whether you're building with{" "}
+  <span className="font-bold">shadcn/ui</span> or prefer{" "}
+  <span className="font-bold">standalone components</span>, we've got you
+  covered.
+</div>
+
+> **I wondered how users would enjoy the journey of scrolling through a website if they didn't feel there was something special about it.**
+
+---
+
+## What We Offer
+
+<div className="grid gap-4 md:grid-cols-2 my-8 font-geist">
+  <Card>
+    <CardHeader>
+      <div className="flex items-center gap-2">
+        <Blocks className="w-5 h-5 text-purple-600" />
+        <CardTitle>Blocks</CardTitle>
+      </div>
+      <CardDescription>
+        Pre-built, ready-to-use block components for common UI patterns. Perfect for landing pages, dashboards, and more.
+      </CardDescription>
+  </CardHeader>
+</Card>
+
+<Card>
+  <CardHeader>
+    <div className="flex items-center gap-2 font-geist">
+      <Code className="w-5 h-5 text-pink-600" />
+      <CardTitle>Components</CardTitle>
+    </div>
+    <CardDescription>
+      Reusable UI components built with React and TypeScript. Available with or
+      without shadcn/ui dependencies.
+    </CardDescription>
+  </CardHeader>
+</Card>
+
+<Card>
+  <CardHeader>
+    <div className="flex items-center gap-2 font-geist">
+      <Zap className="w-5 h-5 text-blue-600" />
+      <CardTitle>shadcn/ui Based</CardTitle>
+    </div>
+    <CardDescription>
+      Many components are built on top of shadcn/ui, providing a solid
+      foundation with our own unique styling and features.
+    </CardDescription>
+  </CardHeader>
+</Card>
+
+  <Card>
+    <CardHeader>
+      <div className="flex items-center gap-2 font-geist">
+        <Zap className="w-5 h-5 text-green-600" />
+        <CardTitle>Standalone Components</CardTitle>
+      </div>
+      <CardDescription>
+        Components that work independently without shadcn/ui, giving you flexibility in your tech stack choices.
+      </CardDescription>
+    </CardHeader>
+  </Card>
+</div>
+
+---
+
+## Motivation
+
+<div className="my-8 font-geist p-6 rounded-lg bg-gradient-to-br from-purple-50 to-pink-50 dark:from-purple-950/20 dark:to-pink-950/20 border border-purple-200 dark:border-purple-800">
+  <p className="text-base leading-relaxed">
+    I've been building websites for years and always found myself searching through old files to reuse components. 
+    It was annoying. So I thought—<strong>why not create a place where all my components live together?</strong>
+  </p>
+
+{" "}
+
+<p className="text-base font-geist leading-relaxed mt-4">
+  One of my goals was to contribute to component libraries. I discovered amazing
+  projects like{" "}
+  <a
+    href="https://www.ui-layouts.com/get-started"
+    target="_blank"
+    rel="noopener noreferrer"
+    className="text-purple-600 font-gMono dark:text-purple-400 hover:underline font-medium"
+  >
+    UI-Layouts
+  </a>{" "}
+  and other awesome UI libraries from Bangladesh. I forked them, learned how
+  they worked, and now I'm building my own.
+</p>
+
+  <p className="text-base leading-relaxed mt-4">
+    Libraries like <a href="https://ui.shadcn.com" target="_blank" rel="noopener noreferrer" className="text-purple-600 dark:text-purple-400 hover:underline">shadcn/ui</a> and{" "}
+    <a href="https://ui.aceternity.com" target="_blank" rel="noopener noreferrer" className="text-purple-600 dark:text-purple-400 hover:underline">Aceternity UI</a> inspired me to create something free and open for everyone.
+  </p>
+</div>
+
+---
+
+## We're Just Getting Started
+
+<div className="my-8 p-6 font-geist rounded-lg bg-blue-50 dark:bg-blue-950/20 border border-blue-200 dark:border-blue-800">
+  <p className="text-base leading-relaxed">
+    <strong>Mirchi UI is in its early stages.</strong> We're building this
+    library with a focus on:
+  </p>
+  <ul className="list-disc list-inside mt-4 space-y-2 text-base">
+    <li>
+      Creating beautiful, reusable <strong>blocks</strong> for common UI
+      patterns
+    </li>
+    <li>
+      Building flexible <strong>components</strong> that work with or without
+      shadcn/ui
+    </li>
+    <li>
+      Ensuring all components are <strong>accessible</strong> and{" "}
+      <strong>customizable</strong>
+    </li>
+    <li>
+      Maintaining clean, readable code that's easy to understand and modify
+    </li>
+  </ul>
+</div>
+
+---
+
+## Contribute
+
+<div className="my-8 font-geist text-center">
+  <div className="space-y-4">
+    <h3 className="text-2xl font-bold">
+      Join Us in Building Something Amazing
+    </h3>
+    <p className="text-muted-foreground max-w-2xl mx-auto">
+      We're inviting developers, designers, and creators to contribute to this
+      project. Whether it's a new component, a bug fix, documentation, or just
+      feedback—every contribution matters!
+    </p>
+    <div className="flex gap-4 justify-center mt-6">
+      <Button asChild>
+        <a href="https://github.com" target="_blank" rel="noopener noreferrer">
+          <Github className="w-4 h-4 mr-2" />
+          Contribute on GitHub
+        </a>
+      </Button>
+      <Button variant="outline" asChild>
+        <a href="https://github.com" target="_blank" rel="noopener noreferrer">
+          <Heart className="w-4 h-4 mr-2" />
+          Star the Project
+        </a>
+      </Button>
+    </div>
+  </div>
+</div>
+
+---
+
+## Get Started
+
+Ready to start building? Check out our [Installation Guide](/docs) to get started with Mirchi UI.
+
+<div className="mt-8 p-4 font-geist rounded-lg bg-muted">
+  <p className="text-sm text-muted-foreground">
+    <strong>Note:</strong> This project is actively being developed. Components
+    and blocks are being added regularly. If you have suggestions or find bugs,
+    please open an issue on GitHub!
+  </p>
+</div>

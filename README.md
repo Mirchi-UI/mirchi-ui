@@ -1,36 +1,118 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Mirchi UI
 
-## Getting Started
+<div align="center">
 
-First, run the development server:
+**Beautifully designed** components and blocks that you can **copy and paste** into your apps. **Accessible.** **Customizable.** **Open Source.**
+
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](http://makeapullrequest.com)
+
+[Documentation](https://mirchiui.com) • [Components](/docs/components) • [Blocks](/docs/blocks) • [Contribute](./CONTRIBUTING.md)
+
+</div>
+
+---
+
+## ✨ Features
+
+- 🎨 **Beautifully Designed** - Carefully crafted components with attention to detail
+- 📦 **Copy & Paste** - No installation required for most components
+- ♿ **Accessible** - Built with accessibility in mind
+- 🎯 **Flexible** - Works with or without shadcn/ui
+- 🚀 **Modern** - Built with React, TypeScript, and Tailwind CSS
+- 🌙 **Dark Mode** - Full dark mode support
+- 📱 **Responsive** - Mobile-first design approach
+
+## 🚀 Quick Start
+
+Most Mirchi UI components are **standalone** and can be used directly by copying the code. No installation required!
+
+1. Browse our [components](/docs/components) or [blocks](/docs/blocks)
+2. Copy the code you need
+3. Paste it into your project
+4. Customize as needed
+
+### For shadcn/ui Based Components
+
+Some components are built on top of [shadcn/ui](https://ui.shadcn.com). If you're using these, you'll need the `cn` utility function:
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+# Using shadcn CLI
+npx shadcn@latest add https://mirchiui.dev/r/utils.json
+
+# Or manually add to your utils.ts
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+```tsx
+import { type ClassValue, clsx } from "clsx";
+import { twMerge } from "tailwind-merge";
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+export function cn(...inputs: ClassValue[]) {
+  return twMerge(clsx(inputs));
+}
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## 📚 Documentation
 
-## Learn More
+Visit our [documentation site](https://mirchiui.com) for:
 
-To learn more about Next.js, take a look at the following resources:
+- Complete component documentation
+- Usage examples
+- API references
+- Best practices
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 🎯 What We Offer
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### Components
 
-## Deploy on Vercel
+Reusable UI components built with React and TypeScript. Available with or without shadcn/ui dependencies.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### Blocks
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Pre-built, ready-to-use block components for common UI patterns. Perfect for landing pages, dashboards, and more.
+
+## 🛠️ Tech Stack
+
+- **React** - UI library
+- **TypeScript** - Type safety
+- **Tailwind CSS** - Styling
+- **Motion** - Animations
+- **shadcn/ui** - Base components (optional)
+
+## 🤝 Contributing
+
+We welcome contributions! Whether it's a new component, bug fix, documentation, or feedback—every contribution matters.
+
+See our [Contributing Guide](./CONTRIBUTING.md) for details.
+
+## 📖 Motivation
+
+I've been building websites for years and always found myself searching through old files to reuse components. It was annoying. So I thought—**why not create a place where all my components live together?**
+
+One of my goals was to contribute to component libraries. I discovered amazing projects like [UI-Layouts](https://www.ui-layouts.com/get-started) and other awesome UI libraries from Bangladesh. I forked them, learned how they worked, and now I'm building my own.
+
+Libraries like [shadcn/ui](https://ui.shadcn.com) and [Aceternity UI](https://ui.aceternity.com) inspired me to create something free and open for everyone.
+
+## 📝 License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## 🙏 Acknowledgments
+
+- [shadcn/ui](https://ui.shadcn.com) - For the amazing component architecture
+- [UI-Layouts](https://www.ui-layouts.com) - For the inspiration from Bangladesh
+
+## ⭐ Star History
+
+If you find this project helpful, please consider giving it a star! ⭐
+
+---
+
+<div align="center">
+
+Made In Bangladesh 
+
+<!-- [Website](https://mirchiui.com) • 
+[Documentation](https://mirchiui.com/docs) • [GitHub](https://github.com) -->
+
+</div>

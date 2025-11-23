@@ -19,11 +19,19 @@ export const navigationSections: navSection[] = [
     title: "Getting Started",
     items: [
       {
+        id: "welcome",
+        title: "Welcome",
+        href: "/docs/welcome",
+        description:
+          "Learn about Mirchi UI, our motivation, and how to contribute to the project.",
+        isNew: true,
+      },
+      {
         id: "introduction",
-        title: "Introduction",
+        title: "Getting Started",
         href: "/docs",
         description:
-          "Get started with Mirchi UI and learn how to use its components effectively.",
+          "Installation and setup guide for Mirchi UI components and blocks.",
       },
     ],
   },
