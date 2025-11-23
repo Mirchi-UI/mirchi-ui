@@ -1,10 +1,38 @@
 ---
-title: this is my given title
+title: Installation
+description: Getting started with Mirchi UI
+icon: ListStart
 ---
 
-## Introduction
+import { Tab, Tabs } from "fumadocs-ui/components/tabs";
 
-I love Anime.
+# Installation
 
+Welcome to **Mirchi UI** — a fast, modern, and lightweight UI component library built for developers who want clean, reusable, and production-ready components.
 
-## Introduction
+---
+
+## 1. Install Utilities
+
+Mirchi UI components rely on **Tailwind CSS v4**  
+Make sure Tailwind is installed & configured in your Next.js project:
+
+https://tailwindcss.com/docs/installation/framework-guides/nextjs
+
+Many Mirchi UI components also use the `cn` utility function.  
+Add it via our CLI:
+
+<Tabs items={["bun", "npx", "pnpm"]}>
+
+```bash tab="bun"
+bunx shadcn@latest add https://mirchiui.dev/r/utils.json
+```
+
+```bash tab="npx"
+npx shadcn@latest add https://mirchiui.dev/r/utils.json
+```
+```bash tab="pnpm"
+pnpx shadcn@latest add https://mirchiui.dev/r/utils.json
+```
+</Tabs>
+

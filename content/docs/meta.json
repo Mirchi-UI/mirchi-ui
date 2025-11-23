@@ -1,0 +1,24 @@
+{
+  "title": "Components",
+  "description": "The headless library", 
+  "icon": "Dna",
+  "root": true,
+  "defaultOpen": true,
+  "pages": [
+    "---[DefaultIcon]Get Started---",
+    "index",
+    "---[Badge]Latest---",
+    "components/loading-button",
+
+    "---[Component]Components---",
+    "components/loading-button",
+    "components/background-circles",
+    
+    "---[DefaultIcon]Blocks---", 
+
+    "components/loading-button",
+
+    "blocks/ai-card-generation",
+    "---[DefaultIcon]Hooks---"
+  ]
+}

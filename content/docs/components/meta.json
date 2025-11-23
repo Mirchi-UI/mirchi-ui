@@ -1,0 +1,12 @@
+{
+  "title": "Components",
+  "icon": "Component",
+  "pages": [
+    "---[ButtonIcon]Buttons---",
+    "buttons",
+    "---[InputIcon]Inputs---", 
+    "inputs",
+    "---[CardIcon]Cards---",
+    "cards"
+  ]
+}
