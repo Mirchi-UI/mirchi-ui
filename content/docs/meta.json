@@ -9,15 +9,16 @@
     "welcome",
     "index",
     "---[Badge]Latest---",
-    "components/loading-button",
+    "components/buttons",
+    
 
     "---[Component]Components---",
-    "components/loading-button",
+    "components/buttons",
     "components/background-circles",
     
     "---[DefaultIcon]Blocks---", 
 
-    "components/loading-button",
+    "components/buttons",
 
     "blocks/ai-card-generation",
     "---[DefaultIcon]Hooks---"
