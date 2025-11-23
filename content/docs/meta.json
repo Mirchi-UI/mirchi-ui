@@ -8,7 +8,7 @@
     "---[DefaultIcon]Get Started---",
     "welcome",
     "index",
-    "---[Badge]Latest---",
+    "---[DefaultIcon]Latest---",
     "components/buttons",
     
 
@@ -16,11 +16,11 @@
     "components/buttons",
     "components/background-circles",
     
-    "---[DefaultIcon]Blocks---", 
+    "---[LayoutDashboard]Blocks---", 
 
     "components/buttons",
 
-    "blocks/ai-card-generation",
-    "---[DefaultIcon]Hooks---"
+    "blocks/ai-card-generation"
   ]
 }
+

@@ -11,6 +11,11 @@ export const source = loader({
       return createElement(icons.Library);
     }
 
-    if (icon in icons) return createElement(icons[icon as keyof typeof icons]);
+    if (icon === "Component" || icon === "LayoutDashboard") {
+      if (icon in icons)
+        return createElement(icons[icon as keyof typeof icons]);
+    }
+
+    // if (icon in icons) return createElement(icons[icon as keyof typeof icons]);
   },
 });

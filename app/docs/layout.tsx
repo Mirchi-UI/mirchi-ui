@@ -6,9 +6,8 @@ import { baseOptions } from "@/lib/layout.shared";
 
 export const metadata: Metadata = {
   title: {
-    template:
-      "%s | Mirchi UI - Free UI Components to build beautiful websites",
-    default: "codesnippetui - Free UI Components to build beautiful websites",
+    template: "%s | Mirchi UI - Free UI Components to build beautiful websites",
+    default: " Mirchi UI - Free UI Components to build beautiful websites",
   },
 };
 
