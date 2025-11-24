@@ -11,7 +11,7 @@ const readFileCache = cache(async (filePath: string) => {
 
 // Improve caching for the entire component getter
 export const getComponent = async (fileName: string | null, folder: string) => {
-  const baseDir = path.join(process.cwd(), "components/codesnippetui");
+  const baseDir = path.join(process.cwd(), "components/modules");
   if (!fileName || fileName === "undefined") {
     const fullPath = path.join(baseDir, `${folder}.tsx`);
     // console.log("fullPath", fullPath);
@@ -26,6 +26,9 @@ export const getComponent = async (fileName: string | null, folder: string) => {
 
 // Get component code from modules directory for preview
 export const getComponentCode = async (link: string) => {
+ 
+
+  console.log("link", link);
   try {
     // Handle links like "background-circles" or "buttons/loading-button"
     const parts = link.split("/");
@@ -39,7 +42,7 @@ export const getComponentCode = async (link: string) => {
       const [folder, filename] = parts;
       fullPath = path.join(process.cwd(), "components/modules", folder, `${filename}.tsx`);
     }
-    
+    console.log("fullPath", fullPath);
     return await readFileCache(fullPath);
   } catch (error) {
     console.error("Error reading component code:", error);
