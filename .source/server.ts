@@ -1,6 +1,7 @@
 // @ts-nocheck
-import * as __fd_glob_4 from "../content/docs/components/buttons.mdx?collection=docs"
-import * as __fd_glob_3 from "../content/docs/components/background-circles.mdx?collection=docs"
+import * as __fd_glob_5 from "../content/docs/components/buttons.mdx?collection=docs"
+import * as __fd_glob_4 from "../content/docs/components/background-circles.mdx?collection=docs"
+import * as __fd_glob_3 from "../content/docs/blocks/faqs.mdx?collection=docs"
 import * as __fd_glob_2 from "../content/docs/welcome.mdx?collection=docs"
 import * as __fd_glob_1 from "../content/docs/index.mdx?collection=docs"
 import { default as __fd_glob_0 } from "../content/docs/meta.json?collection=docs"
@@ -12,4 +13,4 @@ const create = server<typeof Config, import("fumadocs-mdx/runtime/types").Intern
   }
 }>({"doc":{"passthroughs":["extractedReferences"]}});
 
-export const docs = await create.docs("docs", "content/docs", {"meta.json": __fd_glob_0, }, {"index.mdx": __fd_glob_1, "welcome.mdx": __fd_glob_2, "components/background-circles.mdx": __fd_glob_3, "components/buttons.mdx": __fd_glob_4, });
+export const docs = await create.docs("docs", "content/docs", {"meta.json": __fd_glob_0, }, {"index.mdx": __fd_glob_1, "welcome.mdx": __fd_glob_2, "blocks/faqs.mdx": __fd_glob_3, "components/background-circles.mdx": __fd_glob_4, "components/buttons.mdx": __fd_glob_5, });

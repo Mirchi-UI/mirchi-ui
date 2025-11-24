@@ -26,29 +26,48 @@ export const getComponent = async (fileName: string | null, folder: string) => {
 
 // Get component code from modules directory for preview
 export const getComponentCode = async (link: string) => {
- 
-
-  console.log("link", link);
   try {
-    // Handle links like "background-circles" or "buttons/loading-button"
+    console.log("link", link);
+
+    // Split into parts: folders + file
     const parts = link.split("/");
-    let fullPath: string;
-    
-    if (parts.length === 1) {
-      // Single file like "background-circles" -> components/modules/background-circles.tsx
-      fullPath = path.join(process.cwd(), "components/modules", `${parts[0]}.tsx`);
+
+    // Extract last segment
+    const last = parts.pop()!;
+
+    // Check if last part already contains extension
+    const hasExtension = last.includes(".");
+
+    // If it has extension, use as-is
+    let fileName = last;
+
+    if (hasExtension) {
+      fileName = last; // e.g. "Faq-2.tsx"
     } else {
-      // Nested file like "buttons/loading-button" -> components/modules/buttons/loading-button.tsx
-      const [folder, filename] = parts;
-      fullPath = path.join(process.cwd(), "components/modules", folder, `${filename}.tsx`);
+      // If no extension, default to .tsx
+      fileName = `${last}.tsx`;
     }
+
+    // Remaining folders
+    const folders = parts;
+
+    // Build final absolute path
+    const fullPath = path.join(
+      process.cwd(),
+      "components/modules",
+      ...folders,
+      fileName
+    );
+
     console.log("fullPath", fullPath);
+
     return await readFileCache(fullPath);
   } catch (error) {
     console.error("Error reading component code:", error);
     return null;
   }
 };
+
 
 export type CopyComponentState = {
   error: string;

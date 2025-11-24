@@ -18,9 +18,8 @@
     
     "---[LayoutDashboard]Blocks---", 
 
-    "components/buttons",
-
-    "blocks/ai-card-generation"
+     
+    "blocks/faqs"
   ]
 }
 
