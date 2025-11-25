@@ -65,7 +65,7 @@ export const navigationSections: navSection[] = [
       {
         id: 2,
         title: "Backgrounds",
-        href: "/docs/components/background-circles",
+        href: "/docs/components/backgrounds",
         description: " Reuseable Modal that you need.",
         count: 10,
         isNew: true,

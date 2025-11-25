@@ -11,6 +11,7 @@ import { usePathname } from "fumadocs-core/framework";
 import { navigationSections } from "@/config/navigation";
 import { ChevronLeft, ChevronRight, Search } from "lucide-react";
 import { CustomNav } from "@/components/nav/customNavlinks";
+import { Logo } from "@/public/logo";
 
 export interface DocsLayoutProps {
   tree: PageTree.Root;
@@ -25,14 +26,7 @@ export function DocsLayout({ tree, children }: DocsLayoutProps) {
           {/* Left side: Logo + Search */}
           <div className="flex items-center gap-4">
             {/* Logo */}
-            <Link href="/" className="flex items-center gap-2.5">
-              <div className="flex items-center justify-center w-8 h-8 rounded-lg bg-primary text-primary-foreground font-bold text-sm shadow-sm">
-                M
-              </div>
-              <span className="text-base font-semibold tracking-tight text-foreground hidden sm:block">
-                Mirchi UI
-              </span>
-            </Link>
+           <Logo/>
 
             {/* Search Bar */}
             <div className="relative">

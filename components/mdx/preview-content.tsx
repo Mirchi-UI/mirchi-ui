@@ -162,8 +162,8 @@ export default function PreviewContent({
           </a>
 
           <div className="flex items-center gap-2">
-            <OpenInV0Button name={openInV0()} />
-            <Button
+            {/* <OpenInV0Button name={openInV0()} /> */}
+            {/* <Button
               ref={terminalButtonRef}
               onClick={handleTerminalClick}
               variant="ghost"
@@ -195,7 +195,7 @@ export default function PreviewContent({
                 />
               )}
               <span>npx shadcn add {getFileName()}</span>
-            </Button>
+            </Button> */}
 
             {!isBlock && (
               <form

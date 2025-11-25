@@ -23,7 +23,7 @@ export function OpenInV0Button({
         target="_blank"
         rel="noreferrer"
       >
-        Open in{" "}
+        Open in{" "} 
         <svg
           viewBox="0 0 40 20"
           fill="none"
@@ -39,7 +39,11 @@ export function OpenInV0Button({
             fill="currentColor"
           ></path>
         </svg>
+
+        <span className="text-red-500"> IN BUILD</span>
       </a>
+
+      
     </Button>
   );
 }
