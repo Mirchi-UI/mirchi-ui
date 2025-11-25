@@ -19,6 +19,8 @@ export interface DocsLayoutProps {
 }
 
 export function DocsLayout({ tree, children }: DocsLayoutProps) {
+  const { open, setOpen } = useSidebar();
+
   return (
     <TreeContextProvider tree={tree}>
       <header className="sticky top-0 z-30 h-14 border-b border-border bg-background/95 backdrop-blur supports-backdrop-filter:bg-background/60">
@@ -26,12 +28,34 @@ export function DocsLayout({ tree, children }: DocsLayoutProps) {
           {/* Left side: Logo + Search */}
           <div className="flex items-center gap-4">
             {/* Logo */}
-           <Logo/>
-
+            <div className="hidden md:block">
+              <Logo />
+            </div>
+            <div className="flex md:hidden items-center justify-center px-3 py-2 border-b border-border">
+              <button
+                onClick={() => setOpen(!open)}
+                className={cn(
+                  "p-1.5 rounded-lg transition-all duration-200 w-full flex items-center justify-center border ",
+                  "hover:bg-accent",
+                  open ? "" : "w-10 h-10"
+                )}
+                aria-label="Toggle sidebar"
+                title={
+                  open ? "Collapse sidebar (Ctrl+B)" : "Expand sidebar (Ctrl+B)"
+                }
+              >
+                <ChevronLeft
+                  size={16}
+                  className={cn(
+                    "transition-transform w-7 h-7 duration-300",
+                    open ? "rotate-0" : "-rotate-180"
+                  )}
+                />
+              </button>
+            </div>
             {/* Search Bar */}
             <div className="relative">
-              <SearchToggle>
-              </SearchToggle>
+              <SearchToggle></SearchToggle>
             </div>
           </div>
 
@@ -124,10 +148,10 @@ function NavbarSidebarTrigger(props: ComponentProps<"button">) {
 
 export function Sidebar() {
   const pathname = usePathname();
-  const { open, setOpen, isMobile, openMobile } = useSidebar();
+  const { open, setOpen } = useSidebar();
 
-  // On mobile: use openMobile, on desktop: use open
-  const isOpen = isMobile ? openMobile : open;
+  // Determine if the sidebar is open (use the single 'open' state)
+  const isOpen = open;
 
   return (
     <aside

@@ -14,26 +14,7 @@ export function CustomNav() {
 
   return (
     <div className="flex items-center justify-end gap-2">
-      <div className="flex md:hidden items-center justify-center px-3 py-2 border-b border-border">
-        <button
-          onClick={() => setOpen(!open)}
-          className={cn(
-            "p-1.5 rounded-lg transition-all duration-200 w-full flex items-center justify-center",
-            "hover:bg-accent",
-            open ? "" : "w-10 h-10"
-          )}
-          aria-label="Toggle sidebar"
-          title={open ? "Collapse sidebar (Ctrl+B)" : "Expand sidebar (Ctrl+B)"}
-        >
-          <ChevronLeft
-            size={16}
-            className={cn(
-              "transition-transform duration-300",
-              open ? "rotate-0" : "-rotate-180"
-            )}
-          />
-        </button>
-      </div>
+      
 
       {/* GitHub */}
       <Link
