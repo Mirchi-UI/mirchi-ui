@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "preinstall": "npx only-allow pnpm"
   },
   "dependencies": {
     "@code-hike/highlighter": "^0.3.0",
