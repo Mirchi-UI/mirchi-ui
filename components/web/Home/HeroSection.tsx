@@ -42,7 +42,7 @@ export function HeroSection() {
               className="bg-primary hover:bg-primary/90 text-primary-foreground group"
               asChild
             >
-              <Link href="/docs/components" className="flex items-center gap-2">
+              <Link href="/docs" className="flex items-center gap-2">
                 Get Started
                 <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
               </Link>

@@ -1,15 +1,40 @@
 "use client";
 
 import Link from "next/link";
-import { Github, Linkedin, Blocks, Twitter, Moon, Sun } from "lucide-react";
+import { Github, Linkedin, Blocks, Twitter, Moon, Sun, ChevronLeft } from "lucide-react";
 import { useTheme } from "next-themes";
+import { useSidebar } from "fumadocs-ui/contexts/sidebar";
+import { cn } from "@/lib/utils";
 
 export function CustomNav() {
 
   const { theme, setTheme } = useTheme();
+    const { open, setOpen } = useSidebar();
+  
 
   return (
     <div className="flex items-center justify-end gap-2">
+      <div className="flex md:hidden items-center justify-center px-3 py-2 border-b border-border">
+        <button
+          onClick={() => setOpen(!open)}
+          className={cn(
+            "p-1.5 rounded-lg transition-all duration-200 w-full flex items-center justify-center",
+            "hover:bg-accent",
+            open ? "" : "w-10 h-10"
+          )}
+          aria-label="Toggle sidebar"
+          title={open ? "Collapse sidebar (Ctrl+B)" : "Expand sidebar (Ctrl+B)"}
+        >
+          <ChevronLeft
+            size={16}
+            className={cn(
+              "transition-transform duration-300",
+              open ? "rotate-0" : "-rotate-180"
+            )}
+          />
+        </button>
+      </div>
+
       {/* GitHub */}
       <Link
         href="https://github.com/your-profile"
@@ -26,15 +51,6 @@ export function CustomNav() {
         className="group inline-flex items-center gap-2 px-2 py-1.5 rounded-lg bg-zinc-900 dark:bg-zinc-100 transition-colors hover:bg-zinc-800 dark:hover:bg-zinc-200"
       >
         <Linkedin className="w-4 h-4 text-white dark:text-zinc-900 group-hover:scale-110 transition-transform" />
-      </Link>
-
-      {/* X (Twitter) */}
-      <Link
-        href="https://x.com/your-handle"
-        target="_blank"
-        className="group inline-flex items-center gap-2 px-2 py-1.5 rounded-lg bg-zinc-900 dark:bg-zinc-100 transition-colors hover:bg-zinc-800 dark:hover:bg-zinc-200"
-      >
-        <Twitter className="w-4 h-4 text-white dark:text-zinc-900 group-hover:scale-110 transition-transform" />
       </Link>
 
       {/* Blocks (for Mirchi UI / CodeSnippet Blocks) */}
@@ -54,8 +70,6 @@ export function CustomNav() {
         >
           {theme === "light" ? <Moon size={16} /> : <Sun size={16} />}
         </button>
-
-        
       </div>
     </div>
   );

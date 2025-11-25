@@ -31,8 +31,6 @@ export function DocsLayout({ tree, children }: DocsLayoutProps) {
             {/* Search Bar */}
             <div className="relative">
               <SearchToggle>
-                <Search className="w-4 h-4 text-muted-foreground" />
-                <span className="text-sm text-muted-foreground">Search...</span>
               </SearchToggle>
             </div>
           </div>
@@ -63,7 +61,7 @@ function SearchToggle(props: ComponentProps<"button">) {
       onClick={() => setOpenSearch(true)}
       className={cn(
         "flex items-center gap-2 rounded-lg border border-input bg-background px-3 py-2 text-sm text-muted-foreground shadow-sm transition-colors hover:bg-accent hover:text-accent-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring",
-        "min-w-[200px] justify-start",
+        "justify-start",
         props.className
       )}
     >
@@ -84,12 +82,13 @@ function SearchToggle(props: ComponentProps<"button">) {
         <path d="m21 21-4.3-4.3" />
       </svg>
 
-      <span className="text-sm">Search...</span>
-
-      {/* Shortcut hint */}
-      <span className="ointer-events-none ml-auto hidden h-5 select-none items-center gap-1 rounded border bg-muted px-1.5 font-mono text-[10px] font-medium text-muted-foreground sm:flex">
-        <span className="text-xs">⌘</span>K
-      </span>
+      <div className="hidden md:flex">
+        <span className=" hidden md:flex text-sm">Search...</span>
+        {/* Shortcut hint */}
+        <span className="ointer-events-none ml-auto hidden h-5 select-none items-center gap-1 rounded border bg-muted px-1.5 font-mono text-[10px] font-medium text-muted-foreground sm:flex">
+          <span className="text-xs">⌘</span>K
+        </span>
+      </div>
     </button>
   );
 }
@@ -125,38 +124,24 @@ function NavbarSidebarTrigger(props: ComponentProps<"button">) {
 
 export function Sidebar() {
   const pathname = usePathname();
-  const { open, setOpen } = useSidebar();
+  const { open, setOpen, isMobile, openMobile } = useSidebar();
+
+  // On mobile: use openMobile, on desktop: use open
+  const isOpen = isMobile ? openMobile : open;
 
   return (
     <aside
       className={cn(
-        "fixed flex flex-col shrink-0 top-14 left-0 z-20 h-[calc(100vh-56px)] w-[260px] border-r border-border bg-background transition-all duration-300 overflow-hidden",
+        "fixed flex flex-col shrink-0 top-14 left-0 z-20 h-[calc(100vh-56px)] border-r border-border bg-background transition-all duration-300 overflow-hidden",
         "md:sticky md:top-14 md:h-[calc(100dvh-56px)]",
-        open ? "md:w-[260px]" : "md:w-[60px]"
+        // Mobile: show when openMobile is true
+        isOpen ? "w-[260px]" : "w-0",
+        // Desktop: adjust width based on open state
+        "md:w-[260px]",
+        open ? "" : "md:w-[60px]"
       )}
     >
-      {/* Sidebar Header with Toggle Button */}
-      <div className="flex items-center justify-between px-3 py-3 border-b border-border md:hidden">
-        <span className="text-xs font-semibold text-muted-foreground">
-          Menu
-        </span>
-        <button
-          onClick={() => setOpen(!open)}
-          className={cn(
-            "p-1.5 rounded-lg transition-all duration-200",
-            "hover:bg-accent"
-          )}
-          aria-label="Toggle sidebar"
-        >
-          <ChevronLeft
-            size={16}
-            className={cn(
-              "transition-transform duration-300",
-              open ? "rotate-0" : "-rotate-180"
-            )}
-          />
-        </button>
-      </div>
+      
 
       {/* Desktop Toggle Button */}
       <div className="hidden md:flex items-center justify-center px-3 py-2 border-b border-border">
@@ -188,7 +173,7 @@ export function Sidebar() {
               <p
                 className={cn(
                   "text-[11px] font-semibold uppercase text-muted-foreground mb-2 px-3 tracking-wider transition-opacity duration-300",
-                  open ? "opacity-100" : "opacity-0 md:hidden"
+                  isOpen ? "opacity-100" : "opacity-0 md:hidden"
                 )}
               >
                 {section.title}
@@ -205,33 +190,33 @@ export function Sidebar() {
                       href={item.href}
                       className={linkVariants({
                         active: isActive,
-                        collapsed: !open,
+                        collapsed: !isOpen,
                       })}
-                      title={!open ? item.title : undefined}
+                      title={!isOpen ? item.title : undefined}
                     >
                       {Icon ? <Icon className="w-4 h-4 shrink-0" /> : null}
                       <span
                         className={cn(
                           "flex-1 transition-opacity duration-300",
-                          open ? "opacity-100" : "opacity-0 md:hidden"
+                          isOpen ? "opacity-100" : "opacity-0 md:hidden"
                         )}
                       >
                         {item.title}
                       </span>
 
-                      {item.isNew && open && (
+                      {item.isNew && isOpen && (
                         <span className="text-[10px] font-semibold px-1.5 py-0.5 rounded-md bg-emerald-500/15 text-emerald-600 dark:text-emerald-400 shrink-0">
                           NEW
                         </span>
                       )}
 
-                      {item.isComingSoon && open && (
+                      {item.isComingSoon && isOpen && (
                         <span className="text-[10px] font-medium px-1.5 py-0.5 rounded-md bg-muted text-muted-foreground shrink-0">
                           Soon
                         </span>
                       )}
 
-                      {isActive && open && (
+                      {isActive && isOpen && (
                         <ChevronRight className="w-3.5 h-3.5 text-primary-foreground/70 shrink-0" />
                       )}
                     </Link>
@@ -248,13 +233,13 @@ export function Sidebar() {
         <div
           className={cn(
             "flex items-center gap-2 text-xs text-muted-foreground",
-            open ? "opacity-100" : "opacity-0 md:hidden"
+            isOpen ? "opacity-100" : "opacity-0 md:hidden"
           )}
         >
           <div className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse shrink-0" />
           <span className="font-medium">All systems operational</span>
         </div>
-        {!open && (
+        {!isOpen && (
           <div className="hidden md:flex items-center justify-center">
             <div
               className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"

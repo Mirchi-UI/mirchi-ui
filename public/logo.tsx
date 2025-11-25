@@ -36,7 +36,7 @@ export function Logo() {
         <div className="absolute inset-0 rounded-xl bg-linear-to-tr from-white/20 to-transparent pointer-events-none" />
       </div>
 
-      <div className="flex flex-col">
+      <div className="hidden flex-col  md:flex">
         <span className="font-bold text-foreground tracking-tight text-lg leading-tight">
           Mirchi UI
         </span>
