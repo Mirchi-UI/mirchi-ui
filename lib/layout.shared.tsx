@@ -22,5 +22,6 @@ export function baseOptions(): BaseLayoutProps {
         children: <CustomNav/>
       }
     ],
+    
   };
 }

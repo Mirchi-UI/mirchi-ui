@@ -1,3 +1,13 @@
+import {
+  Moon,
+  Rocket,
+  BookOpen,
+  SquareMousePointer,
+  Layers,
+  Sparkles,
+  MessageCircleQuestion,
+} from "lucide-react";
+
 export interface navItem {
   title: string;
   href: string;
@@ -7,6 +17,7 @@ export interface navItem {
   isComingSoon?: boolean;
   isNew?: boolean;
   isLab?: boolean;
+  icon?: React.ComponentType<React.SVGProps<SVGSVGElement>>;
 }
 
 export interface navSection {
@@ -24,7 +35,7 @@ export const navigationSections: navSection[] = [
         href: "/docs/welcome",
         description:
           "Learn about Mirchi UI, our motivation, and how to contribute to the project.",
-        isNew: true,
+        icon: Rocket, // 🚀 Perfect for “Welcome”
       },
       {
         id: "introduction",
@@ -32,6 +43,7 @@ export const navigationSections: navSection[] = [
         href: "/docs",
         description:
           "Installation and setup guide for Mirchi UI components and blocks.",
+        icon: BookOpen, // 📖 Documentation intro
       },
     ],
   },
@@ -42,44 +54,36 @@ export const navigationSections: navSection[] = [
     items: [
       {
         id: 1,
-        title: "Button",
-        href: "/docs/components/button",
+        title: "Buttons",
+        href: "/docs/components/buttons",
         description:
           "A versatile button component with multiple styles and sizes.",
         count: 10,
+        icon: SquareMousePointer, // 🖱️ Button (click) icon
       },
+
       {
         id: 2,
-        title: "Input",
-        href: "/docs/components/input",
-        description: " Reuseable input that you need  .  ",
+        title: "Backgrounds",
+        href: "/docs/components/background-circles",
+        description: " Reuseable Modal that you need.",
         count: 10,
         isNew: true,
-      },
-      {
-        id: 3,
-        title: "Modal",
-        href: "/docs/components/modal",
-        description: " Reuseable Modal that you need  .  ",
-        count: 10,
-        isNew: true,
-        isComingSoon: true,
+        icon: Layers, // 🧩 Layered backgrounds
       },
     ],
   },
 
-
-  // blocks
-
+  // Blocks
   {
     title: "blocks",
     items: [
       {
-        id: "Hero",
-        title: "Hero",
-        href: "/blocks/hero",
-        description:
-          " All mrdern hero secttions ",
+        id: "fAQ'S",
+        title: "FAQ'S",
+        href: "/docs/blocks/faqs",
+        description: " All mrdern hero secttions ",
+        icon: MessageCircleQuestion, // ❓ FAQ icon
       },
     ],
   },

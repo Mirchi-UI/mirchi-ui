@@ -1,9 +1,13 @@
 "use client";
 
 import Link from "next/link";
-import { Github, Linkedin, Blocks, Twitter } from "lucide-react";
+import { Github, Linkedin, Blocks, Twitter, Moon, Sun } from "lucide-react";
+import { useTheme } from "next-themes";
 
 export function CustomNav() {
+
+  const { theme, setTheme } = useTheme();
+
   return (
     <div className="flex items-center justify-end gap-2">
       {/* GitHub */}
@@ -40,6 +44,19 @@ export function CustomNav() {
       >
         <Blocks className="w-4 h-4 group-hover:scale-110 transition-transform" />
       </Link>
+
+      {/* Actions */}
+      <div className="flex items-center gap-3">
+        {/* theme toggle */}
+        <button
+          onClick={() => setTheme(theme === "light" ? "dark" : "light")}
+          className="px-3 py-1 rounded-full text-sm border theme-border"
+        >
+          {theme === "light" ? <Moon size={16} /> : <Sun size={16} />}
+        </button>
+
+        
+      </div>
     </div>
   );
 }

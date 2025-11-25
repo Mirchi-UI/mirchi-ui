@@ -1,8 +1,8 @@
 import { source } from "@/lib/source";
-import { DocsLayout } from "fumadocs-ui/layouts/notebook";
 import type { ReactNode } from "react";
 import type { Metadata } from "next";
 import { baseOptions } from "@/lib/layout.shared";
+import { DocsLayout } from "@/src/components/layout/docs";
 
 export const metadata: Metadata = {
   title: {
@@ -16,11 +16,7 @@ export default function Layout({ children }: { children: ReactNode }) {
     <DocsLayout
       tree={source.pageTree}
       {...baseOptions()}
-      sidebar={{
-        defaultOpenLevel: 1,
-
-      } 
-    }
+      
     >
       {children}
     </DocsLayout>
