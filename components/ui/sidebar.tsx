@@ -399,11 +399,6 @@ function SidebarGroupLabel({
   ...props
 }: React.ComponentProps<"div"> & { asChild?: boolean }) {
   const Comp = asChild ? Slot : "div";
-  const { isMobile, openMobile, state } = useSidebar();
-
-  // Hide label on mobile when closed, or on desktop when collapsed
-  const isHidden =
-    (isMobile && !openMobile) || (!isMobile && state === "collapsed");
 
   return (
     <Comp
@@ -411,7 +406,7 @@ function SidebarGroupLabel({
       data-sidebar="group-label"
       className={cn(
         "text-sidebar-foreground/70 ring-sidebar-ring flex h-8 shrink-0 items-center rounded-md px-2 text-xs font-medium outline-hidden transition-[margin,opacity] duration-200 ease-linear focus-visible:ring-2 [&>svg]:size-4 [&>svg]:shrink-0",
-        isHidden && "-mt-8 opacity-0",
+        "group-data-[collapsible=icon]:-mt-8 group-data-[collapsible=icon]:opacity-0",
         className
       )}
       {...props}
@@ -514,11 +509,7 @@ function SidebarMenuButton({
   tooltip?: string | React.ComponentProps<typeof TooltipContent>;
 } & VariantProps<typeof sidebarMenuButtonVariants>) {
   const Comp = asChild ? Slot : "button";
-  const { isMobile, state, openMobile } = useSidebar();
-
-  // Show text on mobile when open, or on desktop when expanded
-  const showText =
-    (isMobile && openMobile) || (!isMobile && state === "expanded");
+  const { isMobile, state } = useSidebar();
 
   const button = (
     <Comp
@@ -526,38 +517,9 @@ function SidebarMenuButton({
       data-sidebar="menu-button"
       data-size={size}
       data-active={isActive}
-      className={cn(
-        sidebarMenuButtonVariants({ variant, size }),
-        !showText &&
-          "group-data-[collapsible=icon]:size-8! group-data-[collapsible=icon]:p-2!",
-        className
-      )}
-      style={{
-        ...props.style,
-        opacity: isMobile && !openMobile ? 1 : undefined,
-      }}
+      className={cn(sidebarMenuButtonVariants({ variant, size }), className)}
       {...props}
-    >
-      {props.children && typeof props.children === "object" ? (
-        <>
-          {React.Children.map(
-            props.children as React.ReactElement[],
-            (child) => {
-              if (!React.isValidElement(child)) return child;
-              // Show icons always, hide text based on state
-              if (child.type === "span" && !showText) {
-                return React.cloneElement(child, {
-                  className: cn(child.props.className, "hidden"),
-                });
-              }
-              return child;
-            }
-          )}
-        </>
-      ) : (
-        props.children
-      )}
-    </Comp>
+    />
   );
 
   if (!tooltip) {
@@ -619,12 +581,6 @@ function SidebarMenuBadge({
   className,
   ...props
 }: React.ComponentProps<"div">) {
-  const { isMobile, openMobile, state } = useSidebar();
-
-  // Hide badge on mobile when closed, or on desktop when collapsed
-  const isHidden =
-    (isMobile && !openMobile) || (!isMobile && state === "collapsed");
-
   return (
     <div
       data-slot="sidebar-menu-badge"
@@ -635,7 +591,7 @@ function SidebarMenuBadge({
         "peer-data-[size=sm]/menu-button:top-1",
         "peer-data-[size=default]/menu-button:top-1.5",
         "peer-data-[size=lg]/menu-button:top-2.5",
-        isHidden && "hidden",
+        "group-data-[collapsible=icon]:hidden",
         className
       )}
       {...props}
