@@ -6,6 +6,7 @@ import {
   Layers,
   Sparkles,
   MessageCircleQuestion,
+  Presentation,
 } from "lucide-react";
 
 export interface navItem {
@@ -84,6 +85,13 @@ export const navigationSections: navSection[] = [
         href: "/docs/blocks/faqs",
         description: " All mrdern hero secttions ",
         icon: MessageCircleQuestion, // ❓ FAQ icon
+      },
+      {
+        id: "hero'S",
+        title: "Hero'S",
+        href: "/docs/blocks/heros",
+        description: " Grab your users' attention with stunning hero sections ",
+        icon: Presentation,
       },
     ],
   },
