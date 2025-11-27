@@ -7,6 +7,7 @@ import {
   Sparkles,
   MessageCircleQuestion,
   Presentation,
+  PanelsTopBottom,
 } from "lucide-react";
 
 export interface navItem {
@@ -30,6 +31,7 @@ export const navigationSections: navSection[] = [
   {
     title: "Getting Started",
     items: [
+      // Components Section
       {
         id: "welcome",
         title: "Welcome",
@@ -50,11 +52,21 @@ export const navigationSections: navSection[] = [
   },
 
   // Components Section
+
   {
     title: "Components",
     items: [
       {
         id: 1,
+        title: "Fluid Dropdown",
+        href: "/docs/components/fluid-dropdown",
+        description:
+          "A responsive and animated dropdown component for seamless navigation.",
+        count: 10,
+        icon: PanelsTopBottom, // 🖱️ Button (click) icon
+      },
+      {
+        id: 2,
         title: "Buttons",
         href: "/docs/components/buttons",
         description:
@@ -64,7 +76,7 @@ export const navigationSections: navSection[] = [
       },
 
       {
-        id: 2,
+        id: 3,
         title: "Backgrounds",
         href: "/docs/components/backgrounds",
         description: " Reuseable Modal that you need.",
@@ -80,18 +92,18 @@ export const navigationSections: navSection[] = [
     title: "blocks",
     items: [
       {
-        id: "fAQ'S",
-        title: "FAQ'S",
-        href: "/docs/blocks/faqs",
-        description: " All mrdern hero secttions ",
-        icon: MessageCircleQuestion, // ❓ FAQ icon
-      },
-      {
         id: "hero'S",
         title: "Hero'S",
         href: "/docs/blocks/heros",
         description: " Grab your users' attention with stunning hero sections ",
         icon: Presentation,
+      },
+      {
+        id: "fAQ'S",
+        title: "FAQ'S",
+        href: "/docs/blocks/faqs",
+        description: " All mrdern hero secttions ",
+        icon: MessageCircleQuestion,
       },
     ],
   },
