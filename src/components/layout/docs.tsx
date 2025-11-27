@@ -9,7 +9,7 @@ import { useSidebar } from "fumadocs-ui/contexts/sidebar";
 import { cva } from "class-variance-authority";
 import { usePathname } from "fumadocs-core/framework";
 import { navigationSections } from "@/config/navigation";
-import { ChevronLeft, ChevronRight, Search } from "lucide-react";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 import { CustomNav } from "@/components/nav/customNavlinks";
 import { Logo } from "@/public/logo";
 
