@@ -7,7 +7,7 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](http://makeapullrequest.com)
 
-[Documentation](https://mirchiui.com) • [Components](/docs/components) • [Blocks](/docs/blocks) • [Contribute](./CONTRIBUTING.md)
+[Documentation](https://mirchi-ui.vercel.app)  • [Contribute](./CONTRIBUTING.md)
 
 </div>
 
@@ -27,7 +27,7 @@
 
 Most Mirchi UI components are **standalone** and can be used directly by copying the code. No installation required!
 
-1. Browse our [components](/docs/components) or [blocks](/docs/blocks)
+1. Browse our [components](https://mirchi-ui.vercel.app/docs/) 
 2. Copy the code you need
 3. Paste it into your project
 4. Customize as needed
@@ -36,11 +36,11 @@ Most Mirchi UI components are **standalone** and can be used directly by copying
 
 Some components are built on top of [shadcn/ui](https://ui.shadcn.com). If you're using these, you'll need the `cn` utility function:
 
-```bash
+<!-- ```bash
 # Using shadcn CLI
-npx shadcn@latest add https://mirchiui.dev/r/utils.json
+npx shadcn@latest add https://mirchiui.dev/r/utils.json -->
 
-# Or manually add to your utils.ts
+# Add to your utils.ts
 ```
 
 ```tsx
@@ -54,11 +54,11 @@ export function cn(...inputs: ClassValue[]) {
 
 ## 📚 Documentation
 
-Visit our [documentation site](https://mirchiui.com) for:
+Visit our [documentation site](https://mirchi-ui.vercel.app) for:
 
 - Complete component documentation
 - Usage examples
-- API references
+ 
 - Best practices
 
 ## 🎯 What We Offer
@@ -110,9 +110,8 @@ If you find this project helpful, please consider giving it a star! ⭐
 
 <div align="center">
 
-Made In Bangladesh 
+Made In Bangladesh   
 
-<!-- [Website](https://mirchiui.com) • 
-[Documentation](https://mirchiui.com/docs) • [GitHub](https://github.com) -->
+[Website](https://mirchi-ui.vercel.app)• [GitHub](mirchi-ui)
 
 </div>
