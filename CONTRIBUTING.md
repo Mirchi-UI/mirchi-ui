@@ -27,19 +27,237 @@ Have an idea for a new component or feature? We'd love to hear it!
 
 ### Adding Components
 
-We're always looking for new components! Here's how to contribute:
+We're always looking for new components! Follow this step-by-step guide:
 
-1. **Fork the repository**
-2. **Create a new branch** (`git checkout -b feature/amazing-component`)
-3. **Add your component** following our structure:
-   - Component code in `components/modules/` or `components/ui/`
-   - Documentation in `content/docs/components/`
-   - Example usage in the MDX file
-4. **Follow our code style** (see below)
-5. **Test your component** thoroughly
-6. **Commit your changes** (`git commit -m 'Add amazing component'`)
-7. **Push to the branch** (`git push origin feature/amazing-component`)
-8. **Open a Pull Request**
+#### **Step 1: Fork and Create a Branch**
+
+```bash
+git checkout -b feature/amazing-component
+```
+
+#### **Step 2: Create the MDX Documentation File (if new component type)**
+
+First, create the documentation file in `content/docs/components/`. If the component documentation already exists (like `button.mdx`), then no need to create a new one.
+
+After creating a new MDX file, add this at the top:
+
+```mdx
+---
+title: Component Name
+description: Brief description of what this component does
+slug: /docs/components/component-name
+icon: IconName
+full: true
+---
+```
+
+#### **Step 3: Create the Component File**
+
+Create your component in the appropriate folder structure. Make a new folder if this is a new type of component:
+
+**For component types:**
+
+- `components/modules/buttons/LoadingButton.tsx`
+- `components/modules/inputs/SearchInput.tsx`
+- `components/modules/drop-down/Fluid-dropdown.tsx`
+- `components/modules/cards/StatsCard.tsx`
+
+**Example component structure:**
+
+```tsx
+"use client";
+
+import { cn } from "@/lib/utils";
+
+interface YourComponentProps {
+  className?: string;
+  // ... other props
+}
+
+export function YourComponent({ className, ...props }: YourComponentProps) {
+  return (
+    <div className={cn("base-styles", className)} {...props}>
+      {/* Component content */}
+    </div>
+  );
+}
+```
+
+#### **Step 4: Add Preview to MDX File**
+
+Now go to the MDX file and import and display your component:
+
+```mdx
+import { YourComponent } from "@/components/modules/folder/YourComponent.tsx";
+
+<Preview
+  link="folder/YourComponent.tsx"
+  comment={["tailwindcss", "component", "tag", "tag"]}
+>
+  <YourComponent />
+</Preview>
+```
+
+**Note:** The `link` should contain the path after `@/components/modules/`
+
+#### **Step 5: Add Usage Examples and Props Documentation**
+
+Include additional code examples, props documentation, and hooks (if used):
+
+````mdx
+## Usage
+
+```tsx
+import { YourComponent } from "@/components/modules/folder/YourComponent";
+import { useState } from "react";
+
+export function App() {
+  const [state, setState] = useState(false);
+
+  return (
+    <YourComponent state={state} onChange={() => setState(!state)}>
+      Your content here
+    </YourComponent>
+  );
+}
+```
+````
+
+## Props
+
+- `state?: boolean` - Component state
+- `onChange?: function` - Callback when state changes
+- `className?: string` - Additional Tailwind classes
+
+````
+
+#### **Step 6: Document Custom Hooks (if used)**
+
+If your component uses custom hooks, document them in the MDX file:
+
+```mdx
+## useCustomHook
+
+This component uses `useCustomHook` for its functionality.
+
+```tsx
+import { useCustomHook } from "@/hooks/use-custom-hook";
+
+export function MyComponent() {
+  const { state, handler } = useCustomHook();
+
+  return <div>{state}</div>;
+}
+````
+
+````
+
+#### **Step 7: Update Navigation**
+
+Add your new component to `config/navigation.ts`:
+
+```typescript
+{
+  id: 1,
+  title: "Your Component Name",
+  href: "/docs/components/your-component-name",
+  description: "A brief description of your component",
+  count: 10,
+  icon: IconName, // Import icon from lucide-react
+},
+````
+
+#### **Step 8: Follow Code Style Guidelines**
+
+- Use **TypeScript** for all code
+- Follow **React best practices**
+- Use **Tailwind CSS** for styling
+- Ensure **accessibility** (ARIA labels, keyboard navigation)
+- Support **dark mode**
+- Keep components **responsive** (mobile-first approach)
+
+#### **Step 9: Build and Test**
+
+Test that everything builds correctly:
+
+```bash
+pnpm build
+```
+
+Make sure there are no TypeScript errors or build warnings.
+
+#### **Step 10: Commit and Push**
+
+```bash
+git commit -m 'feat: add YourComponent component'
+git push origin feature/amazing-component
+```
+
+#### **Step 11: Open a Pull Request**
+
+⚠️ **IMPORTANT:**
+
+- Open PR against the **`development`** branch **ONLY**
+- Include a clear description of your component
+- Link any related issues
+- Add screenshots or demos if applicable
+
+**PR Checklist:**
+
+- [ ] Component follows project structure
+- [ ] MDX documentation is complete
+- [ ] Navigation updated in `config/navigation.ts`
+- [ ] Component supports dark mode
+- [ ] Component is responsive
+- [ ] Code is accessible (WCAG 2.1 AA)
+- [ ] `pnpm build` passes without errors
+- [ ] No TypeScript errors
+- [ ] PR targets `development` branch
+
+#### **Step 8: Follow Code Style**
+
+- Use **TypeScript** for all code
+- Follow **React best practices**
+- Use **Tailwind CSS** for styling
+- Ensure **accessibility** (ARIA labels, keyboard navigation)
+- Support **dark mode**
+- Keep components **responsive** (mobile-first)
+
+#### **Step 9: Build and Test**
+
+Test that everything builds correctly:
+
+```bash
+pnpm build
+```
+
+#### **Step 10: Commit and Push**
+
+```bash
+git commit -m 'feat: add LoadingButton component'
+git push origin feature/amazing-component
+```
+
+#### **Step 11: Open a Pull Request**
+
+⚠️ **IMPORTANT:**
+
+- Open PR against the **`development`** branch **ONLY**
+- Include description of your component
+- Link any related issues
+- Add screenshots/demos if applicable
+
+**PR Checklist:**
+
+- [ ] Component follows project structure
+- [ ] MDX documentation added
+- [ ] Navigation updated in `config/navigation.ts`
+- [ ] Component supports dark mode
+- [ ] Component is responsive
+- [ ] Code is accessible (WCAG 2.1 AA)
+- [ ] `pnpm build` passes without errors
+- [ ] No TypeScript errors
+- [ ] PR targets `development` branch
 
 ### Adding Blocks
 
