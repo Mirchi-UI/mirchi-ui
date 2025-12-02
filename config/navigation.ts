@@ -1,13 +1,14 @@
 import {
-  Moon,
+  
   Rocket,
   BookOpen,
   SquareMousePointer,
   Layers,
-  Sparkles,
+   
   MessageCircleQuestion,
   Presentation,
   PanelsTopBottom,
+  Text,
 } from "lucide-react";
 
 export interface navItem {
@@ -82,7 +83,16 @@ export const navigationSections: navSection[] = [
         description: " Reuseable Modal that you need.",
         count: 10,
         isNew: true,
-        icon: Layers, // 🧩 Layered backgrounds
+        icon: Layers,  
+      },
+      {
+        id: 2,
+        title: "Text",
+        href: "/docs/components/text",
+        description: " A collection of text components to use and customize.",
+        count: 10,
+        isNew: true,
+        icon: Text ,  
       },
     ],
   },
