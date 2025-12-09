@@ -1,12 +1,56 @@
 ---
-title: Background Components
-description: A collection of background components including animated circles.
-icon: Circle
-full: false
+title: Backgrounds
+description: Aesthetic background components to enhance your UI.
+slug: /docs/components/backgrounds
+icon: Layers
+full: true
 ---
 
 import DemoCircles from "@/components/modules/background-circles.tsx";
 
-<Preview link="background-circles" comment={["Motion"]}>
-    <DemoCircles />
+## Background Circles
+
+An animated background with rotating orbital circles and a glowing gradient effect. It supports multiple color variants.
+
+<Preview link="background-circles.tsx" comment={["motion", "background", "circles"]} full>
+    <div className="h-[500px] relative overflow-hidden rounded-lg border">
+        <DemoCircles />
+    </div>
 </Preview> 
+
+## Usage
+
+```tsx
+import { BackgroundCircles } from "@/components/modules/background-circles";
+
+export function Hero() {
+  return (
+    <div className="relative h-screen w-full overflow-hidden">
+      <BackgroundCircles 
+         title = "Build Something Amazing",
+  description = "Create beautiful, animated interfaces with ease",
+ 
+  variant = "octonary"
+      />
+    </div>
+  );
+}
+```
+
+## Props
+
+The `BackgroundCircles` component accepts the following props:
+
+- `variant`: Color theme (`primary`, `secondary`, `tertiary`, `quaternary`, `quinary`, `senary`, `septenary`, `octonary`).
+- `title`: Main heading text.
+- `description`: Subtext description.
+- `className`: Additional CSS classes.
+
+```tsx
+interface BackgroundCirclesProps {
+  title?: string;
+  description?: string;
+  className?: string;
+  variant?: "primary" | "secondary" | "tertiary" | "quaternary" | "quinary" | "senary" | "septenary" | "octonary";
+}
+```

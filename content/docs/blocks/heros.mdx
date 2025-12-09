@@ -1,34 +1,68 @@
 ---
-title: Hero Blocks
-description: Hero sections are designed to grab your users' attention with stunning visuals and compelling calls to action. Perfect for making a strong first impression on your website.
-icon: HelpCircle
+title: Hero Sections
+description: Stunning hero sections to grab your users' attention.
+slug: /docs/blocks/heros
+icon: Presentation
+full: true
 ---
 
- 
-import  {HeroGeometric}  from "@/components/modules/blocks/Hero/Shapes-Hero.tsx";
-import  {HeroAurora}  from "@/components/modules/blocks/Hero/Hero-aurora.tsx";
+import { HeroAurora } from "@/components/modules/blocks/Hero/Hero-aurora.tsx";
+import { HeroGeometric } from "@/components/modules/blocks/Hero/Shapes-Hero.tsx";
 
+<div className="flex flex-col gap-10">
 
+## Aurora Hero
 
-## Aurora Hero component 
+A dark-themed hero section with animated aurora beams and noise texture.
 
-
-<Preview 
-  link="blocks/Hero/Hero-aurora.tsx"
-  comment={[ "Hero", "geometric" , "shapes" ]} 
-  isBlock : true
->
-  <HeroAurora/>
+<Preview link="blocks/Hero/Hero-aurora.tsx" comment={["motion", "gradient", "aurora"]} full>
+    <div className="relative h-[600px] w-full overflow-hidden border rounded-lg">
+        <HeroAurora 
+            
+        />
+    </div>
 </Preview>
 
+```tsx
+import { HeroAurora } from "@/components/modules/blocks/Hero/Hero-aurora";
 
+export function LandingPage() {
+  return (
+    <HeroAurora 
+      badge="2.0 Now Available"
+      title="Build Faster"
+      subtitle="The ultimate development platform for modern teams."
+    />
+  );
+}
+```
 
+## Geometric Shapes Hero
 
+A sophisticated hero section with floating 3D geometric shapes and elegant typography.
 
+<Preview link="blocks/Hero/Shapes-Hero.tsx" comment={["motion", "3d", "geometric"]} full>
+    <div className="relative h-[600px] w-full overflow-hidden border rounded-lg">
+        <HeroGeometric 
+            badge="Design System"
+            title1="Geometric"
+            title2="Inspiration"
+        />
+    </div>
+</Preview>
 
- 
+```tsx
+import { HeroGeometric } from "@/components/modules/blocks/Hero/Shapes-Hero";
 
+export function LandingPage() {
+  return (
+    <HeroGeometric 
+      badge="Portfolio"
+      title1="Creative"
+      title2="Solutions"
+    />
+  );
+}
+```
 
-
-
-
+</div>

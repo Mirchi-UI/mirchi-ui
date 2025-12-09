@@ -1,22 +1,25 @@
 ---
-title: Button
+title: Loading Button
 description: A button component that displays a loading spinner when an action is in progress.
 slug: /docs/components/loading-button
 icon: Command
 full: true
-
 ---
 
 import { LoadingButton } from "@/components/modules/buttons/LoadingButton.tsx";
 
 <Preview 
-  link="buttons/LoadingButton"
-  comment={["tailwindcss","button","loading","spinner"]}
+  link="buttons/LoadingButton.tsx"
+  comment={["tailwindcss", "button", "loading", "spinner"]}
 >
   <LoadingButton/>
 </Preview>
 
+## Usage
 
+This component demonstrates a button in a loading state. It uses the standard `Button` component with a `Loader2` icon from `lucide-react`.
+ 
+## Dependencies
 
-
-
+- `lucide-react` for icons
+- `components/ui/button`  

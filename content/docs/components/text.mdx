@@ -1,55 +1,88 @@
 ---
-title: Text
-description: A collection of text components to use and customize.
+title: Text Effects
+description: A collection of animated and styled text components.
+slug: /docs/components/text
 icon: Text
+full: true
 ---
 
-
-
-### Text - Sliced
-
-import TextSliced from "@/components/modules/texts/text-02.tsx";
-
-<Preview link="texts/text-02.tsx" 
- comment={["Motion","Text","Sliced" ]}
->
-   <h1 className="flex items-center justify-center flex-row gap-5 font-geist text-4xl"> I'm <TextSliced text=" Batman" />  </h1>
-</Preview>
-
-  ```tsx
-     <h1 className="flex items-center justify-center flex-row gap-5 text-4xl"> I'm <TextSliced text=" Batman" />  </h1>
- ```
- 
- ---
- 
- ### Text - Shimmer
-
 import ShimmerText from "@/components/modules/texts/text-01.tsx";
-
-<Preview link="texts/text-01.tsx" 
- comment={["Motion","Text","Sliced" ]}
->
-   <h1 className="flex items-center justify-center flex-row gap-5 font-geist text-4xl"> I'm <ShimmerText text={"Batman"}   />  </h1>
-</Preview>
-
-  ```tsx
-     <h1 className="flex items-center justify-center flex-row gap-5 text-4xl"> I'm <ShimmerText text=" Batman" />  </h1>
- ```
- 
- ---
-
-  ### Text - Hover 
-
+import TextSliced from "@/components/modules/texts/text-02.tsx";
 import HovText from "@/components/modules/texts/text-03.tsx";
+import Text_04 from "@/components/modules/texts/text-04.tsx";
 
-<Preview link="texts/text-03.tsx" 
- comment={["Motion","Text","Sliced" ]}
->
-   <h1 className="flex items-center justify-center flex-row gap-5 font-geist text-4xl"> I'm <HovText text={"Batman"}   />  </h1>
+<div className="flex flex-col gap-10">
+
+## Shimmer Text
+
+A text component with a shimmering gradient effect, perfect for highlighting headers or special offers.
+
+<Preview link="texts/text-01.tsx" comment={["css", "animation", "gradient"]}>
+   <h1 className="flex items-center justify-center text-4xl font-bold">
+     <ShimmerText text="Shimmer Effect" />
+   </h1>
 </Preview>
 
-  ```tsx
-     <h1 className="flex items-center justify-center flex-row gap-5 text-4xl"> I'm <HovText text=" Batman" />  </h1>
- ```
- 
- ---
+```tsx
+import ShimmerText from "@/components/modules/texts/text-01";
+
+export function Demo() {
+  return <ShimmerText text="Shimmer Effect" />;
+}
+```
+
+## Sliced Text
+
+Text that splits into two halves when hovered, creating a revealing effect.
+
+<Preview link="texts/text-02.tsx" comment={["motion", "hover", "split"]}>
+   <div className="text-4xl font-bold p-10">
+     <TextSliced text="Hover Me" />
+   </div>
+</Preview>
+
+```tsx
+import TextSliced from "@/components/modules/texts/text-02";
+
+export function Demo() {
+  return <TextSliced text="Hover Me" />;
+}
+```
+
+## Hover Text
+
+Text where each letter bounces individually on hover using a spring animation.
+
+<Preview link="texts/text-03.tsx" comment={["motion", "stagger", "spring"]}>
+   <div className="text-4xl font-bold">
+     <HovText text="Bouncing Letters" />
+   </div>
+</Preview>
+
+```tsx
+import HovText from "@/components/modules/texts/text-03";
+
+export function Demo() {
+  return <HovText text="Bouncing Letters" />;
+}
+```
+
+## Retro Shadow Text
+
+A bold text style with a multi-layered retro shadow effect that disappears on hover.
+
+<Preview link="texts/text-04.tsx" comment={["css", "shadow", "retro"]}>
+   <div className="p-10">
+     <Text_04 text="RETRO STYLE" />
+   </div>
+</Preview>
+
+```tsx
+import Text_04 from "@/components/modules/texts/text-04";
+
+export function Demo() {
+  return <Text_04 text="RETRO STYLE" />;
+}
+```
+
+</div>
