@@ -1,26 +1,51 @@
 ---
 title: Fluid Dropdown
-description: A dropdown component that adjusts its width based on the content size.
+description: A responsive and animated dropdown component that adjusts its width based on content.
 slug: /docs/components/fluid-dropdown
-icon:  ArrowDownCircle
+icon: ArrowDownCircle
 full: true
-
 ---
 
 import { FluidDropdown } from "@/components/modules/drop-down/Fluid-dropdown.tsx";
 
-## Fluid Dropdown Component
-
 <Preview 
   link="drop-down/Fluid-dropdown.tsx"
-  comment={["tailwindcss","dropdown","fluid","responsive"]}
+  comment={["motion", "dropdown", "fluid", "responsive"]}
 >
   <FluidDropdown/>
 </Preview>
 
- ---
-# useClickAway Hook
+## Overview
 
+The Fluid Dropdown component uses `framer-motion` (or `motion/react`) to create smooth, physics-based animations required for a modern feel. It handles outside clicks using a custom hook.
+
+## Usage
+
+```tsx
+import { FluidDropdown } from "@/components/modules/drop-down/Fluid-dropdown";
+
+export function App() {
+  return (
+    <div className="flex justify-center p-10">
+      <FluidDropdown />
+    </div>
+  );
+}
+```
+
+## Dependencies
+
+This component relies on the following libraries and hooks:
+
+- `motion/react` or `framer-motion` for animations.
+- `lucide-react` for icons.
+- `useClickAway` hook for closing the dropdown when clicking outside.
+
+## Hooks
+
+### useClickAway
+
+This hook is essential for the dropdown functionality.
 
 ```tsx
 import { useEffect, type RefObject } from "react";
@@ -46,10 +71,4 @@ export function useClickAway(
     };
   }, [ref, handler]);
 }
-
-
 ```
-
-
-
-

@@ -11,13 +11,14 @@ import {
   Smartphone,
   Home,
   Layers,
+  type LucideIcon,
 } from "lucide-react";
 import { useClickAway } from "@/hooks/use-click-away";
 
 interface Category {
   id: string;
   label: string;
-  icon: React.ElementType;
+  icon: LucideIcon;
   color: string;
 }
 
@@ -34,7 +35,7 @@ const IconWrapper = ({
   isHovered,
   color,
 }: {
-  icon: React.ElementType;
+  icon: LucideIcon;
   isHovered: boolean;
   color: string;
 }) => (

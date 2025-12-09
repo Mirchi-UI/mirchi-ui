@@ -1,30 +1,50 @@
 ---
-title: Pricing
-description: Beautiful, accessible, and customizable Pricing components and blocks for your next project
-icon: HelpCircle
+title: Pricing Sections
+description: responsive and interactive pricing tables.
+slug: /docs/blocks/pricing
+icon: BadgeDollarSign
+full: true
 ---
 
- 
-import Pricing_03 from "@/components/modules/blocks/Pricing/pricing-03.tsx";
-import Pricing_04 from "@/components/modules/blocks/Pricing/pricing-04.tsx";
-import Pricing_05 from "@/components/modules/blocks/Pricing/pricing-05.tsx";
+import { Pricing } from "@/components/modules/blocks/Pricing/Pricing01.tsx";
+import Pricing_Animated from "@/components/modules/blocks/Pricing/pricing-03.tsx";
 
-## Pricing Section 1
+<div className="flex flex-col gap-10">
 
-<Preview
-  link="blocks/Pricing/Pricing01.tsx"
-  comment={["Hero", "geometric", "shapes"]}
-  isBlock:true
->
-  <Pricing_03 />
+## Simple Pricing
+
+A clean, card-based pricing component with hover effects and feature lists.
+
+<Preview link="blocks/Pricing/Pricing01.tsx" comment={["card", "clean", "hover"]}>
+    <div className="flex justify-center p-10 bg-slate-50 dark:bg-slate-950 rounded-lg">
+        <Pricing />
+    </div>
 </Preview>
 
-## Pricing Section 2
+```tsx
+import { Pricing } from "@/components/modules/blocks/Pricing/Pricing01";
 
-<Preview
-  link="blocks/Pricing/Pricing01.tsx"
-  comment={["Hero", "geometric", "shapes"]}
-  isBlock:true
->
-  <Pricing_04 />
+export function PricingPage() {
+  return <Pricing />;
+}
+```
+
+## Animated Pricing Table
+
+A comparative pricing table with a monthly/yearly toggle and smooth layout transitions.
+
+<Preview link="blocks/Pricing/pricing-03.tsx" comment={["motion", "toggle", "comparison"]}>
+    <div className="flex justify-center p-4 bg-white dark:bg-black rounded-lg">
+        <Pricing_Animated />
+    </div>
 </Preview>
+
+```tsx
+import Pricing_Animated from "@/components/modules/blocks/Pricing/pricing-03";
+
+export function PricingPage() {
+  return <Pricing_Animated />;
+}
+```
+
+</div>
