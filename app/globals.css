@@ -188,3 +188,7 @@
   font-size: 1.2rem;
   margin: 1em 0 0.5em 0;
 }
+
+html{
+  scroll-behavior: smooth;
+}

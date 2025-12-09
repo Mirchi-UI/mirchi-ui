@@ -9,6 +9,9 @@ import {
   Presentation,
   PanelsTopBottom,
   Text,
+  FileStack,
+  Box,
+  Sparkles,
 } from "lucide-react";
 
 export interface navItem {
@@ -21,6 +24,9 @@ export interface navItem {
   isNew?: boolean;
   isLab?: boolean;
   icon?: React.ComponentType<React.SVGProps<SVGSVGElement>>;
+  previewImage?: string;
+  bg?: string;
+  isUpdated?: boolean;
 }
 
 export interface navSection {
@@ -47,7 +53,15 @@ export const navigationSections: navSection[] = [
         href: "/docs",
         description:
           "Installation and setup guide for Mirchi UI components and blocks.",
-        icon: BookOpen, // 📖 Documentation intro
+        icon: BookOpen,
+      },
+      {
+        id: "components",
+        title: "Components",
+        href: "/docs/components",
+        description:
+          "Installation and setup guide for Mirchi UI components and blocks.",
+        icon: BookOpen,
       },
     ],
   },
@@ -83,16 +97,26 @@ export const navigationSections: navSection[] = [
         description: " Reuseable Modal that you need.",
         count: 10,
         isNew: true,
-        icon: Layers,  
+        icon: Layers,
+        previewImage: "/images/faq.png",
       },
       {
-        id: 2,
+        id: 4,
         title: "Text",
         href: "/docs/components/text",
         description: " A collection of text components to use and customize.",
         count: 10,
         isNew: true,
-        icon: Text ,  
+        icon: Text,
+      },
+      {
+        id: 5,
+        title: "3D Card",
+        href: "/docs/components/three-d-card",
+        description: "An interactive card component with 3D elements.",
+        count: 10,
+        isNew: true,
+        icon: Box,
       },
     ],
   },
@@ -103,18 +127,47 @@ export const navigationSections: navSection[] = [
     items: [
       {
         id: "hero'S",
-        title: "Hero'S",
+        title: "Hero Section",
         href: "/docs/blocks/heros",
         description: " Grab your users' attention with stunning hero sections ",
         icon: Presentation,
+        previewImage:
+          "https://designtocodes.com/wp-content/uploads/2024/02/15Best-Hero-Section-Web-UI-Kits-Collection-2024.jpg",
+        bg: "from-orange-500 dark:to-zinc-950 to-gray-50",
       },
       {
         id: "fAQ'S",
-        title: "FAQ'S",
+        title: "FAQ Sections",
         href: "/docs/blocks/faqs",
         description: " All mrdern hero secttions ",
         icon: MessageCircleQuestion,
+        previewImage:
+          "https://designtocodes.com/wp-content/uploads/2024/02/15Best-Hero-Section-Web-UI-Kits-Collection-2024.jpg",
+        bg: "from-orange-500/20 to-orange-700/20",
+        isUpdated: true,
+      },
+      {
+        id: "pricing",
+        title: "Pricing Sections",
+        href: "/docs/blocks/pricing",
+        description: " All mrdern Pricing secttions ",
+        icon: FileStack,
+        previewImage:
+          "https://designtocodes.com/wp-content/uploads/2024/02/15Best-Hero-Section-Web-UI-Kits-Collection-2024.jpg",
+        bg: "from-orange-500/20 to-orange-700/20",
+        isUpdated: true,
       },
     ],
   },
 ];
+
+
+
+
+export function getBlocksSection() {
+  return navigationSections.find((section) => section.title === "blocks");
+}
+
+export function getComponentsSection() {
+  return navigationSections.find((section) => section.title === "Components");
+}

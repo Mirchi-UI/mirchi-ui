@@ -11,8 +11,8 @@ export default function LibraryNavbar() {
 
   const navLinks = [
     { title: "Home", href: "/" },
-    { title: "Components", href: "/docs" },
-    { title: "Docs", href: "/docs" },
+    { title: "Components", href: "/docs/components" },
+    { title: "Blocks", href: "/blocks" },
     { title: "Templates", href: "/templates" },
   ];
 
