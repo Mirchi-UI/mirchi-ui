@@ -3,7 +3,6 @@
 import Link from "next/link";
 import { Github, Linkedin, Blocks,   Moon, Sun} from "lucide-react";
 import { useTheme } from "next-themes";
-import { useSidebar } from "fumadocs-ui/contexts/sidebar";
 import { cn } from "@/lib/utils";
 
 export function CustomNav() {
