@@ -12,6 +12,7 @@ import {
   FileStack,
   Box,
   Sparkles,
+  SlidersHorizontal,
 } from "lucide-react";
 
 export interface navItem {
@@ -79,6 +80,15 @@ export const navigationSections: navSection[] = [
           "A responsive and animated dropdown component for seamless navigation.",
         count: 10,
         icon: PanelsTopBottom, // 🖱️ Button (click) icon
+      },
+      {
+        id: 6,
+        title: "Sophisticated Slider",
+        href: "/docs/components/sophisticated-slider",
+        description:
+          "A minimalist hero slider with smooth transitions, parallax depth, and refined typography. Designed for clean, modern interfaces.",
+        count: 10,
+        icon: SlidersHorizontal,  
       },
       {
         id: 2,
