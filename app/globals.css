@@ -40,7 +40,7 @@
   --sidebar-accent-foreground: oklch(0.2050 0 0);
   --sidebar-border: oklch(0.9220 0 0);
   --sidebar-ring: oklch(0.7080 0 0);
-  --font-sans: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  --font-sans: var(--font-outfit), ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   --font-serif: ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
   --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
   --radius: 0.625rem;
@@ -95,7 +95,7 @@
   --sidebar-accent-foreground: oklch(0.9850 0 0);
   --sidebar-border: oklch(0.2750 0 0);
   --sidebar-ring: oklch(0.4390 0 0);
-  --font-sans: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  --font-sans: var(--font-outfit), ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   --font-serif: ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
   --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
   --radius: 0.625rem;
@@ -217,15 +217,18 @@ html {
   }
 
   .glass {
-    @apply bg-background/40 backdrop-blur-2xl border border-foreground/10;
+    @apply bg-background/60 backdrop-blur-xl border border-white/5 dark:border-white/10;
   }
 
-  .glow-border {
+  .glass-sidebar {
+    @apply bg-background/40 backdrop-blur-2xl border-r border-white/5 dark:border-white/10 shadow-2xl;
+  }
+
+  .glow-border-monochrome {
     position: relative;
-    z-index: 0;
   }
 
-  .glow-border::before {
+  .glow-border-monochrome::before {
     content: "";
     position: absolute;
     inset: -1px;
@@ -233,20 +236,26 @@ html {
     background: linear-gradient(
       var(--border-angle, 45deg),
       transparent,
-      oklch(0.6 0.25 20) 20%,
-      oklch(0.5 0.2 250) 40%,
+      rgba(255, 255, 255, 0.1) 20%,
+      rgba(255, 255, 255, 0.3) 40%,
       transparent 60%
     );
     border-radius: inherit;
     mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
     mask-composite: exclude;
     transition: opacity 0.5s ease;
-    opacity: 0.3;
+    opacity: 0.1;
   }
 
-  .glow-border:hover::before {
-    opacity: 1;
+  .glow-border-monochrome:hover::before {
+    opacity: 0.5;
     animation: border-rotate 4s linear infinite;
+  }
+
+  .bento-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1.5rem;
   }
 }
 

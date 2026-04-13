@@ -78,8 +78,10 @@ export const navigationSections: navSection[] = [
         href: "/docs/components/fluid-dropdown",
         description:
           "A responsive and animated dropdown component for seamless navigation.",
-        count: 10,
+        count: 8,
         icon: PanelsTopBottom, // 🖱️ Button (click) icon
+       
+
       },
       {
         id: 6,
@@ -108,7 +110,7 @@ export const navigationSections: navSection[] = [
         count: 10,
         isNew: true,
         icon: Layers,
-        previewImage: "/images/faq.png",
+      
       },
       {
         id: 4,

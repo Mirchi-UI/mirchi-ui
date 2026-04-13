@@ -15,11 +15,14 @@ export default async function Page(props: {
     if (!page) notFound();
 
     const MDX = page.data.body;
+    const rawTitle = page.data.title;
+    const hideHeader = rawTitle.includes("{hide}");
+    const displayTitle = rawTitle.replace("{hide}", "").trim();
 
     return (
         <DocsPage toc={page.data.toc} >
-            <DocsTitle>{page.data.title}</DocsTitle>
-            <DocsDescription>{page.data.description}</DocsDescription>
+            {!hideHeader && <DocsTitle>{displayTitle}</DocsTitle>}
+            {!hideHeader && <DocsDescription>{page.data.description}</DocsDescription>}
             <DocsBody>
                 <MDX
                     components={{
@@ -44,8 +47,10 @@ export async function generateMetadata(props: {
     const page = source.getPage(params.slug);
     if (!page) notFound();
 
+    const displayTitle = page.data.title.replace("{hide}", "").trim();
+
     return {
-        title: page.data.title,
+        title: displayTitle,
         description: page.data.description,
     };
 }

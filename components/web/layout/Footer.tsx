@@ -67,7 +67,6 @@ export default function Footer() {
                       href={link.href}
                       className="text-sm text-muted-foreground hover:text-orange-500 transition-colors flex items-center gap-2 group"
                     >
-                      {link.icon && <link.icon size={14} className="group-hover:scale-110 transition-transform" />}
                       {link.label}
                     </Link>
                   </li>
