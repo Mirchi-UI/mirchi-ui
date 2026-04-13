@@ -1,5 +1,5 @@
 import Footer from "@/components/web/layout/Footer";
-import Navber from "@/components/web/layout/Navber";
+import Navbar from "@/components/web/layout/Navbar";
 import { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 
@@ -30,7 +30,7 @@ export default function HomeLayout({
     <div className={`flex flex-col min-h-screen  ${geistSans.variable
         
     } `}>
-      <Navber />
+      <Navbar />
 
       {/* Main content grows to fill space */}
       <main className="grow relative w-full pt-0 md:pt-0">{children}</main>

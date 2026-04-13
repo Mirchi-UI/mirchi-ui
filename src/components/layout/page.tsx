@@ -62,11 +62,14 @@ export function DocsDescription(props: ComponentProps<'p'>) {
   );
 }
 
-export function DocsTitle(props: ComponentProps<'h1'>) {
+export function DocsTitle({ icon, ...props }: ComponentProps<'h1'> & { icon?: ReactNode }) {
   return (
-    <h1 {...props} className={cn('text-3xl font-semibold', props.className)}>
-      {props.children}
-    </h1>
+    <div className="flex items-center gap-3 mb-4">
+      {icon && <div className="p-2 rounded-lg bg-white/5 border border-white/10 text-muted-foreground">{icon}</div>}
+      <h1 {...props} className={cn('text-3xl font-semibold', props.className)}>
+        {props.children}
+      </h1>
+    </div>
   );
 }
 
