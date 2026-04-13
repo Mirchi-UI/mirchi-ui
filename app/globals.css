@@ -182,13 +182,99 @@
 }
 
 
-/* Add to your CSS file */
-.nav-section-title {
-  font-weight: bold;
-  font-size: 1.2rem;
-  margin: 1em 0 0.5em 0;
+html {
+  scroll-behavior: smooth;
 }
 
-html{
-  scroll-behavior: smooth;
+@layer utilities {
+  .type-heat {
+    @apply font-black tracking-tighter;
+    font-weight: 900;
+    line-height: 0.85;
+  }
+
+  .bg-spicy {
+    background: linear-gradient(
+      to right,
+      oklch(0.6 0.25 20),
+      oklch(0.6 0.25 30),
+      oklch(0.5 0.2 250)
+    );
+  }
+
+  .text-border {
+    -webkit-text-stroke: 1px rgba(255, 255, 255, 0.1);
+  }
+
+  .bg-noise {
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3Ref%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+    background-repeat: repeat;
+    opacity: 0.03;
+  }
+
+  .mask-radial-faded {
+    mask-image: radial-gradient(circle, black 0%, transparent 100%);
+  }
+
+  .glass {
+    @apply bg-background/40 backdrop-blur-2xl border border-foreground/10;
+  }
+
+  .glow-border {
+    position: relative;
+    z-index: 0;
+  }
+
+  .glow-border::before {
+    content: "";
+    position: absolute;
+    inset: -1px;
+    z-index: -1;
+    background: linear-gradient(
+      var(--border-angle, 45deg),
+      transparent,
+      oklch(0.6 0.25 20) 20%,
+      oklch(0.5 0.2 250) 40%,
+      transparent 60%
+    );
+    border-radius: inherit;
+    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    mask-composite: exclude;
+    transition: opacity 0.5s ease;
+    opacity: 0.3;
+  }
+
+  .glow-border:hover::before {
+    opacity: 1;
+    animation: border-rotate 4s linear infinite;
+  }
+}
+
+
+@keyframes border-rotate {
+  from {
+    --border-angle: 0deg;
+  }
+  to {
+    --border-angle: 360deg;
+  }
+}
+
+@property --border-angle {
+  syntax: "<angle>";
+  initial-value: 0deg;
+  inherits: false;
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
 }

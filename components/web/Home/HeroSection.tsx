@@ -1,83 +1,107 @@
+"use client";
+
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Code2 } from "lucide-react";
+import { ArrowRight, Sparkles, Command } from "lucide-react";
 import Link from "next/link";
+import { motion } from "motion/react";
+import { NoiseBackground } from "./NoiseBackground";
 
 export function HeroSection() {
   return (
-    <section className="relative min-h-screen w-full overflow-hidden bg-background mt-10">
-      <div className="absolute inset-0 bg-[linear-gradient(to_right,oklch(0.9_0_0)_1px,transparent_1px),linear-gradient(to_bottom,oklch(0.9_0_0)_1px,transparent_1px)] bg-size-[40px_40px] pointer-events-none opacity-18 dark:opacity-10" />
-      {/* Floating shapes / subtle glow */}
-      <div className="absolute inset-0">
-        
-        <div className="absolute w-72 h-72 bg-purple-600/20 rounded-full top-1/4 left-1/3 blur-3xl animate-blob" />
-        <div className="absolute w-96 h-96 bg-pink-500/20 rounded-full top-1/2 left-2/3 blur-2xl animate-blob animation-delay-2000" />
-      </div>
-      <div className="relative z-10 flex flex-col items-center justify-center min-h-screen px-4 sm:px-6 lg:px-8">
-        {/* Content Container */}
-        <div className="w-full max-w-4xl mx-auto">
-          {/* Badge */}
-          <div className="animate-fade-in mb-8 flex justify-center">
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-secondary bg-linear-to-r from-indigo-500/20 via-purple-500/20 to-pink-500/20 backdrop-blur-md hover:scale-105 transition-transform duration-200 shadow-sm">
-              <Code2 className="w-4 h-4 text-purple-500" />
-              <span className="text-sm font-medium text-purple-600">
-                Modern Component Library
-              </span>
-            </div>
-          </div>
-          {/* Headline */}
-          <h1 className="animate-fade-in-delay-1 mb-6 text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-center font-geist space-y-6 ">
-            <span className="text-foreground  ">Build faster with</span>
-            <br />
-            <span className="font-gMono font-extrabold  ">Mirchi UI</span>
-          </h1>
-          {/* Subheadline */}
-          <p className="animate-fade-in-delay-2 mb-8 text-lg sm:text-xl text-muted-foreground max-w-2xl mx-auto text-center">
-            Reusable, accessible, and developer-friendly React components built
-            for modern web applications. Copy, paste, and customize.
-          </p>
-          {/* CTA Buttons */}
-          <div className="animate-fade-in-delay-3 flex flex-col sm:flex-row gap-4 justify-center items-center mb-16">
-            <Button
-              size="lg"
-              className="bg-primary hover:bg-primary/90 text-primary-foreground group"
-              asChild
-            >
-              <Link href="/docs" className="flex items-center gap-2">
-                Get Started
-                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-              </Link>
-            </Button>
-            <Button
-              size="lg"
-              variant="outline"
-              className="border-border hover:bg-muted/50 bg-transparent"
-              asChild
-            >
-              <Link href="/docs">View Documentation</Link>
-            </Button>
-          </div>
+    <section className="relative min-h-screen w-full overflow-hidden bg-background flex flex-col items-center justify-center pt-20">
+      <NoiseBackground />
+      
+      {/* Intense Background Streak */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] h-[300px] bg-linear-to-r from-transparent via-orange-600/10 to-transparent rotate-12 blur-[120px] pointer-events-none" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[100%] h-[1px] bg-linear-to-r from-transparent via-orange-500/20 to-transparent rotate-12 pointer-events-none" />
 
-          {/* Code Preview Container */}
-          <div className="animate-fade-in-up space-y-4 w-96 mx-auto">
-            <div className="relative rounded-2xl border border-border bg-card/50 backdrop-blur-xl overflow-hidden shadow-xl">
-              {/* Header Bar */}
-              <div
-                className="flex items-center gap-2 px-4 py-3 border-b border-border 
-               bg-muted/30"
-              >
-                <div className="flex gap-1.5">
-                  <div className="w-2 h-2 rounded-full bg-red-500/60" />
-                  <div className="w-2 h-2 rounded-full bg-yellow-500/60" />
-                  <div className="w-2 h-2 rounded-full bg-green-500/60" />
-                </div>
-                <span className="text-xs text-muted-foreground ml-auto font-mono">
-                  components/card.tsx
-                </span>
-              </div>
-            </div>
+      <div className="relative z-10 container mx-auto px-4 flex flex-col items-center">
+        
+        {/* Modern Badge */}
+        <motion.div
+           initial={{ opacity: 0, y: 10 }}
+           animate={{ opacity: 1, y: 0 }}
+           className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-orange-500/20 bg-orange-500/5 backdrop-blur-md mb-8 "
+        >
+          <Sparkles className="w-3.5 h-3.5 text-orange-500 animate-pulse" />
+          <span className="text-[10px] font-black uppercase tracking-[0.2em] text-orange-500">
+            Fast-Track Your UI
+          </span>
+        </motion.div>
+
+       <div className="relative text-center select-none overflow-hidden py-20 border border">
+  {/* Ghost layer — larger font-size creates the depth, no scale needed */}
+  <div
+    className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 
+                font-black uppercase leading-[0.82] tracking-[-0.06em] 
+                text-foreground opacity-[0.055] pointer-events-none whitespace-nowrap"
+    style={{ fontSize: "clamp(104px, 17.4vw, 232px)" }}
+  >
+    <div>Build faster</div>
+    <div>With Heat</div>
+  </div>
+
+  {/* Live text */}
+  <div
+    className="relative z-10 font-black uppercase leading-[0.82] tracking-[-0.06em] text-foreground"
+    style={{ fontSize: "clamp(72px, 12vw, 160px)" }}
+  >
+    <div className=" ">Build faster</div>
+    <div className="leading-[0.95]">
+      With <em className="text-orange-600  leading-[0.9] tracking-tighter text-orange-500 italic ">Heat</em>
+    </div>
+  </div>
+</div>
+
+        {/* Action Row */}
+        <motion.div
+          initial={{ opacity: 0, scale: 0.9 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ delay: 0.2 }}
+          className="flex flex-col md:flex-row items-center gap-6"
+        >
+          {/* <div className="flex flex-col items-start md:items-end text-center md:text-right max-w-[200px] mt-4 ">
+             <p className="text-xs font-bold text-muted-foreground leading-tight">
+               <span className="text-foreground">Mirchi UI</span> is the hottest way to build production-ready React apps.
+             </p>
+          </div> */}
+          
+          {/* <div className="h-12 w-px bg-foreground/10 hidden md:block" /> */}
+
+          <div className="flex gap-3">
+            <Button size="lg" className="h-14 px-8 rounded-2xl bg-foreground text-background hover:bg-foreground/90 font-bold group">
+               <Link href="/docs" className="flex items-center gap-2">
+                 Get Started
+                 <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+               </Link>
+            </Button>
+            <Button size="lg" variant="outline" className="h-14 px-8 rounded-2xl border-foreground/10 hover:bg-foreground/5 font-bold">
+               <Link href="/docs/components">Components</Link>
+            </Button>
           </div>
-        </div>
+        </motion.div>
+
+        {/* Subtle Visual Anchor */}
+        <motion.div
+           initial={{ opacity: 0 }}
+           animate={{ opacity: 0.5 }}
+           transition={{ delay: 0.8 }}
+           className="mt-24 flex items-center gap-8 opacity-50 grayscale hover:grayscale-0 transition-all"
+        >
+           <div className="flex items-center gap-2">
+              <Command size={20} />
+              <span className="text-sm font-bold tracking-tighter">Production Ready</span>
+           </div>
+           <div className="w-1 h-1 rounded-full bg-foreground/20" />
+           <div className="flex items-center gap-2">
+              <Sparkles size={20} />
+              <span className="text-sm font-bold tracking-tighter">Ultra Lightweight</span>
+           </div>
+        </motion.div>
       </div>
+
+      {/* Extreme Bottom Glow */}
+      <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-full h-[300px] bg-linear-to-t from-orange-600/5 to-transparent pointer-events-none" />
     </section>
   );
 }
