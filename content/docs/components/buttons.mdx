@@ -1,25 +1,70 @@
 ---
-title: Loading Button
-description: A button component that displays a loading spinner when an action is in progress.
-slug: /docs/components/loading-button
+title: Modern Buttons
+description: A collection of modern animated buttons with unique interaction patterns.
+slug: /docs/components/buttons
 icon: Command
 full: true
 ---
 
-import { LoadingButton } from "@/components/modules/buttons/LoadingButton.tsx";
+import { EdgeRevealButton } from "@/components/modules/buttons/EdgeRevealButton.tsx";
+import { SlideRevealButton } from "@/components/modules/buttons/SlideButton.tsx";
+import { GlowingStarButton } from "@/components/modules/buttons/GlowingStarButton.tsx";
+import AuroraStarButton from "@/components/modules/buttons/AuroraButton.tsx";
 
-<Preview 
-  link="buttons/LoadingButton.tsx"
-  comment={["tailwindcss", "button", "loading", "spinner"]}
+
+## Edge Reveal
+
+<Preview
+  link="buttons/EdgeRevealButton.tsx"
+  comment={["animated", "hover", "outline", "interaction"]}
 >
-  <LoadingButton/>
+  <EdgeRevealButton />
 </Preview>
 
-## Usage
+**Overview**  
+Minimal outline button with edge-based hover reveal animation.  
+Works best for secondary actions in dashboards and forms.
 
-This component demonstrates a button in a loading state. It uses the standard `Button` component with a `Loader2` icon from `lucide-react`.
- 
-## Dependencies
+---
 
-- `lucide-react` for icons
-- `components/ui/button`  
+## Glow Button (SaaS Style)
+
+<Preview
+  link="buttons/GlowingStarButton.tsx"
+  comment={["gradient", "glow", "cta", "github"]}
+>
+  <GlowingStarButton
+    name="Mirchi UI"
+    text="Support Mirchi UI on GitHub"
+  />
+</Preview>
+
+**Overview**  
+A soft-glow CTA button designed for SaaS landing pages and GitHub actions.
+
+**Props**
+- `name` → project or brand name
+- `text` → custom label override
+
+---
+
+## Aurora Star
+
+<Preview
+  link="buttons/AuroraButton.tsx"
+  comment={["rainbow", "animated", "premium", "cta"]}
+>
+  <AuroraStarButton
+    name="Mirchi UI"
+    text="Support Mirchi UI on GitHub"
+  />
+</Preview>
+
+**Overview**  
+Premium rainbow-border button with animated gradient energy and star icon interaction.
+
+**Props**
+- `name` → project or brand name
+- `text` → custom label override
+
+---
