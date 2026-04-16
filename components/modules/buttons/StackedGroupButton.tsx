@@ -1,7 +1,7 @@
 import { Button } from '@/components/ui/button';
 import React from 'react';
 
-const StackedGroupButton = () => {
+export const  StackedGroupButton = () => {
     return (
    
        
@@ -15,4 +15,4 @@ const StackedGroupButton = () => {
     );
 };
 
-export default StackedGroupButton;
+ 
