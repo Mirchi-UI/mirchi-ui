@@ -4,48 +4,63 @@ import Link from "next/link";
 import { Github, Linkedin, Blocks,   Moon, Sun} from "lucide-react";
 import { useTheme } from "next-themes";
 import { cn } from "@/lib/utils";
+import { useEffect, useState } from "react";
 
 export function CustomNav() {
 
   const { theme, setTheme } = useTheme();
-  
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   return (
-    <div className="flex items-center justify-end gap-2">
+    <div className="flex items-center justify-end gap-1 md:gap-2">
       {/* GitHub */}
       <Link
         href="https://github.com/Mirchi-UI/mirchi-ui"
         target="_blank"
-        className="group inline-flex items-center gap-2 px-2 py-1.5 rounded-lg bg-zinc-900 dark:bg-zinc-100 transition-colors hover:bg-zinc-800 dark:hover:bg-zinc-200"
+        className="group inline-flex items-center justify-center w-9 h-9 rounded-full text-muted-foreground transition-colors hover:bg-black/5 dark:hover:bg-white/10 hover:text-foreground"
       >
-        <Github className="w-4 h-4 text-white dark:text-zinc-900 group-hover:scale-110 transition-transform" />
+        <Github className="w-4 h-4" />
       </Link>
 
       {/* LinkedIn */}
       <Link
         href="https://www.linkedin.com/in/mehedi-shanto/"
         target="_blank"
-        className="group inline-flex items-center gap-2 px-2 py-1.5 rounded-lg bg-zinc-900 dark:bg-zinc-100 transition-colors hover:bg-zinc-800 dark:hover:bg-zinc-200"
+        className="group inline-flex items-center justify-center w-9 h-9 rounded-full text-muted-foreground transition-colors hover:bg-black/5 dark:hover:bg-white/10 hover:text-foreground"
       >
-        <Linkedin className="w-4 h-4 text-white dark:text-zinc-900 group-hover:scale-110 transition-transform" />
+        <Linkedin className="w-4 h-4" />
       </Link>
+
+      <div className="w-px h-4 bg-border mx-1 hidden sm:block" />
 
       {/* Blocks (for Mirchi UI / CodeSnippet Blocks) */}
       <Link
         href="/blocks"
-        className="group inline-flex items-center gap-2 px-2 py-1.5 rounded-lg bg-linear-to-r from-fuchsia-600 to-purple-600 hover:from-fuchsia-500 hover:to-purple-500 text-white transition-all shadow-sm"
+        className="group hidden sm:inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-black/5 dark:bg-white/5 border border-black/5 dark:border-white/10 text-sm font-medium transition-colors hover:bg-black/10 dark:hover:bg-white/10"
       >
-        <Blocks className="w-4 h-4 group-hover:scale-110 transition-transform" />
+        <Blocks className="w-4 h-4 text-fuchsia-500" />
+        <span>Blocks</span>
       </Link>
 
-      {/* Actions */}
-      <div className="flex items-center gap-3">
-        {/* theme toggle */}
+      <div className="w-px h-4 bg-border mx-1 hidden sm:block" />
+
+      {/* theme toggle */}
+      <div className="flex items-center gap-2">
         <button
           onClick={() => setTheme(theme === "light" ? "dark" : "light")}
-          className="px-3 py-1 rounded-full text-sm border theme-border"
+          className="group inline-flex items-center justify-center w-9 h-9 rounded-full text-muted-foreground transition-colors hover:bg-black/5 dark:hover:bg-white/10 hover:text-foreground"
         >
-          {theme === "light" ? <Moon size={16} /> : <Sun size={16} />}
+          {!mounted ? (
+            <div className="w-4 h-4" />
+          ) : theme === "light" ? (
+            <Moon className="w-4 h-4" />
+          ) : (
+            <Sun className="w-4 h-4" />
+          )}
         </button>
       </div>
     </div>

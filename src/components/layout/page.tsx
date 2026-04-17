@@ -1,15 +1,15 @@
-'use client';
+"use client";
 
-import { type ComponentProps, type ReactNode, useMemo } from 'react';
+import { type ComponentProps, type ReactNode, useMemo } from "react";
 import {
   AnchorProvider,
   type TOCItemType,
   useActiveAnchors,
-} from 'fumadocs-core/toc';
-import { cn } from '../../lib/cn';
-import { useTreeContext } from 'fumadocs-ui/contexts/tree';
-import { Link, usePathname } from 'fumadocs-core/framework';
-import type * as PageTree from 'fumadocs-core/page-tree';
+} from "fumadocs-core/toc";
+import { cn } from "../../lib/cn";
+import { useTreeContext } from "fumadocs-ui/contexts/tree";
+import { Link, usePathname } from "fumadocs-core/framework";
+import type * as PageTree from "fumadocs-core/page-tree";
 
 export interface DocsPageProps {
   toc?: TOCItemType[];
@@ -20,8 +20,8 @@ export interface DocsPageProps {
 export function DocsPage({ toc = [], ...props }: DocsPageProps) {
   return (
     <AnchorProvider toc={toc}>
-      <main className="flex w-full min-w-0 flex-col">
-        <article className="flex flex-1 flex-col w-full max-w-[900px] gap-6 px-4 py-8 md:px-6 md:mx-auto">
+      <main className="flex w-full min-w-0 flex-col md:pr-6">
+        <article className="flex flex-1 flex-col w-full max-w-[900px] gap-6 px-6 py-8 md:p-10 md:mx-auto md:my-6 bg-black/[0.02] dark:bg-white/[0.02] border border-black/25 dark:border-white/25 rounded-3xl">
           {props.children}
           <Footer />
         </article>
@@ -40,33 +40,49 @@ export function DocsPage({ toc = [], ...props }: DocsPageProps) {
   );
 }
 
-export function DocsBody(props: ComponentProps<'div'>) {
+export function DocsBody(props: ComponentProps<"div">) {
   return (
-    <div {...props} className={cn('prose', props.className)}>
+    <div {...props} className={cn("prose", props.className)}>
       {props.children}
     </div>
   );
 }
 
-export function DocsDescription(props: ComponentProps<'p'>) {
+export function DocsDescription(props: ComponentProps<"p">) {
   // don't render if no description provided
   if (props.children === undefined) return null;
 
   return (
     <p
       {...props}
-      className={cn('mb-8 text-lg text-fd-muted-foreground', props.className)}
+      className={cn(
+        "mb-8 text-xl font-medium text-muted-foreground/80 leading-relaxed",
+        props.className,
+      )}
     >
       {props.children}
     </p>
   );
 }
 
-export function DocsTitle({ icon, ...props }: ComponentProps<'h1'> & { icon?: ReactNode }) {
+export function DocsTitle({
+  icon,
+  ...props
+}: ComponentProps<"h1"> & { icon?: ReactNode }) {
   return (
-    <div className="flex items-center gap-3 mb-4">
-      {icon && <div className="p-2 rounded-lg bg-white/5 border border-white/10 text-muted-foreground">{icon}</div>}
-      <h1 {...props} className={cn('text-3xl font-semibold', props.className)}>
+    <div className="flex items-center gap-3">
+      {icon && (
+        <div className="p-2 rounded-lg bg-white/5 border border-white/10 text-muted-foreground">
+          {icon}
+        </div>
+      )}
+      <h1
+        {...props}
+        className={cn(
+          "text-3xl font-outfit font-bold tracking-tight text-foreground",
+          props.className,
+        )}
+      >
         {props.children}
       </h1>
     </div>
@@ -80,8 +96,8 @@ function TocItem({ item }: { item: TOCItemType }) {
     <a
       href={item.url}
       className={cn(
-        'text-sm text-fd-foreground/80 py-1',
-        isActive && 'text-fd-primary',
+        "text-sm text-fd-foreground/80 py-1",
+        isActive && "text-fd-primary font-semibold font-outfit transition-all duration-200",
       )}
       style={{
         paddingLeft: Math.max(0, item.depth - 2) * 16,
@@ -100,8 +116,8 @@ function Footer() {
 
     function scan(items: PageTree.Node[]) {
       for (const item of items) {
-        if (item.type === 'page') result.push(item);
-        else if (item.type === 'folder') {
+        if (item.type === "page") result.push(item);
+        else if (item.type === "folder") {
           if (item.index) result.push(item.index);
           scan(item.children);
         }
