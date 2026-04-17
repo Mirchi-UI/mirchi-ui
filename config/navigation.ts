@@ -80,17 +80,6 @@ export const navigationSections: navSection[] = [
           "A responsive and animated dropdown component for seamless navigation.",
         count: 8,
         icon: PanelsTopBottom, // 🖱️ Button (click) icon
-       
-
-      },
-      {
-        id: 6,
-        title: "Sophisticated Slider",
-        href: "/docs/components/sophisticated-slider",
-        description:
-          "A minimalist hero slider with smooth transitions, parallax depth, and refined typography. Designed for clean, modern interfaces.",
-        count: 10,
-        icon: SlidersHorizontal,  
       },
       {
         id: 2,
@@ -101,6 +90,15 @@ export const navigationSections: navSection[] = [
         count: 10,
         icon: SquareMousePointer, // 🖱️ Button (click) icon
       },
+      {
+        id: 6,
+        title: "Sophisticated Slider",
+        href: "/docs/components/sophisticated-slider",
+        description:
+          "A minimalist hero slider with smooth transitions, parallax depth, and refined typography. Designed for clean, modern interfaces.",
+        count: 10,
+        icon: SlidersHorizontal,
+      },
 
       {
         id: 3,
@@ -110,7 +108,6 @@ export const navigationSections: navSection[] = [
         count: 10,
         isNew: true,
         icon: Layers,
-      
       },
       {
         id: 4,
