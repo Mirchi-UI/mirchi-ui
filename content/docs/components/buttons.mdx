@@ -10,13 +10,25 @@ import { EdgeRevealButton } from "@/components/modules/buttons/EdgeRevealButton.
 import { SlideRevealButton } from "@/components/modules/buttons/SlideButton.tsx";
 import { GlowingStarButton } from "@/components/modules/buttons/GlowingStarButton.tsx";
 import AuroraStarButton from "@/components/modules/buttons/AuroraButton.tsx";
-
+import PremiumGlitch from "@/components/modules/buttons/PremiumGlitch.tsx";
+import SweepRevealButton from "@/components/modules/buttons/SweepRevealButton.tsx";
+import UnderlineFillButton from "@/components/modules/buttons/UnderlineFillButton.tsx";
+import RevealTooltipButton from "@/components/modules/buttons/RevealTooltipButton.tsx";
+import LaserSweepButton from "@/components/modules/buttons/LaserSweepButton.tsx";
 
 ## Collection
 
 <ComponentGrid cols={2}>
   <CompactPreview link="buttons/EdgeRevealButton.tsx">
     <EdgeRevealButton />
+  </CompactPreview>
+  
+  <CompactPreview link="buttons/PremiumGlitch.tsx">
+    <PremiumGlitch />
+  </CompactPreview>
+
+  <CompactPreview link="buttons/SweepRevealButton.tsx">
+    <SweepRevealButton />
   </CompactPreview>
   
   <CompactPreview link="buttons/SlideButton.tsx">
@@ -36,6 +48,21 @@ import AuroraStarButton from "@/components/modules/buttons/AuroraButton.tsx";
       text="Support GitHub"
     />
   </CompactPreview>
+  
+  <CompactPreview link="buttons/UnderlineFillButton.tsx">
+    <UnderlineFillButton
+  
+    />
+  </CompactPreview>
+  
+  <CompactPreview link="buttons/RevealTooltipButton.tsx">
+    <RevealTooltipButton
+  
+    />
+  </CompactPreview>
+  <CompactPreview link="buttons/LaserSweepButton.tsx">
+    <LaserSweepButton />
+  </CompactPreview>
 </ComponentGrid>
 
 ---
@@ -51,6 +78,34 @@ import AuroraStarButton from "@/components/modules/buttons/AuroraButton.tsx";
 
 **Overview**  
 Minimal outline button with edge-based hover reveal animation.  
+Works best for secondary actions in dashboards and forms.
+
+---
+## Premium Glitch
+
+<Preview
+  link="buttons/PremiumGlitch.tsx"
+  comment={["animated", "hover", "outline", "interaction"]}
+>
+  <PremiumGlitch />
+</Preview>
+
+**Overview**  
+ Premium button with glitch effect and aurora border.
+
+---
+
+## Sweep Reveal
+
+<Preview
+  link="buttons/SweepRevealButton.tsx"
+  comment={["animated", "hover", "outline", "interaction"]}
+>
+  <SweepRevealButton />
+</Preview>
+
+**Overview**  
+ Minimal outline button with edge-based hover reveal animation.  
 Works best for secondary actions in dashboards and forms.
 
 ---
@@ -94,5 +149,49 @@ Premium rainbow-border button with animated gradient energy and star icon intera
 **Props**
 - `name` → project or brand name
 - `text` → custom label override
+
+---
+
+## Underline Fill
+
+<Preview
+  link="buttons/UnderlineFillButton.tsx"
+  comment={["animated", "hover", "outline", "interaction"]}
+>
+  <UnderlineFillButton />
+</Preview>
+
+**Overview**  
+ Minimal outline button with edge-based hover reveal animation.  
+Works best for secondary actions in dashboards and forms.
+
+---
+
+## Reveal Tooltip
+
+<Preview
+  link="buttons/RevealTooltipButton.tsx"
+  comment={["animated", "hover", "outline", "interaction"]}
+>
+  <RevealTooltipButton />
+</Preview>
+
+**Overview**  
+ Minimal outline button with edge-based hover reveal animation.  
+Works best for secondary actions in dashboards and forms.
+
+---
+## Laser Sweep
+
+<Preview
+  link="buttons/LaserSweepButton.tsx"
+  comment={["animated", "hover", "outline", "interaction"]}
+>
+  <LaserSweepButton />
+</Preview>
+
+**Overview**  
+ 
+
 
 ---
