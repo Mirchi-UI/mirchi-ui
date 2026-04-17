@@ -154,6 +154,8 @@
   --font-serif: var(--font-serif);
   --font-geist: var(--font-geist-sans);
   --font-gMono: var(--font-geist-mono);
+  --font-outfit: var(--font-outfit);
+  --font-poppins: var(--font-poppins);
 
 
 
@@ -256,6 +258,14 @@ html {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
     gap: 1.5rem;
+  }
+
+  .scrollbar-none {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+  .scrollbar-none::-webkit-scrollbar {
+    display: none;
   }
 }
 
