@@ -1,10 +1,12 @@
 "use client";
 
+import { useState } from "react";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { Eye, Code } from "lucide-react";
+import { Eye, Code, RefreshCw, Maximize2, X, Monitor, Tablet, Smartphone, Copy, Check } from "lucide-react";
 import { CodePreview } from "./code-preview";
 import { cn } from "@/lib/utils";
 import PreviewContent from "./preview-content";
+import { Button } from "@/components/ui/button";
 
 interface PreviewTabsProps {
   link: string;
@@ -29,25 +31,170 @@ export function PreviewTabs({
   isBlock = false,
   className = "",
 }: PreviewTabsProps) {
+  const [key, setKey] = useState(0);
+  const [isFullscreen, setIsFullscreen] = useState(false);
+  const [viewport, setViewport] = useState<"desktop" | "tablet" | "mobile">("desktop");
+  const [copied, setCopied] = useState(false);
+
+  const handleRefresh = () => {
+    setKey((prev) => prev + 1);
+  };
+
+  const toggleFullscreen = () => {
+    setIsFullscreen(!isFullscreen);
+  };
+
+  const handleCopy = async () => {
+    if (!code) return;
+    try {
+      await navigator.clipboard.writeText(code);
+      setCopied(true);
+      setTimeout(() => setCopied(false), 2000);
+    } catch (err) {
+      console.error("Failed to copy code:", err);
+    }
+  };
+
+  const viewportWidths = {
+    desktop: "100%",
+    tablet: "768px",
+    mobile: "390px",
+  };
+
+  const previewContent = (
+    <div className="flex flex-col items-center w-full">
+      <div
+        key={key}
+        style={{ width: viewportWidths[viewport] }}
+        className={cn(
+          "p-2 md:p-8 flex justify-center items-center relative border rounded-2xl my-4 border-zinc-200 dark:border-zinc-800 not-prose overflow-hidden transition-all duration-300 ease-in-out",
+          "bg-white dark:bg-zinc-950 shadow-sm",
+          compact ? "min-h-[100px]" : "min-h-[400px]",
+          isBlock ? "md:p-0" : "",
+          isFullscreen ? "w-full h-full border-none rounded-none m-0" : "",
+          viewport !== "desktop" ? "border-zinc-300 dark:border-zinc-700 shadow-xl" : ""
+        )}
+      >
+        {/* Grid Background Pattern */}
+        <div className="absolute inset-0 pointer-events-none opacity-[0.03] dark:opacity-[0.05] [mask-image:radial-gradient(ellipse_at_center,white,transparent)]">
+          <div className="absolute inset-0 [background-image:linear-gradient(to_right,#808080_1px,transparent_1px),linear-gradient(to_bottom,#808080_1px,transparent_1px)] [background-size:24px_24px]"></div>
+        </div>
+
+        <div className="relative z-10 w-full flex justify-center items-center">
+          {children}
+        </div>
+
+        {/* Fullscreen Toggle (Keep in overlay for easy access during inspection) */}
+        <div className="absolute top-4 right-4 z-20">
+          <Button
+            variant="ghost"
+            size="icon"
+            onClick={toggleFullscreen}
+            className="h-8 w-8 rounded-lg bg-zinc-100/50 backdrop-blur-sm dark:bg-zinc-800/50 hover:bg-zinc-200 dark:hover:bg-zinc-700 transition-colors"
+            title="Toggle Fullscreen"
+          >
+            <Maximize2 className="h-4 w-4 text-zinc-600 dark:text-zinc-400" />
+          </Button>
+        </div>
+      </div>
+    </div>
+  );
+
   return (
     <div className={cn("w-full overflow-hidden", className)}>
       <Tabs defaultValue="preview" className="w-full">
-        <TabsList className="mb-4">
-          <TabsTrigger value="preview" className="flex items-center gap-2">
-            <Eye className="w-4 h-4" />
-            Preview
-          </TabsTrigger>
-          <TabsTrigger value="code" className="flex items-center gap-2">
-            <Code className="w-4 h-4" />
-            Code
-          </TabsTrigger>
-        </TabsList>
+        <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 mb-4">
+          {/* Left: Preview/Code Switch */}
+          <TabsList className="bg-zinc-100 dark:bg-zinc-900/50 p-1 rounded-full h-10 border border-zinc-200 dark:border-zinc-800 shrink-0">
+            <TabsTrigger
+              value="preview"
+              className="rounded-full px-4 py-1.5 data-[state=active]:bg-white dark:data-[state=active]:bg-zinc-800 data-[state=active]:shadow-sm transition-all flex items-center gap-2"
+            >
+              <Eye className="w-4 h-4" />
+              Preview
+            </TabsTrigger>
+            <TabsTrigger
+              value="code"
+              className="rounded-full px-4 py-1.5 data-[state=active]:bg-white dark:data-[state=active]:bg-zinc-800 data-[state=active]:shadow-sm transition-all flex items-center gap-2"
+            >
+              <Code className="w-4 h-4" />
+              Code
+            </TabsTrigger>
+          </TabsList>
+
+          {/* Right: Viewport Controls & Actions */}
+          <div className="flex items-center gap-3 w-full sm:w-auto justify-end">
+            {/* Viewport Switcher */}
+            <div className="hidden md:flex items-center bg-zinc-100 dark:bg-zinc-900/50 p-1 rounded-full border border-zinc-200 dark:border-zinc-800">
+              <Button
+                variant="ghost"
+                size="icon"
+                onClick={() => setViewport("desktop")}
+                className={cn(
+                  "h-8 w-8 rounded-full transition-all",
+                  viewport === "desktop" ? "bg-white dark:bg-zinc-800 shadow-sm text-zinc-900 dark:text-zinc-100" : "text-zinc-500"
+                )}
+                title="Desktop View"
+              >
+                <Monitor className="h-4 w-4" />
+              </Button>
+              <Button
+                variant="ghost"
+                size="icon"
+                onClick={() => setViewport("tablet")}
+                className={cn(
+                  "h-8 w-8 rounded-full transition-all",
+                  viewport === "tablet" ? "bg-white dark:bg-zinc-800 shadow-sm text-zinc-900 dark:text-zinc-100" : "text-zinc-500"
+                )}
+                title="Tablet View"
+              >
+                <Tablet className="h-4 w-4" />
+              </Button>
+              <Button
+                variant="ghost"
+                size="icon"
+                onClick={() => setViewport("mobile")}
+                className={cn(
+                  "h-8 w-8 rounded-full transition-all",
+                  viewport === "mobile" ? "bg-white dark:bg-zinc-800 shadow-sm text-zinc-900 dark:text-zinc-100" : "text-zinc-500"
+                )}
+                title="Mobile View"
+              >
+                <Smartphone className="h-4 w-4" />
+              </Button>
+            </div>
+
+            <div className="flex items-center gap-2">
+              <Button
+                variant="ghost"
+                size="icon"
+                onClick={handleCopy}
+                className="h-10 w-10 rounded-full bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 hover:bg-zinc-200 dark:hover:bg-zinc-800 transition-colors"
+                title="Copy Code"
+              >
+                {copied ? (
+                  <Check className="h-4 w-4 text-green-600 dark:text-green-400" />
+                ) : (
+                  <Copy className="h-4 w-4 text-zinc-600 dark:text-zinc-400" />
+                )}
+              </Button>
+              
+              <Button
+                variant="ghost"
+                size="icon"
+                onClick={handleRefresh}
+                className="h-10 w-10 rounded-full bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 hover:bg-zinc-200 dark:hover:bg-zinc-800 transition-colors"
+                title="Refresh Preview"
+              >
+                <RefreshCw className="h-4 w-4 text-zinc-600 dark:text-zinc-400" />
+              </Button>
+            </div>
+          </div>
+        </div>
 
         <TabsContent value="preview" className="mt-0">
-          <PreviewContent link={link} prePath={prePath} isBlock={isBlock} />
-
           {useIframe ? (
-            <div className="w-full my-4 border rounded-2xl border-zinc-400 dark:border-zinc-700">
+            <div className="w-full my-4 border rounded-2xl border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-950 overflow-hidden">
               <div className="relative w-full h-dvh overflow-hidden">
                 <iframe
                   title={link}
@@ -61,15 +208,7 @@ export function PreviewTabs({
               </div>
             </div>
           ) : (
-            <div
-              className={cn(
-                "p-2 md:p-8 flex justify-center items-center relative border rounded-2xl my-4 border-zinc-400 dark:border-zinc-800 not-prose",
-                compact ? "min-h-[100px]" : "min-h-[400px]",
-                isBlock ? "md:p-0" : ""
-              )}
-            >
-              {children}
-            </div>
+            previewContent
           )}
 
           {comment.length > 0 && (
@@ -77,7 +216,7 @@ export function PreviewTabs({
               {comment.map((text, index) => (
                 <div
                   key={index}
-                  className="px-4 py-2 text-sm font-medium bg-purple-100 dark:bg-purple-950/30 rounded-lg text-purple-700 dark:text-purple-300 border border-purple-200 dark:border-purple-800/50 shadow-xs hover:bg-purple-200/70 dark:hover:bg-purple-950/50 transition-colors"
+                  className="px-4 py-2 text-sm font-medium bg-zinc-100 dark:bg-zinc-900 rounded-lg text-zinc-600 dark:text-zinc-400 border border-zinc-200 dark:border-zinc-800 shadow-sm transition-colors"
                 >
                   {text}
                 </div>
@@ -90,6 +229,34 @@ export function PreviewTabs({
           <CodePreview code={code} filePath={`${link}.tsx`} />
         </TabsContent>
       </Tabs>
+
+      {/* Fullscreen Overlay */}
+      {isFullscreen && (
+        <div className="fixed inset-0 z-[9999] bg-white dark:bg-zinc-950 flex flex-col p-4 md:p-8">
+          <div className="flex justify-between items-center mb-6">
+            <h2 className="text-xl font-bold text-zinc-900 dark:text-zinc-100">
+              {link.split("/").pop()?.replace(".tsx", "")}
+            </h2>
+            <Button
+              variant="ghost"
+              size="icon"
+              onClick={toggleFullscreen}
+              className="h-10 w-10 rounded-full bg-zinc-100 dark:bg-zinc-900 hover:bg-zinc-200 dark:hover:bg-zinc-800"
+            >
+              <X className="h-5 w-5" />
+            </Button>
+          </div>
+          <div className="flex-1 flex justify-center items-center border border-zinc-200 dark:border-zinc-800 rounded-3xl relative overflow-hidden bg-white dark:bg-zinc-950">
+             {/* Grid Background Pattern for Fullscreen */}
+            <div className="absolute inset-0 pointer-events-none opacity-[0.03] dark:opacity-[0.05] [mask-image:radial-gradient(ellipse_at_center,white,transparent)]">
+              <div className="absolute inset-0 [background-image:linear-gradient(to_right,#808080_1px,transparent_1px),linear-gradient(to_bottom,#808080_1px,transparent_1px)] [background-size:24px_24px]"></div>
+            </div>
+            <div key={`fs-${key}`} className="relative z-10 scale-150">
+              {children}
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }
