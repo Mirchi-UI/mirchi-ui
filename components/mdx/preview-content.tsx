@@ -131,8 +131,5 @@ export default function PreviewContent({
   const terminalButtonRef = useRef<HTMLButtonElement>(null);
   const copyButtonRef = useRef<HTMLButtonElement>(null);
 
-  return (
-    
-
   return null;
 }
