@@ -10,10 +10,14 @@ import ShimmerText from "@/components/modules/texts/text-01.tsx";
 import TextSliced from "@/components/modules/texts/text-02.tsx";
 import HovText from "@/components/modules/texts/text-03.tsx";
 import Text_04 from "@/components/modules/texts/text-04.tsx";
+import TypewriterText from "@/components/modules/texts/TypewriterText.tsx";
+import SplittingText from "@/components/modules/texts/SplittingText.tsx";
 
-<div className="flex flex-col gap-12">
+<div className="flex flex-col gap-12 mt-8">
 
 ## Bouncing Letters
+
+Text that playfully bounces character by character when hovered, providing a delightful and springy interaction.
  
 <Preview link="texts/text-03.tsx" comment={["motion", "stagger", "spring"]}>
    <div className="text-4xl font-bold">
@@ -22,11 +26,70 @@ import Text_04 from "@/components/modules/texts/text-04.tsx";
 </Preview>
 
 ```tsx
+import HovText from "@/components/modules/texts/text-03";
+
 export function Demo() {
   return <HovText text="Delightful Interactions" />;
 }
 ```
+
+## Blurred Split
+
+A text effect that splits letters and reveals them with a smooth blur fade-in animation as it enters the view.
+
+<Preview link="texts/SplittingText.tsx" comment={["motion", "blur", "stagger"]}>
+  <div className="text-4xl font-bold">
+    <SplittingText
+      text="Delightful Interactions"
+      variant="blur"
+      inView={true}
+      delay={100}
+    />
+  </div>
+</Preview>
+
+```tsx
+import SplittingText from "@/components/modules/texts/SplittingText";
+
+export function Demo() {
+  return (
+    <div className="text-4xl font-bold">
+      <SplittingText
+        text="Delightful Interactions"
+        variant="blur"
+        inView={true}
+        delay={100}
+      />
+    </div>
+  );
+}
+```
+
+## Typewriter Effect
+
+A classic typewriter effect that types out characters sequentially, complete with a blinking cursor.
+
+<Preview link="texts/TypewriterText.tsx" comment={["motion", "typewriter", "interval"]}>
+  <TypewriterText speed={50} showCursor={true} />
+</Preview>
+
+```tsx
+import TypewriterText from "@/components/modules/texts/TypewriterText";
+
+export function Demo() {
+  return (
+    <TypewriterText 
+      text="The game is afoot, and every clue whispers a hidden truth..." 
+      speed={50} 
+      showCursor={true} 
+    />
+  );
+}
+```
+
 ## Shimmer Text
+
+An elegant, shimmering gradient effect that sweeps across the text, perfect for loading states or highlighting premium features.
  
 <Preview link="texts/text-01.tsx" comment={["css", "animation", "gradient"]}>
    <h1 className="flex items-center justify-center text-4xl font-bold">
@@ -35,6 +98,7 @@ export function Demo() {
 </Preview>
 
 ```tsx
+import ShimmerText from "@/components/modules/texts/text-01";
 
 export function Demo() {
   return <ShimmerText text="Shimmer Effect" />;
@@ -52,11 +116,11 @@ Text that splits into two halves when hovered, creating a revealing effect.
 </Preview>
 
 ```tsx
+import TextSliced from "@/components/modules/texts/text-02";
+
 export function Demo() {
   return <TextSliced text="Hover Me" />;
 }
 ```
 
- 
-
-</div>
+</div>
