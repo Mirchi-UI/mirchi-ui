@@ -11,12 +11,23 @@ import TextSliced from "@/components/modules/texts/text-02.tsx";
 import HovText from "@/components/modules/texts/text-03.tsx";
 import Text_04 from "@/components/modules/texts/text-04.tsx";
 
-<div className="flex flex-col gap-10">
+<div className="flex flex-col gap-12">
 
+## Bouncing Letters
+ 
+<Preview link="texts/text-03.tsx" comment={["motion", "stagger", "spring"]}>
+   <div className="text-4xl font-bold">
+     <HovText text="Delightful Interactions" />
+   </div>
+</Preview>
+
+```tsx
+export function Demo() {
+  return <HovText text="Delightful Interactions" />;
+}
+```
 ## Shimmer Text
-
-A text component with a shimmering gradient effect, perfect for highlighting headers or special offers.
-
+ 
 <Preview link="texts/text-01.tsx" comment={["css", "animation", "gradient"]}>
    <h1 className="flex items-center justify-center text-4xl font-bold">
      <ShimmerText text="Shimmer Effect" />
@@ -24,7 +35,6 @@ A text component with a shimmering gradient effect, perfect for highlighting hea
 </Preview>
 
 ```tsx
-import ShimmerText from "@/components/modules/texts/text-01";
 
 export function Demo() {
   return <ShimmerText text="Shimmer Effect" />;
@@ -42,47 +52,11 @@ Text that splits into two halves when hovered, creating a revealing effect.
 </Preview>
 
 ```tsx
-import TextSliced from "@/components/modules/texts/text-02";
-
 export function Demo() {
   return <TextSliced text="Hover Me" />;
 }
 ```
 
-## Hover Text
-
-Text where each letter bounces individually on hover using a spring animation.
-
-<Preview link="texts/text-03.tsx" comment={["motion", "stagger", "spring"]}>
-   <div className="text-4xl font-bold">
-     <HovText text="Bouncing Letters" />
-   </div>
-</Preview>
-
-```tsx
-import HovText from "@/components/modules/texts/text-03";
-
-export function Demo() {
-  return <HovText text="Bouncing Letters" />;
-}
-```
-
-## Retro Shadow Text
-
-A bold text style with a multi-layered retro shadow effect that disappears on hover.
-
-<Preview link="texts/text-04.tsx" comment={["css", "shadow", "retro"]}>
-   <div className="p-10">
-     <Text_04 text="RETRO STYLE" />
-   </div>
-</Preview>
-
-```tsx
-import Text_04 from "@/components/modules/texts/text-04";
-
-export function Demo() {
-  return <Text_04 text="RETRO STYLE" />;
-}
-```
+ 
 
 </div>

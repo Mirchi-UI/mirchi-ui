@@ -13,6 +13,15 @@ import {
   Box,
   Sparkles,
   SlidersHorizontal,
+  Component,
+  MousePointerClick,
+  ChevronDownSquare,
+  ImageIcon,
+  Type,
+  LayoutTemplate,
+  HelpCircle,
+  CreditCard,
+  CircleOff,
 } from "lucide-react";
 
 export interface navItem {
@@ -35,141 +44,129 @@ export interface navSection {
   items: navItem[];
 }
 
+ 
+
 export const navigationSections: navSection[] = [
+  // ========================
+  // Getting Started
+  // ========================
   {
     title: "Getting Started",
     items: [
-      // Components Section
       {
         id: "welcome",
         title: "Welcome",
         href: "/docs/welcome",
         description:
-          "Learn about Mirchi UI, our motivation, and how to contribute to the project.",
-        icon: Rocket, // 🚀 Perfect for “Welcome”
+          "Learn about Mirchi UI, our motivation, and how to contribute.",
+        icon: Rocket,
       },
       {
-        id: "introduction",
+        id: "getting-started",
         title: "Getting Started",
         href: "/docs",
-        description:
-          "Installation and setup guide for Mirchi UI components and blocks.",
+        description: "Installation and setup guide for Mirchi UI.",
         icon: BookOpen,
       },
       {
-        id: "components",
-        title: "Components",
+        id: "core-components",
+        title: "Components Overview",
         href: "/docs/components",
-        description:
-          "Installation and setup guide for Mirchi UI components and blocks.",
-        icon: BookOpen,
+        description: "Explore all available UI components and usage.",
+        icon: Component,
       },
     ],
   },
 
-  // Components Section
-
+  // ========================
+  // Components
+  // ========================
   {
     title: "Components",
     items: [
       {
-        id: 1,
-        title: "Fluid Dropdown",
-        href: "/docs/components/fluid-dropdown",
-        description:
-          "A responsive and animated dropdown component for seamless navigation.",
-        count: 8,
-        icon: PanelsTopBottom, // 🖱️ Button (click) icon
-      },
-      {
-        id: 2,
+        id: "buttons",
         title: "Buttons",
         href: "/docs/components/buttons",
         description:
-          "A versatile button component with multiple styles and sizes.",
+          "Flexible button system with multiple variants and interactions.",
+        icon: MousePointerClick,
         count: 10,
-        icon: SquareMousePointer, // 🖱️ Button (click) icon
       },
       {
-        id: 6,
-        title: "Sophisticated Slider",
-        href: "/docs/components/sophisticated-slider",
+        id: "accordion",
+        title: "Accordion",
+        href: "/docs/components/accordion",
         description:
-          "A minimalist hero slider with smooth transitions, parallax depth, and refined typography. Designed for clean, modern interfaces.",
+          "Expandable/collapsible content sections with smooth animation.",
+        icon: ChevronDownSquare,
         count: 10,
-        icon: SlidersHorizontal,
       },
 
       {
-        id: 3,
-        title: "Backgrounds",
-        href: "/docs/components/backgrounds",
-        description: " Reuseable Modal that you need.",
-        count: 10,
+        id: "3",
+        title: "Empty",
+        href: "/docs/components/empty",
+        description: "A container for displaying empty state information.",
+        icon: CircleOff,
+        count: 5,
         isNew: true,
-        icon: Layers,
       },
+
       {
-        id: 4,
+        id: "4",
         title: "Text",
         href: "/docs/components/text",
-        description: " A collection of text components to use and customize.",
+        description: "Typography system and styled text components.",
+        icon: Type,
         count: 10,
         isNew: true,
-        icon: Text,
-      },
-      {
-        id: 5,
-        title: "3D Card",
-        href: "/docs/components/three-d-card",
-        description: "An interactive card component with 3D elements.",
-        count: 10,
-        isNew: true,
-        icon: Box,
       },
     ],
   },
 
+  // ========================
   // Blocks
+  // ========================
   {
-    title: "blocks",
+    title: "Blocks",
     items: [
       {
-        id: "hero'S",
-        title: "Hero Section",
+        id: "hero",
+        title: "Hero Sections",
         href: "/docs/blocks/heros",
-        description: " Grab your users' attention with stunning hero sections ",
-        icon: Presentation,
+        description:
+          "High-impact hero sections to capture attention instantly.",
         previewImage:
           "https://designtocodes.com/wp-content/uploads/2024/02/15Best-Hero-Section-Web-UI-Kits-Collection-2024.jpg",
-        bg: "from-orange-500 dark:to-zinc-950 to-gray-50",
+        bg: "from-orange-500 to-gray-50 dark:to-zinc-950",
+        icon: LayoutTemplate,
       },
       {
-        id: "fAQ'S",
+        id: "faq",
         title: "FAQ Sections",
         href: "/docs/blocks/faqs",
-        description: " All mrdern hero secttions ",
-        icon: MessageCircleQuestion,
+        description: "Clean and modern FAQ layouts.",
         previewImage:
           "https://designtocodes.com/wp-content/uploads/2024/02/15Best-Hero-Section-Web-UI-Kits-Collection-2024.jpg",
         bg: "from-orange-500/20 to-orange-700/20",
+        icon: HelpCircle,
         isUpdated: true,
       },
       {
         id: "pricing",
         title: "Pricing Sections",
         href: "/docs/blocks/pricing",
-        description: " All mrdern Pricing secttions ",
-        icon: FileStack,
+        description: "Modern pricing layouts for SaaS and products.",
         previewImage:
           "https://designtocodes.com/wp-content/uploads/2024/02/15Best-Hero-Section-Web-UI-Kits-Collection-2024.jpg",
         bg: "from-orange-500/20 to-orange-700/20",
+        icon: CreditCard,
         isUpdated: true,
       },
     ],
   },
 ];
-
 
 
 
