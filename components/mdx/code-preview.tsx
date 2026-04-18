@@ -86,7 +86,7 @@ export function CodePreview({
   return (
     <div
       className={cn(
-        "relative border rounded-2xl border-zinc-400 dark:border-zinc-800 overflow-hidden",
+        "relative border rounded-2xl border-zinc-200 dark:border-zinc-800 overflow-hidden",
         className
       )}
     >
