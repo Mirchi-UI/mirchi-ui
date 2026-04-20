@@ -1,18 +1,128 @@
 ---
 title: Inputs
-description: Mordern Inputs Components
-slug: /docs/components/loading-button
+description: Modern, animated, and highly interactive input fields.
+slug: /docs/components/inputs
 icon: Command
 full: true
 ---
 
-import  FileUpload  from "@/components/modules/input/file-upload1.tsx";
+import FileUpload from "@/components/modules/input/file-upload1.tsx";
+import SubscribeInput from "@/components/modules/input/SubscribeInput.tsx";
+import MessageInput from "@/components/modules/input/MessageInput.tsx";
+import PasswordStrengthInput from "@/components/modules/input/PasswordStrengthInput.tsx";
+import SearchInputCmd from "@/components/modules/input/SearchInputCmd.tsx";
+import FloatingLabelInput from "@/components/modules/input/FloatingLabelInput.tsx";
+
+## Collection
+
+<ComponentGrid cols={2}>
+  <CompactPreview link="input/file-upload1.tsx">
+    <FileUpload />
+  </CompactPreview>
+  
+  <CompactPreview link="input/SubscribeInput.tsx">
+    <SubscribeInput />
+  </CompactPreview>
+
+  <CompactPreview link="input/MessageInput.tsx">
+    <MessageInput />
+  </CompactPreview>
+
+  <CompactPreview link="input/PasswordStrengthInput.tsx">
+    <PasswordStrengthInput />
+  </CompactPreview>
+  
+  <CompactPreview link="input/SearchInputCmd.tsx">
+    <SearchInputCmd />
+  </CompactPreview>
+
+  <CompactPreview link="input/FloatingLabelInput.tsx">
+    <FloatingLabelInput />
+  </CompactPreview>
+</ComponentGrid>
+
+---
+
+## File Upload
 
 <Preview 
   link="input/file-upload1.tsx"
-  comment={["tailwindcss", "button", "loading", "spinner"]}
+  comment={["tailwindcss", "input", "upload", "file"]}
 >
   <FileUpload/>
 </Preview>
 
- 
+**Overview**  
+A modern file upload input with drag-and-drop support and smooth upload progress animations.
+
+---
+
+## Subscribe Input
+
+<Preview 
+  link="input/SubscribeInput.tsx"
+  comment={["tailwindcss", "input", "subscribe", "newsletter"]}
+>
+  <SubscribeInput/>
+</Preview>
+
+**Overview**  
+A sleek newsletter subscription input featuring a dynamic arrow bounce animation on hover.
+
+---
+
+## Message Input
+
+<Preview 
+  link="input/MessageInput.tsx"
+  comment={["tailwindcss", "input", "message", "chat"]}
+>
+  <MessageInput/>
+</Preview>
+
+**Overview**  
+A chat-style message input with built-in action buttons and a clean layout suitable for messaging apps.
+
+---
+
+## Password Strength
+
+<Preview 
+  link="input/PasswordStrengthInput.tsx"
+  comment={["tailwindcss", "input", "password", "security", "strength"]}
+>
+  <PasswordStrengthInput/>
+</Preview>
+
+**Overview**  
+A highly secure password input field complete with visibility toggling and an animated real-time strength meter.
+
+---
+
+## Command Search
+
+<Preview 
+  link="input/SearchInputCmd.tsx"
+  comment={["tailwindcss", "input", "search", "command", "shortcut"]}
+>
+  <SearchInputCmd/>
+</Preview>
+
+**Overview**  
+A premium glowing search bar that can be quickly focused using a keyboard shortcut (`⌘ K`).
+
+---
+
+## Floating Label
+
+<Preview 
+  link="input/FloatingLabelInput.tsx"
+  comment={["tailwindcss", "input", "floating", "label", "animation"]}
+>
+  <FloatingLabelInput/>
+</Preview>
+
+**Overview**  
+An elegant input field where the placeholder smoothly floats up to become the label when focused or filled, highlighted by an animated accent line.
+
+---
