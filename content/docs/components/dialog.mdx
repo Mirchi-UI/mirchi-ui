@@ -1,0 +1,70 @@
+---
+title: Dialog
+description: Modern, animated, and highly interactive dialog fields.
+slug: /docs/components/dialog
+icon: Dialog
+full: true
+---
+
+import BasicDialogDemo from "@/components/modules/Dialog/BasicDialogDemo.tsx";
+import ActionDialogDemo from "@/components/modules/Dialog/ActionDialogDemo.tsx";
+import FormDialogDemo from "@/components/modules/Dialog/FormDialogDemo.tsx";
+
+## Installation
+
+To use the Dialog component, you first need to add the core `Dialog.tsx` file to your project. This file contains the context and compound components needed for all the dialog variations.
+
+1. Install `motion/react` if you haven't already:
+```bash
+npm install motion
+```
+
+2. Create a file at `components/Dialog.tsx` and copy this code:
+
+<Preview link="Dialog/Dialog.tsx" codeOnly={true} />
+
+---
+
+## Examples
+
+Now that you have the core component installed, you can use it to build any type of dialog. Here are some common examples.
+
+### Basic Dialog
+
+<Preview 
+  link="Dialog/BasicDialogDemo.tsx"
+  comment={["dialog", "modal", "animation", "basic"]}
+>
+  <BasicDialogDemo />
+</Preview>
+
+**Overview**  
+A modern dialog component with smooth animations and a focus-trapping mechanism to enhance user experience. It uses compound components like `Dialog`, `DialogTrigger`, and `DialogContent` for ultimate flexibility.
+
+---
+
+## Action Dialog
+
+<Preview 
+  link="Dialog/ActionDialogDemo.tsx"
+  comment={["dialog", "action", "confirm", "delete"]}
+>
+  <ActionDialogDemo />
+</Preview>
+
+**Overview**  
+A confirmation dialog style with action buttons. Perfect for destructive actions where you need user confirmation. Built with `DialogFooter` and `DialogClose`.
+
+---
+
+## Form Dialog
+
+<Preview 
+  link="Dialog/FormDialogDemo.tsx"
+  comment={["dialog", "form", "inputs", "edit"]}
+>
+  <FormDialogDemo />
+</Preview>
+
+**Overview**  
+A dialog used for inline editing or creating items. Features inputs inside the `DialogContent` seamlessly.
