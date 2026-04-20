@@ -22,6 +22,7 @@ import {
   HelpCircle,
   CreditCard,
   CircleOff,
+  PanelLeft,
 } from "lucide-react";
 
 export interface navItem {
@@ -109,6 +110,15 @@ export const navigationSections: navSection[] = [
         href: "/docs/components/empty",
         description: "A container for displaying empty state information.",
         icon: CircleOff,
+        count: 5,
+        isNew: true,
+      },
+      {
+        id: "sidebar",
+        title: "Sidebar",
+        href: "/docs/components/sidebar",
+        description: "A container for displaying empty state information.",
+        icon: PanelLeft,
         count: 5,
         isNew: true,
       },
