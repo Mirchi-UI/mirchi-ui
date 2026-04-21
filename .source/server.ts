@@ -1,15 +1,16 @@
 // @ts-nocheck
-import * as __fd_glob_17 from "../content/docs/components/three-d-card.mdx?collection=docs"
-import * as __fd_glob_16 from "../content/docs/components/text.mdx?collection=docs"
-import * as __fd_glob_15 from "../content/docs/components/sophisticated-slider.mdx?collection=docs"
-import * as __fd_glob_14 from "../content/docs/components/sidebar.mdx?collection=docs"
-import * as __fd_glob_13 from "../content/docs/components/inputs.mdx?collection=docs"
-import * as __fd_glob_12 from "../content/docs/components/fluid-dropdown.mdx?collection=docs"
-import * as __fd_glob_11 from "../content/docs/components/empty.mdx?collection=docs"
-import * as __fd_glob_10 from "../content/docs/components/dialog.mdx?collection=docs"
-import * as __fd_glob_9 from "../content/docs/components/buttons.mdx?collection=docs"
-import * as __fd_glob_8 from "../content/docs/components/backgrounds.mdx?collection=docs"
-import * as __fd_glob_7 from "../content/docs/components/accordion.mdx?collection=docs"
+import * as __fd_glob_18 from "../content/docs/components/three-d-card.mdx?collection=docs"
+import * as __fd_glob_17 from "../content/docs/components/text.mdx?collection=docs"
+import * as __fd_glob_16 from "../content/docs/components/sophisticated-slider.mdx?collection=docs"
+import * as __fd_glob_15 from "../content/docs/components/sidebar.mdx?collection=docs"
+import * as __fd_glob_14 from "../content/docs/components/inputs.mdx?collection=docs"
+import * as __fd_glob_13 from "../content/docs/components/fluid-dropdown.mdx?collection=docs"
+import * as __fd_glob_12 from "../content/docs/components/empty.mdx?collection=docs"
+import * as __fd_glob_11 from "../content/docs/components/dialog.mdx?collection=docs"
+import * as __fd_glob_10 from "../content/docs/components/buttons.mdx?collection=docs"
+import * as __fd_glob_9 from "../content/docs/components/backgrounds.mdx?collection=docs"
+import * as __fd_glob_8 from "../content/docs/components/accordion.mdx?collection=docs"
+import * as __fd_glob_7 from "../content/docs/components/404.mdx?collection=docs"
 import * as __fd_glob_6 from "../content/docs/blocks/pricing.mdx?collection=docs"
 import * as __fd_glob_5 from "../content/docs/blocks/heros.mdx?collection=docs"
 import * as __fd_glob_4 from "../content/docs/blocks/faqs.mdx?collection=docs"
@@ -25,4 +26,4 @@ const create = server<typeof Config, import("fumadocs-mdx/runtime/types").Intern
   }
 }>({"doc":{"passthroughs":["extractedReferences"]}});
 
-export const docs = await create.docs("docs", "content/docs", {}, {"blocks.mdx": __fd_glob_0, "components.mdx": __fd_glob_1, "index.mdx": __fd_glob_2, "welcome.mdx": __fd_glob_3, "blocks/faqs.mdx": __fd_glob_4, "blocks/heros.mdx": __fd_glob_5, "blocks/pricing.mdx": __fd_glob_6, "components/accordion.mdx": __fd_glob_7, "components/backgrounds.mdx": __fd_glob_8, "components/buttons.mdx": __fd_glob_9, "components/dialog.mdx": __fd_glob_10, "components/empty.mdx": __fd_glob_11, "components/fluid-dropdown.mdx": __fd_glob_12, "components/inputs.mdx": __fd_glob_13, "components/sidebar.mdx": __fd_glob_14, "components/sophisticated-slider.mdx": __fd_glob_15, "components/text.mdx": __fd_glob_16, "components/three-d-card.mdx": __fd_glob_17, });
+export const docs = await create.docs("docs", "content/docs", {}, {"blocks.mdx": __fd_glob_0, "components.mdx": __fd_glob_1, "index.mdx": __fd_glob_2, "welcome.mdx": __fd_glob_3, "blocks/faqs.mdx": __fd_glob_4, "blocks/heros.mdx": __fd_glob_5, "blocks/pricing.mdx": __fd_glob_6, "components/404.mdx": __fd_glob_7, "components/accordion.mdx": __fd_glob_8, "components/backgrounds.mdx": __fd_glob_9, "components/buttons.mdx": __fd_glob_10, "components/dialog.mdx": __fd_glob_11, "components/empty.mdx": __fd_glob_12, "components/fluid-dropdown.mdx": __fd_glob_13, "components/inputs.mdx": __fd_glob_14, "components/sidebar.mdx": __fd_glob_15, "components/sophisticated-slider.mdx": __fd_glob_16, "components/text.mdx": __fd_glob_17, "components/three-d-card.mdx": __fd_glob_18, });

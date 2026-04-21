@@ -4,10 +4,6 @@ import React, { createContext, useContext, useState, useEffect } from "react";
 import { AnimatePresence, motion } from "motion/react";
 import clsx from "clsx";
 
-/* -------------------- */
-/* Context */
-/* -------------------- */
-
 type DialogContextType = {
   open: boolean;
   setOpen: (v: boolean) => void;
@@ -20,10 +16,7 @@ function useDialog() {
   if (!ctx) throw new Error("Dialog components must be inside Dialog");
   return ctx;
 }
-
-/* -------------------- */
-/* Root */
-/* -------------------- */
+  
 
 export function Dialog({
   children,
@@ -49,10 +42,7 @@ export function Dialog({
     </DialogContext.Provider>
   );
 }
-
-/* -------------------- */
-/* Trigger */
-/* -------------------- */
+ 
 
 export function DialogTrigger({
   children,
@@ -72,10 +62,7 @@ export function DialogTrigger({
     </span>
   );
 }
-
-/* -------------------- */
-/* Content */
-/* -------------------- */
+ 
 
 export function DialogContent({
   children,
@@ -116,7 +103,7 @@ export function DialogContent({
               exit={{ opacity: 0, scale: 0.96, y: 10 }}
               transition={{ type: "spring", damping: 25, stiffness: 300 }}
               className={clsx(
-                "relative w-full max-w-md rounded-2xl border bg-white dark:bg-zinc-900 p-6 shadow-2xl",
+                "relative w-full max-w-md rounded-2xl border  bg-background/90 p-6 shadow-2xl",
                 className,
               )}
               onClick={(e) => e.stopPropagation()}
