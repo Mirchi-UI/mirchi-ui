@@ -14,6 +14,7 @@ interface PreviewProps {
   comment?: string[];
   isBlock?: boolean;
   codeOnly?: boolean;
+  isFull?: boolean;
 }
 
 const prePath = process.env.VERCEL_PROJECT_PRODUCTION_URL
@@ -29,6 +30,7 @@ export async function Preview({
   comment = [],
   isBlock = false,
   codeOnly = false,
+  isFull = true,
 }: PreviewProps) {
   const code = await getComponentCode(link);
 
@@ -46,6 +48,7 @@ export async function Preview({
       compact={compact}
       comment={comment}
       isBlock={isBlock}
+      isFull={isFull}
       className={className}
     >
       {children}

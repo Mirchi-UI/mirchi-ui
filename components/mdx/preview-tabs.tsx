@@ -29,6 +29,7 @@ interface PreviewTabsProps {
   comment?: string[];
   isBlock?: boolean;
   className?: string;
+  isFull?: boolean;
 }
 
 export function PreviewTabs({
@@ -41,6 +42,7 @@ export function PreviewTabs({
   comment = [],
   isBlock = false,
   className = "",
+  isFull= true,
 }: PreviewTabsProps) {
   const [key, setKey] = useState(0);
   const [isFullscreen, setIsFullscreen] = useState(false);
@@ -75,42 +77,58 @@ export function PreviewTabs({
   };
 
   const previewContent = (
-    <div className="flex flex-col items-center w-full">
+    <div className="w-full flex justify-center">
       <div
         key={key}
         style={{ width: viewportWidths[viewport] }}
         className={cn(
-          " flex justify-center items-center relative border rounded-2xl my-4 border-zinc-200 dark:border-zinc-800 not-prose overflow-hidden transition-all duration-300 ease-in-out",
-          "bg-white dark:bg-red-950 shadow-sm",
-          compact ? "min-h-[100px]" : "min-h-[400px]",
-          isBlock ? "md:p-0" : "",
-          isFullscreen ? "w-full h-full border-none rounded-none m-0" : "",
+          "relative border rounded-2xl my-4 overflow-hidden transition-all duration-300",
+          "bg-white dark:bg-zinc-950  shadow-sm",
+
+          // ✅ HEIGHT CONTROL
+          isFullscreen
+            ? "w-full h-full border-none rounded-none m-0"
+            : isBlock
+              ? "h-[450px] overflow-auto" // screen mode
+              : "h-auto min-h-[120px]", // component mode
+
           viewport !== "desktop"
             ? "border-zinc-300 dark:border-zinc-700 shadow-xl"
             : "",
         )}
       >
-        {/* Grid Background Pattern */}
-        <div className="absolute inset-0 pointer-events-none opacity-[0.03] dark:opacity-[0.05] [mask-image:radial-gradient(ellipse_at_center,white,transparent)]">
-          <div className="absolute inset-0 [background-image:linear-gradient(to_right,#808080_1px,transparent_1px),linear-gradient(to_bottom,#808080_1px,transparent_1px)] [background-size:24px_24px]"></div>
-        </div>
-
-        <div className="relative z-10 w-full flex justify-center items-center">
-          {children}
-        </div>
-
-        {/* Fullscreen Toggle (Keep in overlay for easy access during inspection) */}
-        <div className="absolute top-4 right-4 z-20">
-          <Button
-            variant="ghost"
-            size="icon"
-            onClick={toggleFullscreen}
-            className="h-8 w-8 rounded-lg bg-zinc-100/50 backdrop-blur-sm dark:bg-zinc-800/50 hover:bg-zinc-200 dark:hover:bg-zinc-700 transition-colors"
-            title="Toggle Fullscreen"
+        {/* 🔥 CONTENT WRAPPER */}
+        <div
+          className={cn(
+            "relative z-10 w-full",
+            isBlock ? "h-full overflow-auto" : "",
+          )}
+        >
+          <div
+            className={cn(
+              "w-full flex justify-center",
+              isBlock
+                ? "items-start max-h-[450px] border  overflow-auto " // 👈 FIX for big layouts
+                : "items-center py-10 h-[450px]", // 👈 FIX for small components
+            )}
           >
-            <Maximize2 className="h-4 w-4 text-zinc-600 dark:text-zinc-400" />
-          </Button>
+            {children}
+          </div>
         </div>
+
+        {/* Fullscreen Button */}
+        {isFull && (
+          <div className="absolute top-4 right-4 z-20">
+            <Button
+              variant="ghost"
+              size="icon"
+              onClick={toggleFullscreen}
+              className="h-8 w-8 rounded-lg bg-zinc-100/50 backdrop-blur-sm dark:bg-zinc-800/50"
+            >
+              <Maximize2 className="h-4 w-4" />
+            </Button>
+          </div>
+        )}
       </div>
     </div>
   );
@@ -267,13 +285,26 @@ export function PreviewTabs({
               <X className="h-5 w-5" />
             </Button>
           </div>
-          <div className="flex-1 flex justify-center items-center border border-zinc-200 dark:border-zinc-800 rounded-3xl relative overflow-hidden bg-white dark:bg-zinc-950">
+          <div className="flex-1 border border-zinc-200 dark:border-zinc-800 rounded-3xl relative overflow-hidden bg-white dark:bg-zinc-950">
             {/* Grid Background Pattern for Fullscreen */}
             <div className="absolute inset-0 pointer-events-none opacity-[0.03] dark:opacity-[0.05] [mask-image:radial-gradient(ellipse_at_center,white,transparent)]">
               <div className="absolute inset-0 [background-image:linear-gradient(to_right,#808080_1px,transparent_1px),linear-gradient(to_bottom,#808080_1px,transparent_1px)] [background-size:24px_24px]"></div>
             </div>
-            <div key={`fs-${key}`} className="relative z-10 scale-150">
-              {children}
+
+            <div
+              className={cn(
+                "relative z-10 w-full h-full overflow-auto flex justify-center",
+                isBlock ? "items-start" : "items-center p-4",
+              )}
+            >
+              <div
+                className={cn(
+                  "relative",
+                  isBlock ? "w-full max-w-[1400px]" : "w-auto min-w-min",
+                )}
+              >
+                {children}
+              </div>
             </div>
           </div>
         </div>
