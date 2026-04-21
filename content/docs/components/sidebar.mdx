@@ -1,0 +1,38 @@
+---
+title: Sidebar
+description: Modern, responsive sidebar navigation components built with Framer Motion and Tailwind CSS.
+slug: /docs/components/sidebar
+icon: PanelLeft
+full: true
+---
+
+import { SidebarDemo } from "@/components/modules/sidebar/SidebarDemo.tsx";
+import { Sidebar2 } from "@/components/modules/sidebar/Sidebar2.tsx";
+import { Sidebar } from "@/components/modules/sidebar/Sidebar.tsx";
+
+ 
+### Basic Collapsible Sidebar
+
+A simple sidebar with sections and a lightweight collapse behavior.  
+Great for basic dashboards and minimal layouts.
+
+<Preview 
+  link="sidebar/Sidebar.tsx"
+  comment={["tailwindcss", "sidebar", "basic", "collapsible"]}
+>
+  <SidebarDemo sidebar={<Sidebar />} />
+</Preview>
+
+---
+
+### Workspace Sidebar
+
+A structured sidebar with a top profile, main navigation, and bottom actions.  
+Includes smooth animations and is designed for full SaaS applications.
+
+<Preview 
+  link="sidebar/Sidebar2.tsx"
+  comment={["tailwindcss", "sidebar", "workspace", "motion", "lucide-react"]}
+>
+  <SidebarDemo sidebar={<Sidebar2 />} />
+</Preview>

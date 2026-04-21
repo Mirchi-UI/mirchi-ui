@@ -1,6 +1,7 @@
 
 import { getComponentCode } from "@/lib/action";
 import { PreviewTabs } from "./preview-tabs";
+import { CodePreview } from "./code-preview";
 
 interface PreviewProps {
   children: React.ReactNode;
@@ -12,6 +13,7 @@ interface PreviewProps {
   compact?: boolean;
   comment?: string[];
   isBlock?: boolean;
+  codeOnly?: boolean;
 }
 
 const prePath = process.env.VERCEL_PROJECT_PRODUCTION_URL
@@ -26,8 +28,14 @@ export async function Preview({
   compact = false,
   comment = [],
   isBlock = false,
+  codeOnly = false,
 }: PreviewProps) {
   const code = await getComponentCode(link);
+
+  if (codeOnly) {
+    // We need to import CodePreview at the top
+    return <CodePreview code={code} className={className} />;
+  }
 
   return (
     <PreviewTabs
