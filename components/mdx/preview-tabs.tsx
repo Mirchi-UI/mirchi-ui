@@ -2,7 +2,18 @@
 
 import { useState } from "react";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { Eye, Code, RefreshCw, Maximize2, X, Monitor, Tablet, Smartphone, Copy, Check } from "lucide-react";
+import {
+  Eye,
+  Code,
+  RefreshCw,
+  Maximize2,
+  X,
+  Monitor,
+  Tablet,
+  Smartphone,
+  Copy,
+  Check,
+} from "lucide-react";
 import { CodePreview } from "./code-preview";
 import { cn } from "@/lib/utils";
 import PreviewContent from "./preview-content";
@@ -33,7 +44,9 @@ export function PreviewTabs({
 }: PreviewTabsProps) {
   const [key, setKey] = useState(0);
   const [isFullscreen, setIsFullscreen] = useState(false);
-  const [viewport, setViewport] = useState<"desktop" | "tablet" | "mobile">("desktop");
+  const [viewport, setViewport] = useState<"desktop" | "tablet" | "mobile">(
+    "desktop",
+  );
   const [copied, setCopied] = useState(false);
 
   const handleRefresh = () => {
@@ -67,12 +80,14 @@ export function PreviewTabs({
         key={key}
         style={{ width: viewportWidths[viewport] }}
         className={cn(
-          "p-2 md:p-8 flex justify-center items-center relative border rounded-2xl my-4 border-zinc-200 dark:border-zinc-800 not-prose overflow-hidden transition-all duration-300 ease-in-out",
-          "bg-white dark:bg-zinc-950 shadow-sm",
+          " flex justify-center items-center relative border rounded-2xl my-4 border-zinc-200 dark:border-zinc-800 not-prose overflow-hidden transition-all duration-300 ease-in-out",
+          "bg-white dark:bg-red-950 shadow-sm",
           compact ? "min-h-[100px]" : "min-h-[400px]",
           isBlock ? "md:p-0" : "",
           isFullscreen ? "w-full h-full border-none rounded-none m-0" : "",
-          viewport !== "desktop" ? "border-zinc-300 dark:border-zinc-700 shadow-xl" : ""
+          viewport !== "desktop"
+            ? "border-zinc-300 dark:border-zinc-700 shadow-xl"
+            : "",
         )}
       >
         {/* Grid Background Pattern */}
@@ -132,7 +147,9 @@ export function PreviewTabs({
                 onClick={() => setViewport("desktop")}
                 className={cn(
                   "h-8 w-8 rounded-full transition-all",
-                  viewport === "desktop" ? "bg-white dark:bg-zinc-800 shadow-sm text-zinc-900 dark:text-zinc-100" : "text-zinc-500"
+                  viewport === "desktop"
+                    ? "bg-white dark:bg-zinc-800 shadow-sm text-zinc-900 dark:text-zinc-100"
+                    : "text-zinc-500",
                 )}
                 title="Desktop View"
               >
@@ -144,7 +161,9 @@ export function PreviewTabs({
                 onClick={() => setViewport("tablet")}
                 className={cn(
                   "h-8 w-8 rounded-full transition-all",
-                  viewport === "tablet" ? "bg-white dark:bg-zinc-800 shadow-sm text-zinc-900 dark:text-zinc-100" : "text-zinc-500"
+                  viewport === "tablet"
+                    ? "bg-white dark:bg-zinc-800 shadow-sm text-zinc-900 dark:text-zinc-100"
+                    : "text-zinc-500",
                 )}
                 title="Tablet View"
               >
@@ -156,7 +175,9 @@ export function PreviewTabs({
                 onClick={() => setViewport("mobile")}
                 className={cn(
                   "h-8 w-8 rounded-full transition-all",
-                  viewport === "mobile" ? "bg-white dark:bg-zinc-800 shadow-sm text-zinc-900 dark:text-zinc-100" : "text-zinc-500"
+                  viewport === "mobile"
+                    ? "bg-white dark:bg-zinc-800 shadow-sm text-zinc-900 dark:text-zinc-100"
+                    : "text-zinc-500",
                 )}
                 title="Mobile View"
               >
@@ -178,7 +199,7 @@ export function PreviewTabs({
                   <Copy className="h-4 w-4 text-zinc-600 dark:text-zinc-400" />
                 )}
               </Button>
-              
+
               <Button
                 variant="ghost"
                 size="icon"
@@ -247,7 +268,7 @@ export function PreviewTabs({
             </Button>
           </div>
           <div className="flex-1 flex justify-center items-center border border-zinc-200 dark:border-zinc-800 rounded-3xl relative overflow-hidden bg-white dark:bg-zinc-950">
-             {/* Grid Background Pattern for Fullscreen */}
+            {/* Grid Background Pattern for Fullscreen */}
             <div className="absolute inset-0 pointer-events-none opacity-[0.03] dark:opacity-[0.05] [mask-image:radial-gradient(ellipse_at_center,white,transparent)]">
               <div className="absolute inset-0 [background-image:linear-gradient(to_right,#808080_1px,transparent_1px),linear-gradient(to_bottom,#808080_1px,transparent_1px)] [background-size:24px_24px]"></div>
             </div>
