@@ -34,7 +34,7 @@ export default function Pricing_Animated() {
   const [selectedPlan, setSelectedPlan] = useState<string>("pro");
 
   return (
-    <div className="w-full max-w-3xl mx-auto px-4">
+    <div className="w-full max-w-3xl mx-auto px-4 py-16">
       
       {/* Toggle */}
       <div className="flex justify-end mb-4 sm:mb-8">

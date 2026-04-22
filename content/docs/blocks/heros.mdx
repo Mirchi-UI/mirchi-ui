@@ -15,12 +15,12 @@ import { HeroGeometric } from "@/components/modules/blocks/Hero/Shapes-Hero.tsx"
 
 A dark-themed hero section with animated aurora beams and noise texture.
 
-<Preview link="blocks/Hero/Hero-aurora.tsx" comment={["motion", "gradient", "aurora"]} full>
-    <div className="relative h-[600px] w-full overflow-hidden border rounded-lg">
+<Preview link="blocks/Hero/Hero-aurora.tsx" comment={["motion", "gradient", "aurora"]} isBlock={true}>
+    
         <HeroAurora 
             
         />
-    </div>
+  
 </Preview>
 
 ```tsx
@@ -41,7 +41,8 @@ export function LandingPage() {
 
 A sophisticated hero section with floating 3D geometric shapes and elegant typography.
 
-<Preview link="blocks/Hero/Shapes-Hero.tsx" comment={["motion", "3d", "geometric"]} full>
+<Preview link="blocks/Hero/Shapes-Hero.tsx" comment={["motion", "3d", "geometric"]}       isBlock={true}
+>
     <div className="relative h-[600px] w-full overflow-hidden border rounded-lg">
         <HeroGeometric 
             badge="Design System"
