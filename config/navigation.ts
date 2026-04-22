@@ -24,6 +24,7 @@ import {
   CircleOff,
   PanelLeft,
   BoxIcon,
+  StepForward,
 } from "lucide-react";
 
 export interface navItem {
@@ -124,11 +125,20 @@ export const navigationSections: navSection[] = [
         isNew: true,
       },
       {
+        id: "Stepper",
+        title: "Stepper",
+        href: "/docs/components/stepper",
+        description: "A container for displaying empty state information.",
+        icon: StepForward ,
+        count: 6,
+        isNew: true,
+      },
+      {
         id: "dialog",
         title: "Dialog",
         href: "/docs/components/dialog",
         description: "A container for displaying empty state information.",
-        icon: BoxIcon ,
+        icon: BoxIcon,
         count: 5,
         isNew: true,
       },
