@@ -1,0 +1,177 @@
+---
+title: Terminal
+description: A realistic MacOS-style terminal component with sequence-based typing and reveal animations.
+slug: /docs/components/terminal
+icon: Terminal
+full: true
+---
+
+import { Terminal, AnimatedSpan, TypingAnimation } from "@/components/modules/terminal/Terminal.tsx";
+import { TerminalDemo1 } from "@/components/modules/terminal/terminal1.tsx";
+import { TerminalBuildDemo } from "@/components/modules/terminal/terminal-build.tsx";
+import { TerminalGitDemo } from "@/components/modules/terminal/terminal-git.tsx";
+import { TerminalServerDemo } from "@/components/modules/terminal/terminal-server.tsx";
+
+<Preview
+  link="terminal/Terminal.tsx"
+  comment={["terminal", "macos", "typing", "animation"]}
+  codeOnly={true}
+/>
+
+---
+
+## Collection
+
+<ComponentGrid cols={2}>
+  <CompactPreview link="terminal/terminal1.tsx">
+    <TerminalDemo1 />
+  </CompactPreview>
+
+  <CompactPreview link="terminal/terminal-build.tsx">
+    <TerminalBuildDemo />
+  </CompactPreview>
+
+  <CompactPreview link="terminal/terminal-git.tsx">
+    <TerminalGitDemo />
+  </CompactPreview>
+
+  <CompactPreview link="terminal/terminal-server.tsx">
+    <TerminalServerDemo />
+  </CompactPreview>
+</ComponentGrid>
+
+---
+
+<Header
+  description="A premium terminal component that simulates a command-line interface with support for sequential typing animations and instant reveal spans."
+  badge="Premium"
+>
+  ## macOS Terminal
+</Header>
+
+<Preview
+  link="terminal/terminal1.tsx"
+  comment={["terminal", "demo" ]}
+  isFull={true}
+>
+  <TerminalDemo1 />
+</Preview>
+
+---
+
+<Header
+  description="Simulate a build process with sequential progress logs and finalized output tables."
+  badge="Build"
+>
+  ## Build Process
+</Header>
+
+<Preview
+  link="terminal/terminal-build.tsx"
+  comment={["terminal", "build", "nextjs"]}
+  isFull={true}
+>
+  <TerminalBuildDemo />
+</Preview>
+
+---
+
+<Header
+  description="Showcase Git operations like commits and pushes with realistic progress feedback."
+  badge="Git"
+>
+  ## Git Operations
+</Header>
+
+<Preview
+  link="terminal/terminal-git.tsx"
+  comment={["terminal", "git", "push"]}
+  isFull={true}
+>
+  <TerminalGitDemo />
+</Preview>
+
+---
+
+<Header
+  description="Simulate a live development server with incoming requests and potential error states."
+  badge="Server"
+>
+  ## Server Logs
+</Header>
+
+<Preview
+  link="terminal/terminal-server.tsx"
+  comment={["terminal", "server", "dev"]}
+  isFull={true}
+>
+  <TerminalServerDemo />
+</Preview>
+
+---
+
+## Features
+
+- **Sequential Animations**: Items appear one after another, perfect for simulating real terminal output.
+- **Typing Effect**: `TypingAnimation` subcomponent for realistic command entry.
+- **Reveal Effect**: `AnimatedSpan` for instant but smooth appearance of output lines.
+- **MacOS Style**: Authentic window controls and styling.
+- **Motion Powered**: Built with `motion/react` for buttery smooth transitions.
+
+---
+
+## Usage
+
+```tsx
+import { 
+  Terminal, 
+  AnimatedSpan, 
+  TypingAnimation 
+} from "@/components/modules/terminal/Terminal";
+
+export function TerminalDemo() {
+  return (
+    <Terminal>
+      <TypingAnimation>&gt; pnpm install</TypingAnimation>
+      
+      <AnimatedSpan className="text-green-500">
+        ✔ Dependencies installed successfully.
+      </AnimatedSpan>
+      
+      <TypingAnimation className="text-muted-foreground">
+        Ready to start development.
+      </TypingAnimation>
+    </Terminal>
+  );
+}
+```
+
+---
+
+## Props
+
+### Terminal
+
+| Prop | Type | Default | Description |
+| :--- | :--- | :--- | :--- |
+| `children` | `ReactNode` | - | The content of the terminal. |
+| `className` | `string` | - | Custom styling for the terminal container. |
+| `sequence` | `boolean` | `true` | Whether to animate children sequentially. |
+| `startOnView` | `boolean` | `true` | Start animations only when the terminal is in view. |
+
+### TypingAnimation
+
+| Prop | Type | Default | Description |
+| :--- | :--- | :--- | :--- |
+| `children` | `string` | - | The text to type out. |
+| `duration` | `number` | `60` | Speed of typing in ms per character. |
+| `delay` | `number` | `0` | Delay before starting the animation. |
+| `as` | `string` | `"span"` | The HTML element to render as. |
+
+### AnimatedSpan
+
+| Prop | Type | Default | Description |
+| :--- | :--- | :--- | :--- |
+| `children` | `ReactNode` | - | Content to reveal. |
+| `delay` | `number` | `0` | Delay before revealing. |
+| `className` | `string` | - | Custom styling. |

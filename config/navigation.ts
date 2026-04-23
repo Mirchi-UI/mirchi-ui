@@ -27,6 +27,7 @@ import {
   StepForward,
   LucideSquareParkingOff,
   Circle,
+  Command,
 } from "lucide-react";
 
 export interface navItem {
@@ -139,9 +140,20 @@ export const navigationSections: navSection[] = [
         id: "Marquee",
         title: "Marquee/Ticker",
         href: "/docs/components/marquee",
-        description: "An eye-catching marquee/ticker component for showcasing text or content in a scrolling animation.",
+        description:
+          "An eye-catching marquee/ticker component for showcasing text or content in a scrolling animation.",
         icon: Circle,
         count: 3,
+        isNew: true,
+      },
+      {
+        id: "terminal",
+        title: "Terminal",
+        href: "/docs/components/terminal",
+        description:
+          "  ",
+        icon: Command,
+        count: 4,
         isNew: true,
       },
       {
