@@ -25,6 +25,8 @@ import {
   PanelLeft,
   BoxIcon,
   StepForward,
+  LucideSquareParkingOff,
+  Circle,
 } from "lucide-react";
 
 export interface navItem {
@@ -129,8 +131,26 @@ export const navigationSections: navSection[] = [
         title: "Stepper",
         href: "/docs/components/stepper",
         description: "A container for displaying empty state information.",
-        icon: StepForward ,
+        icon: StepForward,
         count: 6,
+        isNew: true,
+      },
+      {
+        id: "Marquee",
+        title: "Marquee/Ticker",
+        href: "/docs/components/marquee",
+        description: "An eye-catching marquee/ticker component for showcasing text or content in a scrolling animation.",
+        icon: Circle,
+        count: 3,
+        isNew: true,
+      },
+      {
+        id: "Error",
+        title: "Not-Found page",
+        href: "/docs/components/404",
+        description: "A container for displaying empty state information.",
+        icon: LucideSquareParkingOff,
+        count: 3,
         isNew: true,
       },
       {

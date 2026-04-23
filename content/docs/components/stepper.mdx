@@ -8,25 +8,28 @@ full: true
 
 import MinimalStepper from "@/components/modules/stepper/MinimalStepper.tsx";
 
-<Header 
-  title="Stepper with Numbers and Hover Tooltips"
+<Header
   description="A minimal stepper that uses numbered indicators for each step, with titles revealed on hover. It keeps the interface clean and compact while still providing context when needed. Ideal for onboarding flows, forms, or multi-step processes where simplicity is important."
   badge="Basic"
-/>
-<Preview 
+>
+  ## Stepper with Numbers and Hover Tooltips
+</Header>
+<Preview
   link="stepper/MinimalStepper.tsx"
   comment={["stepper", "basic", "horizontal", "shadcn"]}
-   isFull={true}
+  isFull={true}
 >
-  <MinimalStepper steps={[
-    {
-      title: "Account Info",
-    },
-    {
-      title: "Profile Setup",
-    },
-    {
-      title: "Confirmation",
-    },
-  ]} />
+  <MinimalStepper
+    steps={[
+      {
+        title: "Account Info",
+      },
+      {
+        title: "Profile Setup",
+      },
+      {
+        title: "Confirmation",
+      },
+    ]}
+  />
 </Preview>
