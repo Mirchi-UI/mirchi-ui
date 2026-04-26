@@ -1,0 +1,94 @@
+---
+title: Feedback Bar
+description: A responsive, animated feedback component for collecting user responses.
+slug: /docs/components/feedback-bar
+icon: MessageSquare
+full: true
+---
+
+import Minimal from "@/components/modules/feedbackBar/Minimal.tsx";
+import FloatingFeedback from "@/components/modules/feedbackBar/FloatingFeedback.tsx";
+import CardFeedback from "@/components/modules/feedbackBar/CardFeedback.tsx";
+
+## Collection
+
+<ComponentGrid cols={2}>
+  <CompactPreview link="feedbackBar/Minimal.tsx">
+    <Minimal />
+  </CompactPreview>
+  
+  <CompactPreview link="feedbackBar/FloatingFeedback.tsx">
+    <FloatingFeedback />
+  </CompactPreview>
+
+  <CompactPreview link="feedbackBar/CardFeedback.tsx" className="col-span-2">
+    <CardFeedback />
+  </CompactPreview>
+</ComponentGrid>
+
+---
+
+
+## Installation
+
+Create a file at `components/feedbackBar.tsx` and paste the component code.
+
+<Preview link="feedbackBar/feedbackBar.tsx" codeOnly />
+
+---
+## Props
+| Prop           | Type              | Default               | Description                                      |
+| -------------- | ----------------- | --------------------- | ------------------------------------------------ |
+| `title`        | `string`          | `"Was this helpful?"` | Text displayed in the feedback bar               |
+| `icon`         | `React.ReactNode` | `undefined`           | Optional icon displayed before the title         |
+| `onHelpful`    | `() => void`      | `undefined`           | Callback when user clicks the helpful button     |
+| `onNotHelpful` | `() => void`      | `undefined`           | Callback when user clicks the not helpful button |
+| `onClose`      | `() => void`      | `undefined`           | Callback when the close button is clicked        |
+| `className`    | `string`          | `undefined`           | Additional classes for styling                   |
+
+
+<Header
+  description="A standard, minimal feedback bar with helpful/not helpful actions, perfect for embedding inline within content.
+ "
+  badge="Basic"
+>
+  # Minimal Feedback Bar  
+</Header>
+
+<Preview 
+  link="feedbackBar/Minimal.tsx"
+  comment={["tailwindcss", "feedback", "rating"]}
+>
+  <Minimal/>
+</Preview>
+---
+<Header
+  description="A feedback bar component designed to be positioned absolutely, for example pinned to the bottom of the screen or a scrollable container.
+ "
+  badge="Basic"
+>
+  #  Floating Feedback Bar  
+</Header>
+ 
+<Preview 
+  link="feedbackBar/FloatingFeedback.tsx"
+  comment={["tailwindcss", "feedback", "floating", "fixed"]}
+>
+  <FloatingFeedback/>
+</Preview>
+---
+<Header
+  description="Demonstrates integrating the feedback component seamlessly at the end of a card or article section without its default borders or shadows.
+ "
+  badge="Basic"
+>
+  # In a Card  
+</Header>
+---
+<Preview 
+  link="feedbackBar/CardFeedback.tsx"
+  comment={["tailwindcss", "feedback", "card", "article"]}
+>
+  <CardFeedback/>
+</Preview>
+---
