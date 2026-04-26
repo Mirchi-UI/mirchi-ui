@@ -1,40 +1,39 @@
-"use client"
+"use client";
+
 import { cn } from "@/src/lib/cn";
 import { ChevronDown } from "lucide-react";
-import { useEffect, useRef, useState } from "react";
+import { useState } from "react";
+import { motion, AnimatePresence } from "motion/react";
 
 const items2 = [
   {
     id: "1",
     title: "Authentication",
     desc: "Secure login system",
-    content: "Supports OAuth, JWT, and session-based auth.",
+    content:
+      "Supports OAuth, JWT, and session-based authentication with high-level encryption standards.",
   },
   {
     id: "2",
     title: "Analytics",
     desc: "Track user behavior",
-    content: "Real-time dashboards and reporting.",
+    content:
+      "Real-time dashboards, user flow tracking, and detailed reporting with custom event triggers.",
   },
-   {
+  {
     id: "3",
     title: "Billing",
     desc: "Manage your subscription",
-    content: "Easy payment management and invoices.",
-  },
-   {
-    id: "4",
-    title: "Notifications",
-    desc: "Manage your preferences",
-    content: "Customize your notification settings.",
-  }
+    content:
+      "Automated invoicing, payment history, and flexible subscription plan management at your fingertips.",
+  } 
 ];
 
 export function AccordionWithSubHeader() {
-  const [open, setOpen] = useState<string | null>(null);
+  const [open, setOpen] = useState<string | null>("1");
 
   return (
-    <div className="space-y-3 max-w-xl">
+    <div className="w-full max-w-xl mx-auto space-y-4 px-4 py-8">
       {items2.map((item) => (
         <Item2
           key={item.id}
@@ -48,41 +47,59 @@ export function AccordionWithSubHeader() {
 }
 
 function Item2({ item, isOpen, onClick }: any) {
-  const ref = useRef<HTMLDivElement>(null);
-  const [height, setHeight] = useState("0px");
-
-  useEffect(() => {
-    if (ref.current) {
-      setHeight(isOpen ? `${ref.current.scrollHeight}px` : "0px");
-    }
-  }, [isOpen]);
-
   return (
-    <div className="rounded-xl border p-4 bg-white dark:bg-neutral-900">
-      <button onClick={onClick} className="w-full text-left">
-        <div className="flex justify-between items-start">
-          <div>
-            <p className="font-medium">{item.title}</p>
-            <p className="text-xs text-neutral-500">{item.desc}</p>
-          </div>
+    <motion.div
+      initial={false}
+      animate={{
+        backgroundColor: isOpen ? "rgba(0,0,0,0.03)" : "rgba(0,0,0,0)",
+      }}
+      className={cn(
+        "w-full overflow-hidden rounded-2xl border transition-all",
+        isOpen
+          ? "border-black/10 dark:border-white/10 shadow-sm"
+          : "border-black/5 dark:border-white/5",
+      )}
+    >
+      <button
+        onClick={onClick}
+        className="flex w-full items-center justify-between p-4 sm:p-5 text-left"
+      >
+        <div className="flex flex-col gap-1">
+          <span className="text-base sm:text-lg font-semibold">
+            {item.title}
+          </span>
+          <span className="text-xs text-muted-foreground uppercase tracking-wide">
+            {item.desc}
+          </span>
+        </div>
 
-          <ChevronDown
-            className={cn(
-              "w-4 h-4 mt-1 transition-transform",
-              isOpen && "rotate-180",
-            )}
-          />
+        <div
+          className={cn(
+            "flex h-8 w-8 items-center justify-center rounded-full transition-transform",
+            isOpen && "rotate-180",
+          )}
+        >
+          <ChevronDown className="h-4 w-4" />
         </div>
       </button>
 
-      <div
-        style={{ height }}
-        className="overflow-hidden transition-all duration-300"
-      >
-        <div ref={ref} className="pt-3 text-sm text-neutral-600">
-          {item.content}
-        </div>
-      </div>
-    </div>
+      <AnimatePresence initial={false}>
+        {isOpen && (
+          <motion.div
+            initial={{ height: 0, opacity: 0 }}
+            animate={{ height: "auto", opacity: 1 }}
+            exit={{ height: 0, opacity: 0 }}
+            transition={{ duration: 0.25 }}
+          >
+            <div className="px-4 sm:px-5 pb-5 pt-0">
+              <div className="h-px w-full bg-border/40 mb-3" />
+              <p className="text-sm text-muted-foreground leading-relaxed">
+                {item.content}
+              </p>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </motion.div>
   );
 }

@@ -6,6 +6,7 @@ import { Preview } from "@/components/mdx/preview";
 import { PreviewClient } from "@/components/mdx/preview-client";
 import { CompactPreview } from "@/components/mdx/compact-preview";
 import { ComponentGrid } from "@/components/mdx/component-grid";
+import { Header } from "@/components/mdx/header";
 import { DocsBody, DocsDescription, DocsPage, DocsTitle } from "@/src/components/layout/page";
 
 export default async function Page(props: {
@@ -33,6 +34,7 @@ export default async function Page(props: {
                         PreviewClient,
                         CompactPreview,
                         ComponentGrid,
+                        Header,
                     }}
                 />
             </DocsBody>

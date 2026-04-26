@@ -5,22 +5,36 @@ slug: /docs/components/accordion
 icon: Command
 full: true
 ---
+
 import { Accordion } from "@/components/modules/accordion/accordion1.tsx";
 import { AccordionIconChevron } from "@/components/modules/accordion/AccordionIconChevron.tsx";
 import { AccordionWithSubHeader } from "@/components/modules/accordion/AccordionWithSubHeader.tsx";
- 
-## clean SaaS-grade Accordion
+
+---
+
+<Header
+  description="Clean SaaS-grade accordion with smooth expand/collapse animation and minimal UI."
+  badge="Animated"
+>
+  ## Clean SaaS Accordion
+</Header>
 
 <Preview
   link="accordion/accordion1.tsx"
   comment={["animated", "hover", "outline", "interaction"]}
+  
 >
   <Accordion />
 </Preview>
 
 ---
 
-## Icon based Accordion
+<Header
+  description="Icon-based accordion with chevron indicators for better visual hierarchy and interaction clarity."
+  badge="Animated"
+>
+  ## Icon Based Accordion
+</Header>
 
 <Preview
   link="accordion/AccordionIconChevron.tsx"
@@ -30,12 +44,24 @@ import { AccordionWithSubHeader } from "@/components/modules/accordion/Accordion
 </Preview>
 
 ---
-## Accordion With Sub Header
+
+<Header
+  description="Accordion variant with sub-headers for improved content structure and readability."
+  badge="Custom"
+>
+  ## Accordion With Sub Header
+</Header>
 
 <Preview
   link="accordion/AccordionWithSubHeader.tsx"
-  comment={["customizable font size","clean interface","hover","interaction"]}
+  comment={[
+    "customizable font size",
+    "clean interface",
+    "hover",
+    "interaction",
+  ]}
 >
   <AccordionWithSubHeader />
 </Preview>
- 
+
+---

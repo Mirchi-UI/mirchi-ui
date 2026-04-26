@@ -17,13 +17,15 @@ import RevealTooltipButton from "@/components/modules/buttons/RevealTooltipButto
 import LaserSweepButton from "@/components/modules/buttons/LaserSweepButton.tsx";
 import IronManButton from "@/components/modules/buttons/ironManButton.tsx";
 
+---
+
 ## Collection
 
 <ComponentGrid cols={2}>
   <CompactPreview link="buttons/EdgeRevealButton.tsx">
     <EdgeRevealButton />
   </CompactPreview>
-  
+
   <CompactPreview link="buttons/PremiumGlitch.tsx">
     <PremiumGlitch />
   </CompactPreview>
@@ -35,36 +37,27 @@ import IronManButton from "@/components/modules/buttons/ironManButton.tsx";
   <CompactPreview link="buttons/SweepRevealButton.tsx">
     <SweepRevealButton />
   </CompactPreview>
-  
+
   <CompactPreview link="buttons/SlideButton.tsx">
     <SlideRevealButton />
   </CompactPreview>
 
   <CompactPreview link="buttons/GlowingStarButton.tsx">
-    <GlowingStarButton
-      name="Mirchi UI"
-      text="Support GitHub"
-    />
+    <GlowingStarButton name="Mirchi UI" text="Support GitHub" />
   </CompactPreview>
 
   <CompactPreview link="buttons/AuroraButton.tsx">
-    <AuroraStarButton
-      name="Mirchi UI"
-      text="Support GitHub"
-    />
+    <AuroraStarButton name="Mirchi UI" text="Support GitHub" />
   </CompactPreview>
-  
+
   <CompactPreview link="buttons/UnderlineFillButton.tsx">
-    <UnderlineFillButton
-  
-    />
+    <UnderlineFillButton />
   </CompactPreview>
-  
+
   <CompactPreview link="buttons/RevealTooltipButton.tsx">
-    <RevealTooltipButton
-  
-    />
+    <RevealTooltipButton />
   </CompactPreview>
+
   <CompactPreview link="buttons/LaserSweepButton.tsx">
     <LaserSweepButton />
   </CompactPreview>
@@ -72,145 +65,123 @@ import IronManButton from "@/components/modules/buttons/ironManButton.tsx";
 
 ---
 
-## Edge Reveal
-
-<Preview
-  link="buttons/EdgeRevealButton.tsx"
-  comment={["animated", "hover", "outline", "interaction"]}
+<Header 
+  description="Minimal outline button with edge-based hover reveal animation. Works best for secondary actions in dashboards and forms."
+  badge="Animated"
 >
+  ## Edge Reveal
+</Header>
+
+<Preview link="buttons/EdgeRevealButton.tsx">
   <EdgeRevealButton />
 </Preview>
 
-**Overview**  
-Minimal outline button with edge-based hover reveal animation.  
-Works best for secondary actions in dashboards and forms.
-
 ---
-## Premium Glitch
 
-<Preview
-  link="buttons/PremiumGlitch.tsx"
-  comment={["animated", "hover", "outline", "interaction"]}
+<Header 
+  description="Premium button featuring glitch animation with an aurora-style border effect."
+  badge="Animated"
 >
+  ## Premium Glitch
+</Header>
+
+<Preview link="buttons/PremiumGlitch.tsx">
   <PremiumGlitch />
 </Preview>
 
-**Overview**  
- Premium button with glitch effect and aurora border.
-
 ---
 
-## IronMan Button
-
-<Preview
-  link="buttons/ironManButton.tsx"
-  comment={["animated", "hover", "outline", "interaction"]}
+<Header 
+  description="High-impact animated button inspired by futuristic energy-core styling."
+  badge="Animated"
 >
+  ## IronMan Button
+</Header>
+
+<Preview link="buttons/ironManButton.tsx">
   <IronManButton />
 </Preview>
 
-**Overview**  
- Premium button with glitch effect and aurora border.
-
 ---
 
-## Sweep Reveal
-
-<Preview
-  link="buttons/SweepRevealButton.tsx"
-  comment={["animated", "hover", "outline", "interaction"]}
+<Header 
+  description="Clean hover animation with a smooth sweeping reveal effect."
+  badge="Animated"
 >
+  ## Sweep Reveal
+</Header>
+
+<Preview link="buttons/SweepRevealButton.tsx">
   <SweepRevealButton />
 </Preview>
 
-**Overview**  
- Minimal outline button with edge-based hover reveal animation.  
-Works best for secondary actions in dashboards and forms.
-
 ---
 
-## Glow Button (SaaS Style)
-
-<Preview
-  link="buttons/GlowingStarButton.tsx"
-  comment={["gradient", "glow", "cta", "github"]}
+<Header 
+  description="Soft-glow CTA button designed for SaaS landing pages and GitHub actions."
+  badge="CTA"
 >
+  ## Glow Button (SaaS Style)
+</Header>
+
+<Preview link="buttons/GlowingStarButton.tsx">
   <GlowingStarButton
     name="Mirchi UI"
     text="Support Mirchi UI on GitHub"
   />
 </Preview>
 
-**Overview**  
-A soft-glow CTA button designed for SaaS landing pages and GitHub actions.
-
-**Props**
-- `name` → project or brand name
-- `text` → custom label override
-
 ---
 
-## Aurora Star
-
-<Preview
-  link="buttons/AuroraButton.tsx"
-  comment={["rainbow", "animated", "premium", "cta"]}
+<Header 
+  description="Premium rainbow-gradient animated button with star-like energy effects."
+  badge="Premium"
 >
+  ## Aurora Star
+</Header>
+
+<Preview link="buttons/AuroraButton.tsx">
   <AuroraStarButton
     name="Mirchi UI"
     text="Support Mirchi UI on GitHub"
   />
 </Preview>
 
-**Overview**  
-Premium rainbow-border button with animated gradient energy and star icon interaction.
-
-**Props**
-- `name` → project or brand name
-- `text` → custom label override
-
 ---
 
-## Underline Fill
-
-<Preview
-  link="buttons/UnderlineFillButton.tsx"
-  comment={["animated", "hover", "outline", "interaction"]}
+<Header 
+  description="Underline fills smoothly on hover for subtle interaction feedback."
+  badge="Animated"
 >
+  ## Underline Fill
+</Header>
+
+<Preview link="buttons/UnderlineFillButton.tsx">
   <UnderlineFillButton />
 </Preview>
 
-**Overview**  
- Minimal outline button with edge-based hover reveal animation.  
-Works best for secondary actions in dashboards and forms.
-
 ---
 
-## Reveal Tooltip
-
-<Preview
-  link="buttons/RevealTooltipButton.tsx"
-  comment={["animated", "hover", "outline", "interaction"]}
+<Header 
+  description="Tooltip reveals on hover for improved UX clarity and micro-interactions."
+  badge="UX"
 >
+  ## Reveal Tooltip
+</Header>
+
+<Preview link="buttons/RevealTooltipButton.tsx">
   <RevealTooltipButton />
 </Preview>
 
-**Overview**  
- Minimal outline button with edge-based hover reveal animation.  
-Works best for secondary actions in dashboards and forms.
-
 ---
-## Laser Sweep
 
-<Preview
-  link="buttons/LaserSweepButton.tsx"
-  comment={["animated", "hover", "outline", "interaction"]}
+<Header 
+  description="Futuristic laser sweep animation across the button surface."
+  badge="Animated"
 >
+  ## Laser Sweep
+</Header>
+
+<Preview link="buttons/LaserSweepButton.tsx">
   <LaserSweepButton />
 </Preview>
-
-**Overview**  
- 
-
-
----

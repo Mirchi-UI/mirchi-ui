@@ -1,0 +1,53 @@
+---
+title: Marquee / Ticker
+description: An eye-catching marquee/ticker component for showcasing text, logos, or content in a smooth infinite scrolling animation.
+icon: CircleOff
+full: true
+---
+
+import Marquee from "@/components/modules/marquee/Marquee.tsx";
+import { MarqueeLogos } from "@/components/modules/marquee/Marquee1.tsx";
+
+---
+
+## Installation
+
+Create a file at `components/Marquee.tsx` and paste the component code.
+
+<Preview link="marquee/Marquee.tsx" codeOnly />
+
+---
+## Props
+
+
+| Prop            | Type                                  | Default   | Description |
+|-----------------|---------------------------------------|----------|-------------|
+| `children`      | `React.ReactNode`                     | —        | Content to be displayed and scrolled inside the marquee |
+| `direction`     | `"left" \| "right" \| "up" \| "down"` | `"left"` | Controls the scrolling direction |
+| `speed`         | `number`                              | `25`     | Duration of the animation in seconds (lower = faster) |
+| `repeat`        | `number`                              | `3`      | Number of duplicated content groups for seamless looping |
+| `hoverBehavior` | `"pause" \| "slow" \| "none"`         | `"pause"`| Defines how animation behaves on hover |
+| `fade`          | `boolean`                             | `true`   | Enables gradient fade effect on edges |
+| `className`     | `string`                              | —        | Additional custom styles for the wrapper |
+| `...props`      | `HTMLDivElement props`                | —        | All native `div` attributes (e.g., `id`, `style`, `onClick`) |
+---
+
+<Header
+  description=" A marquee with logo and text "
+  badge="Core"
+>
+
+## Basic Logo-Text Marquee
+</Header>
+
+
+<Preview
+  link="marquee/Marquee1.tsx"
+  comment={["marquee", "ticker"]}
+  isBlock
+>
+  <MarqueeLogos />
+</Preview>
+
+---
+ 
