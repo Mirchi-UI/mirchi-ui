@@ -28,6 +28,7 @@ import {
   LucideSquareParkingOff,
   Circle,
   Command,
+  ThumbsUp,
 } from "lucide-react";
 
 export interface navItem {
@@ -147,11 +148,19 @@ export const navigationSections: navSection[] = [
         isNew: true,
       },
       {
+        id: "feedbackBar",
+        title: "Feedback Bar",
+        href: "/docs/components/feedback-bar",
+        description: "A simple and customizable feedback bar component for gathering user feedback on your website or application.  ",
+        icon: ThumbsUp ,  
+        count: 4,
+        isNew: true,
+      },
+      {
         id: "terminal",
         title: "Terminal",
         href: "/docs/components/terminal",
-        description:
-          "  ",
+        description: "  ",
         icon: Command,
         count: 4,
         isNew: true,
