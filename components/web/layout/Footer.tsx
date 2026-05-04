@@ -1,90 +1,163 @@
 "use client";
 
-import { Link } from "next-view-transitions";
+import { Github, Twitter, Linkedin } from "lucide-react";
 import { siteConfig } from "@/config/site";
-import { Github, Twitter, Linkedin, Command } from "lucide-react";
 
 export default function Footer() {
-  const footerLinks = [
-    {
-      title: "Product",
-      links: [
-        { label: "Components", href: "/docs/components" },
-        { label: "Blocks", href: "/blocks" },
-        { label: "Templates", href: "/templates" },
-        { label: "Showcase", href: "#" },
-      ],
-    },
-    {
-      title: "Resources",
-      links: [
-        { label: "Documentation", href: "/docs" },
-        { label: "Installation", href: "/docs/installation" },
-        { label: "Theming", href: "/docs/theming" },
-        { label: "Changelog", href: "#" },
-      ],
-    },
-    {
-      title: "Social",
-      links: [
-        { label: "GitHub", href: siteConfig.links.github, icon: Github },
-        { label: "Twitter", href: siteConfig.links.twitter, icon: Twitter },
-        { label: "LinkedIn", href: siteConfig.links.linkedin, icon: Linkedin },
-      ],
-    },
-  ];
-
   return (
-    <footer className="w-full bg-background border-t border-foreground/5 py-20 relative overflow-hidden">
-      <div className="absolute inset-x-0 top-0 h-px bg-linear-to-r from-transparent via-orange-500/50 to-transparent opacity-20" />
-      
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-12 mb-16">
-          {/* Brand Column */}
-          <div className="col-span-2 lg:col-span-2">
-            <Link href="/" className="flex items-center gap-3 mb-6">
-              <div className="w-10 h-10 rounded-xl bg-foreground text-background flex items-center justify-center">
-                <Command size={24} />
-              </div>
-              <span className="text-xl font-bold tracking-tighter">Mirchi UI</span>
-            </Link>
-            <p className="text-muted-foreground text-sm max-w-xs leading-relaxed font-medium">
-              High-end, performance-focused React components for modern developers 
-              who care about exceptional user experiences.
-            </p>
-          </div>
+    <footer className="w-full bg-background border-t border-border relative overflow-hidden">
+      {/* TOP SECTION */}
+      <div className="max-w-7xl mx-auto px-6 py-20 grid md:grid-cols-3 gap-12">
+        {/* LEFT */}
+        <div>
+          <h3 className="text-sm uppercase tracking-widest text-muted-foreground mb-6">
+            Build better UI
+          </h3>
 
-          {/* Links Columns */}
-          {footerLinks.map((group) => (
-            <div key={group.title} className="col-span-1">
-              <h4 className="font-bold text-sm mb-6 uppercase tracking-widest text-foreground/80">
-                {group.title}
-              </h4>
-              <ul className="space-y-4">
-                {group.links.map((link) => (
-                  <li key={link.label}>
-                    <Link
-                      href={link.href}
-                      className="text-sm text-muted-foreground hover:text-orange-500 transition-colors flex items-center gap-2 group"
-                    >
-                      {link.label}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          ))}
+          <p className="text-base font-medium text-foreground/70 max-w-sm leading-relaxed">
+            High-end React components crafted for developers who care about
+            design, motion, and experience.
+          </p>
         </div>
 
-        {/* Bottom Bar */}
-        <div className="pt-8 border-t border-foreground/5 flex flex-col md:flex-row justify-between items-center gap-4">
-          <p className="text-xs text-muted-foreground">
-            &copy; {new Date().getFullYear()} Mirchi UI. Built with 🔥 by the team.
-          </p>
-          <div className="flex gap-6">
-            <Link href="#" className="text-xs text-muted-foreground hover:text-foreground transition-colors">Privacy</Link>
-            <Link href="#" className="text-xs text-muted-foreground hover:text-foreground transition-colors">Terms</Link>
+        {/* CENTER LINKS */}
+        <div className="grid grid-cols-2 gap-10">
+          <div>
+            <h4 className="text-xs uppercase tracking-widest mb-4 text-muted-foreground">
+              Product
+            </h4>
+            <ul className="space-y-3">
+              <li>
+                <a
+                  href="/docs/components"
+                  className="text-sm text-muted-foreground hover:text-foreground transition-colors duration-200"
+                >
+                  Components
+                </a>
+              </li>
+              <li>
+                <a
+                  href="/blocks"
+                  className="text-sm text-muted-foreground hover:text-foreground transition-colors duration-200"
+                >
+                  Blocks
+                </a>
+              </li>
+              <li>
+                <a
+                  href="/templates"
+                  className="text-sm text-muted-foreground hover:text-foreground transition-colors duration-200"
+                >
+                  Templates
+                </a>
+              </li>
+            </ul>
           </div>
+
+          <div>
+            <h4 className="text-xs uppercase tracking-widest mb-4 text-muted-foreground">
+              Resources
+            </h4>
+            <ul className="space-y-3">
+              <li>
+                <a
+                  href="/docs"
+                  className="text-sm text-muted-foreground hover:text-foreground transition-colors duration-200"
+                >
+                  Docs
+                </a>
+              </li>
+              <li>
+                <a
+                  href="/docs/installation"
+                  className="text-sm text-muted-foreground hover:text-foreground transition-colors duration-200"
+                >
+                  Install
+                </a>
+              </li>
+              <li>
+                <a
+                  href="/docs/theming"
+                  className="text-sm text-muted-foreground hover:text-foreground transition-colors duration-200"
+                >
+                  Theming
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        {/* RIGHT */}
+        <div className="flex flex-col gap-6 md:items-end">
+          <div className="flex gap-4">
+            <a
+              href={siteConfig.links.github}
+              className="text-muted-foreground hover:text-foreground transition-colors duration-200"
+            >
+              <Github className="w-5 h-5" />
+            </a>
+            <a
+              href={siteConfig.links.twitter}
+              className="text-muted-foreground hover:text-foreground transition-colors duration-200"
+            >
+              <Twitter className="w-5 h-5" />
+            </a>
+            <a
+              href={siteConfig.links.linkedin}
+              className="text-muted-foreground hover:text-foreground transition-colors duration-200"
+            >
+              <Linkedin className="w-5 h-5" />
+            </a>
+          </div>
+
+          <p className="text-sm text-muted-foreground/80 max-w-xs md:text-right leading-relaxed">
+            Open-source UI library built for modern SaaS and creative
+            developers.
+          </p>
+        </div>
+      </div>
+
+      {/* DIVIDER */}
+      <div className="border-t border-border" />
+
+      {/* BIG TEXT SECTION */}
+      <div className="relative w-full py-16 md:py-32 flex items-center justify-center overflow-hidden">
+        <div
+          className="pointer-events-none absolute inset-0 bg-grain opacity-40"
+          aria-hidden
+        />
+        <div
+          className="pointer-events-none absolute inset-x-0 bottom-0 h-40 bg-gradient-to-b from-transparent to-background"
+          aria-hidden
+        />
+        {/* Gradient glow background */}
+
+        <div className="relative z-10 text-center px-4 space-y-4">
+          <h1 className="text-[12vw] font-archivo  tracking-tighter text-foreground select-none pointer-events-none leading-none -mb-[2vw] opacity-25">
+            MI<span className="font-extrabold italic ">RC</span>HI-UI
+          </h1>
+        </div>
+      </div>
+
+      {/* BOTTOM BAR */}
+      <div className="border-t border-border/50" />
+      <div className="flex flex-col md:flex-row justify-between items-center gap-4 px-6 py-6 text-xs text-muted-foreground/70">
+        <p className="font-medium">
+          © {new Date().getFullYear()} Mirchi UI. All rights reserved.
+        </p>
+        <div className="flex gap-8">
+          <a
+            href="#"
+            className="hover:text-foreground transition-colors duration-200"
+          >
+            Privacy Policy
+          </a>
+          <a
+            href="#"
+            className="hover:text-foreground transition-colors duration-200"
+          >
+            Terms of Service
+          </a>
         </div>
       </div>
     </footer>
