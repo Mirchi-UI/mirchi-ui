@@ -6,7 +6,7 @@ interface GlowingStarButtonProps {
 }
 
 export const  GlowingStarButton: React.FC<GlowingStarButtonProps> = ({
-  name = "YourName",
+  name = "Mirchi UI",
   text,
 }: GlowingStarButtonProps) => {
   return (

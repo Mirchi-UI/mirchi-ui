@@ -1,0 +1,119 @@
+---
+title: Tabs
+description: Animated and customizable tab components for seamless content navigation.
+slug: /docs/components/tabs
+icon: PanelTop
+full: true
+---
+
+import Demo from "@/components/modules/tabs/Tabsdemo1";
+import UnderlineDemo from "@/components/modules/tabs/TabsUnderlineDemo";
+import PillDemo from "@/components/modules/tabs/TabsPillDemo";
+import GlowDemo from "@/components/modules/tabs/TabsGlowDemo";
+import SoftDemo from "@/components/modules/tabs/TabsSoftDemo";
+import Tabs from "@/components/modules/tabs/Tabs";
+
+## Installation
+
+To use the  Tabs component, you first need to add the core `Tabs.tsx` file to your project. This file contains the context and compound components needed for all the  tabs variations.
+
+1. Install `motion/react` if you haven't already:
+
+```bash
+npm install motion
+```
+
+
+2. Create a file at `components/Tabs.tsx` and copy this code:
+
+<Preview link="/tabs/Tabs" codeOnly={true} />
+
+---
+
+<Header
+  description="Tabs are a navigation pattern that allows users to switch between different views or content sections within a limited space. They are commonly used in web applications to organize related information and improve user experience."
+  badge="Premium"
+>
+  # Tabs Component 
+</Header>
+
+### Basic Tabs
+The standard tab component with a simple background switch.
+
+<Preview link="tabs/Tabsdemo1">
+  <Demo />
+</Preview>
+
+### Underline Tabs
+A professional design with an animated underline indicator. Use `variant="underline"`.
+
+<Preview link="tabs/TabsUnderlineDemo">
+  <UnderlineDemo />
+</Preview>
+
+### Pill Tabs
+A segmented control style with a sliding background pill. Use `variant="pill"`.
+
+<Preview link="tabs/TabsPillDemo">
+  <PillDemo />
+</Preview>
+
+### Glow Tabs
+A modern, tech-focused design with neon glow effects. Use `variant="glow"`.
+
+<Preview link="tabs/TabsGlowDemo">
+  <GlowDemo />
+</Preview>
+
+### Soft Tabs
+A minimal, elevated design with soft shadows and recessed containers. Use `variant="soft"`.
+
+<Preview link="tabs/TabsSoftDemo">
+  <SoftDemo />
+</Preview>
+
+## Usage
+
+```tsx
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+
+export default function Example() {
+  return (
+    <Tabs defaultValue="account" variant="underline">
+      <TabsList>
+        <TabsTrigger value="account">Account</TabsTrigger>
+        <TabsTrigger value="password">Password</TabsTrigger>
+      </TabsList>
+      <TabsContent value="account">Account content</TabsContent>
+      <TabsContent value="password">Password content</TabsContent>
+    </Tabs>
+  )
+}
+```
+
+## Props
+
+### Tabs
+| Prop | Type | Default | Description |
+| :--- | :--- | :--- | :--- |
+| `defaultValue` | `string` | - | The value of the tab that should be active by default. |
+| `value` | `string` | - | The controlled value of the active tab. |
+| `onValueChange` | `(val: string) => void` | - | Callback when the active tab changes. |
+| `variant` | `"default" \| "underline" \| "pill" \| "glow" \| "soft"` | `"default"` | The visual style variation of the tabs. |
+
+### TabsList
+| Prop | Type | Default | Description |
+| :--- | :--- | :--- | :--- |
+| `children` | `ReactNode` | - | The triggers for the tabs. |
+
+### TabsTrigger
+| Prop | Type | Default | Description |
+| :--- | :--- | :--- | :--- |
+| `value` | `string` | - | A unique value for the tab. |
+| `children` | `ReactNode` | - | The label or content of the trigger. |
+
+### TabsContent
+| Prop | Type | Default | Description |
+| :--- | :--- | :--- | :--- |
+| `value` | `string` | - | The value corresponding to the trigger that should show this content. |
+| `children` | `ReactNode` | - | The content to display when the tab is active. |

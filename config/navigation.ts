@@ -29,6 +29,7 @@ import {
   Circle,
   Command,
   ThumbsUp,
+  TableColumnsSplitIcon,
 } from "lucide-react";
 
 export interface navItem {
@@ -153,6 +154,15 @@ export const navigationSections: navSection[] = [
         href: "/docs/components/feedback-bar",
         description: "A simple and customizable feedback bar component for gathering user feedback on your website or application.  ",
         icon: ThumbsUp ,  
+        count: 4,
+        isNew: true,
+      },
+      {
+        id: "tabs",
+        title: "Tabs",
+        href: "/docs/components/tabs",
+        description: "Tabs are a navigation pattern that allows users to switch between different views or content sections within a limited space. They are commonly used in web applications to organize related information and improve user experience. ",
+        icon: TableColumnsSplitIcon ,  
         count: 4,
         isNew: true,
       },
