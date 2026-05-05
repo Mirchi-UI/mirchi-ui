@@ -176,6 +176,7 @@ html {
   .bg-aurora {
     background-image: var(--gradient-aurora);
   }
+   
 
   .text-balance {
     text-wrap: balance;

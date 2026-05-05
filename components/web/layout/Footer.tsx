@@ -121,7 +121,7 @@ export default function Footer() {
       <div className="border-t border-border" />
 
       {/* BIG TEXT SECTION */}
-      <div className="relative w-full py-16 md:py-32 flex items-center justify-center overflow-hidden">
+      <div className="relative w-full py-16 md:py-32 flex items-center justify-center overflow-hidden ">
         <div
           className="pointer-events-none absolute inset-0 bg-grain opacity-40"
           aria-hidden
@@ -132,32 +132,10 @@ export default function Footer() {
         />
         {/* Gradient glow background */}
 
-        <div className="relative z-10 text-center px-4 space-y-4">
-          <h1 className="text-[12vw] font-archivo  tracking-tighter text-foreground select-none pointer-events-none leading-none -mb-[2vw] opacity-25">
+        <div className="relative z-10 text-center px-4 space-y-4     ">
+          <h1 className="text-[12vw] font-archivo  tracking-tighter text-foreground select-none pointer-events-none leading-none -mb-[2vw] opacity-25 ">
             MI<span className="font-extrabold italic ">RC</span>HI-UI
           </h1>
-        </div>
-      </div>
-
-      {/* BOTTOM BAR */}
-      <div className="border-t border-border/50" />
-      <div className="flex flex-col md:flex-row justify-between items-center gap-4 px-6 py-6 text-xs text-muted-foreground/70">
-        <p className="font-medium">
-          © {new Date().getFullYear()} Mirchi UI. All rights reserved.
-        </p>
-        <div className="flex gap-8">
-          <a
-            href="#"
-            className="hover:text-foreground transition-colors duration-200"
-          >
-            Privacy Policy
-          </a>
-          <a
-            href="#"
-            className="hover:text-foreground transition-colors duration-200"
-          >
-            Terms of Service
-          </a>
         </div>
       </div>
     </footer>
