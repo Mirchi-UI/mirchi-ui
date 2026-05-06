@@ -65,10 +65,13 @@ export function DocsLayout({ tree, children }: DocsLayoutProps) {
       </header>
       <main
         id="nd-docs-layout"
-        className="flex flex-1 flex-row [--fd-nav-height:56px]"
+        className="flex flex-1 flex-row [--fd-nav-height:56px] relative bg-background"
       >
+        <div className="absolute inset-0 bg-stripes pointer-events-none" />
         <Sidebar />
-        {children}
+        <div className="flex-1 relative w-full min-w-0 flex flex-row px-4 gap-4">
+          {children}
+        </div>
       </main>
     </TreeContextProvider>
   );
@@ -160,9 +163,9 @@ export function Sidebar() {
         "fixed flex flex-col shrink-0 top-14 left-0 z-20 h-[calc(100vh-56px)] bg-background transition-all duration-300 overflow-hidden",
         "md:sticky md:top-14 md:h-[calc(100dvh-56px)]",
         // Mobile: show when openMobile is true
-        isOpen ? "w-[260px]" : "w-0",
+        isOpen ? "w-[240px]" : "w-0",
         // Desktop: adjust width based on open state
-        "md:w-[260px]",
+        "md:w-[240px]",
         open ? "" : "md:w-[60px]",
       )}
     >
@@ -209,7 +212,7 @@ export function Sidebar() {
                 {section.title}
               </p>
 
-              <div className="flex flex-col gap-0.5">
+              <div className="flex flex-col border-l border-foreground/[0.08] ml-1">
                 {section.items.map((item) => {
                   const Icon = item.icon;
                   const isActive = pathname === item.href;
@@ -245,10 +248,6 @@ export function Sidebar() {
                           Soon
                         </span>
                       )}
-
-                      {isActive && isOpen && (
-                        <ChevronRight className="w-3.5 h-3.5 text-primary-foreground/70 shrink-0" />
-                      )}
                     </Link>
                   );
                 })}
@@ -283,13 +282,13 @@ export function Sidebar() {
 }
 
 const linkVariants = cva(
-  "group flex items-center gap-3 px-3 py-2 rounded-xl text-sm font-medium transition-all duration-200",
+  "group flex items-center gap-3 py-1.5 pl-4 pr-3 text-[13px] transition-all duration-200 -ml-[1px] border-l",
   {
     variants: {
       active: {
-        true: "bg-black/5 text-foreground dark:bg-white/5",
+        true: "border-accent text-accent font-medium",
         false:
-          "text-muted-foreground hover:text-foreground hover:bg-black/5 dark:hover:bg-white/5",
+          "border-transparent text-muted-foreground/80 hover:text-foreground hover:border-foreground/20",
       },
       collapsed: {
         true: "md:justify-center md:p-2",

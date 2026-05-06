@@ -5,19 +5,7 @@ import { usePathname } from "next/navigation";
 import { cn } from "@/lib/utils";
 import { cva } from "class-variance-authority";
 import {
-  LayoutDashboard,
-  Palette,
-  Component,
-  Type,
-  Layers,
-  MousePointerClick,
-  FormInput,
-  Table2,
-  Navigation,
-  MessageSquare,
-  Bell,
-  Settings,
-  Sparkles,
+   
   ChevronRight,
 } from "lucide-react";
 import { navigationSections } from "./navigation";

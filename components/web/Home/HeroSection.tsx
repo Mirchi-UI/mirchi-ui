@@ -9,7 +9,7 @@ const logos = ["Linear", "Vercel", "Framer", "Notion", "Arc", "Raycast"];
 
 export  const HeroSection = () => {
   const [copied, setCopied] = useState(false);
-  const cmd = "npx northwind@latest init";
+  const cmd = "npx mirchi-Ui@latest init";
 
   const copy = () => {
     navigator.clipboard.writeText(cmd);
